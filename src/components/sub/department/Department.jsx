@@ -62,7 +62,10 @@ export default function Department() {
 				</ul>
 				<div className='content'>
 					<section className='textPart'>
-						<div className='textBox'></div>
+						<div className='textBox'>
+							<p>CREATIVE TECHNOLOGY</p>
+							<h3>We set up teams to shape your identity, push your idea & manage the work-flow from pre- to post production.</h3>
+						</div>
 					</section>
 					<section className='memberIntro'>{SelectedCategory === 'Category1' && <Category1 />}</section>
 					<section className='memberIntro'>{SelectedCategory === 'Category2' && <Category2 />}</section>
