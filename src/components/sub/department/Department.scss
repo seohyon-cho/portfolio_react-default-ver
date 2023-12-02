@@ -1,0 +1,106 @@
+.topCont {
+	display: flex;
+	width: 100%;
+	min-height: 500px;
+	margin-top: 100px;
+	margin-bottom: 70px;
+
+	.imgBox {
+		width: 45%;
+		border: 1px solid red;
+		display: flex;
+		justify-content: right;
+		gap: 20px;
+		position: relative;
+		left: 20px;
+
+		.person1 {
+			width: 35%;
+			height: 290px;
+			margin-top: 70px;
+			position: relative;
+			.img {
+				width: 100%;
+				height: 100%;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			.caption1 {
+				position: absolute;
+				top: 20px;
+				right: -100px;
+			}
+		}
+		.person2 {
+			width: 35%;
+			height: 290px;
+			margin-top: 140px;
+			position: relative;
+			.img {
+				width: 100%;
+				height: 100%;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			.caption2 {
+				position: absolute;
+				bottom: 20px;
+				left: -100px;
+			}
+		}
+	}
+
+	.textBox {
+		width: 55%;
+		border: 1px solid red;
+		background-color: var(--bgColor);
+	}
+}
+.bottomCont {
+	width: 100%;
+
+	.memberCategory {
+		display: flex;
+		justify-content: right;
+		gap: 50px;
+		padding-right: 50px;
+		color: #999;
+
+		li {
+			h2 {
+				cursor: pointer;
+			}
+		}
+	}
+	.content {
+		width: 100%;
+
+		border: 1px solid green;
+		display: flex;
+
+		.textPart {
+			width: 33%;
+			min-height: 500px;
+
+			.textBox {
+				width: 70%;
+				height: 450px;
+				background: blue;
+				position: relative;
+				left: 50%;
+				top: 10%;
+				transform: translateX(-50%);
+			}
+		}
+		.introPart {
+			width: 67%;
+			min-height: 500px;
+		}
+	}
+}

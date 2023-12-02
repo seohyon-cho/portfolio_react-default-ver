@@ -1,0 +1,44 @@
+{
+  "designers": [
+    {
+      "name": "David",
+      "position": "Illustrator",
+      "pic": "member1.jpg"
+    },
+    {
+      "name": "Julia",
+      "position": "Illustrator",
+      "pic": "member2.jpg"
+    },
+    {
+      "name": "Emily",
+      "position": "Web Designer",
+      "pic": "member3.jpg"
+    },
+    {
+      "name": "Michael",
+      "position": "Web Designer",
+      "pic": "member4.jpg"
+    },
+    {
+      "name": "Emma",
+      "position": "UI Designer",
+      "pic": "member5.jpg"
+    },
+    {
+      "name": "Peter",
+      "position": "UI Designer",
+      "pic": "member6.jpg"
+    },
+    {
+      "name": "Alice",
+      "position": "Graphic Designer",
+      "pic": "member7.jpg"
+    },
+    {
+      "name": "Kate",
+      "position": "Graphic Designer",
+      "pic": "member8.jpg"
+    }
+  ]
+}

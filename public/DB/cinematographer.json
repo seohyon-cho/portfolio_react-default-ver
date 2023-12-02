@@ -1,0 +1,44 @@
+{
+  "cinematographer": [
+    {
+      "name": "David",
+      "position": "cinematographer",
+      "pic": "member8.jpg"
+    },
+    {
+      "name": "Julia",
+      "position": "cinematographer",
+      "pic": "member7.jpg"
+    },
+    {
+      "name": "Emily",
+      "position": "cinematographer",
+      "pic": "member6.jpg"
+    },
+    {
+      "name": "Michael",
+      "position": "cinematographer",
+      "pic": "member5.jpg"
+    },
+    {
+      "name": "Emma",
+      "position": "cinematographer",
+      "pic": "member4.jpg"
+    },
+    {
+      "name": "Peter",
+      "position": "cinematographer",
+      "pic": "member3.jpg"
+    },
+    {
+      "name": "Alice",
+      "position": "cinematographer",
+      "pic": "member2.jpg"
+    },
+    {
+      "name": "Kate",
+      "position": "cinematographer",
+      "pic": "member1.jpg"
+    }
+  ]
+}

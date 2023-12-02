@@ -1,0 +1,30 @@
+.Layout {
+	width: 100%;
+	min-height: 60vw;
+	position: relative;
+
+	.tit {
+		position: absolute;
+		top: 100px;
+		left: 300px;
+		line-height: 1;
+		h1 {
+			font-size: var(--titSize1);
+			font-weight: bold;
+			color: var(--pointColor);
+		}
+
+		h2 {
+			font-size: var(--bodySize);
+			font-weight: normal;
+			margin-bottom: 10px;
+			color: rgba(var(--baseColor-code), 0.7);
+		}
+	}
+
+	.bgImage {
+		width: 100%;
+		height: 250px;
+		background-color: blue;
+	}
+}

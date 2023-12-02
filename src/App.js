@@ -1,7 +1,9 @@
+import Department from './components/sub/department/Department';
+import './globalStyles/Variables.scss';
+import './globalStyles/Reset.scss';
+
 function App() {
-	return (
-		<h1>Hello</h1>
-	);
+	return <Department />;
 }
 
 export default App;
