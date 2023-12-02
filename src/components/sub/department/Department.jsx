@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
 import Category1 from './memberCategory/Category1';
@@ -6,11 +6,28 @@ import Category2 from './memberCategory/Category2';
 import Category3 from './memberCategory/Category3';
 
 export default function Department() {
+	const path = useRef(process.env.PUBLIC_URL);
 	const [SelectedCategory, setSelectedCategory] = useState('Category1');
+	const [HistoryTit, setHistoryTit] = useState('');
+
+	const [HistoryData, setHistoryData] = useState([]);
+
+	const fetchHistory = () => {
+		fetch(`${path.current}/DB/history.json`)
+			.then((data) => data.json())
+			.then((json) => {
+				setHistoryTit(Object.keys(json)[0]);
+				setHistoryData(Object.values(json)[0]);
+			});
+	};
 
 	const handleButtonClick = (category) => {
 		setSelectedCategory(category);
 	};
+
+	useEffect(() => {
+		fetchHistory();
+	}, []);
 
 	return (
 		<Layout>
@@ -18,18 +35,40 @@ export default function Department() {
 				<div className='imgBox'>
 					<div className='person1'>
 						<div className='img'>
-							<img src={process.env.PUBLIC_URL + '/img/member2.jpg'} alt='member2' />
+							<img src={`${path.current}/img/member1.jpg`} alt='member2' />
 						</div>
-						<p className='caption1'>person1</p>
+						<div className='comment'>
+							<p className='caption1'>person1</p>
+							<p className='caption2'>person1-1</p>
+						</div>
 					</div>
 					<div className='person2'>
 						<div className='img'>
-							<img src={process.env.PUBLIC_URL + '/img/member1.jpg'} alt='member1' />
+							<img src={`${path.current}/img/member2.jpg`} alt='member1' />
 						</div>
-						<p className='caption2'>person2</p>
+						<div className='comment'>
+							<p className='caption1'>person2</p>
+							<p className='caption2'>person2-1</p>
+						</div>
 					</div>
 				</div>
-				<div className='textBox'>test</div>
+				<div className='textBox'>
+					<h2>{HistoryTit}</h2>
+					<div className='con'>
+						{HistoryData.map((history, idx) => {
+							return (
+								<article key={history + idx}>
+									<h3>{Object.keys(history)[0]}</h3>
+									<ul>
+										{Object.values(history)[0].map((list, idx) => {
+											return <li key={list + idx}>{list}</li>;
+										})}
+									</ul>
+								</article>
+							);
+						})}
+					</div>
+				</div>
 			</section>
 			<section className='bottomCont'>
 				<ul className='memberCategory'>
