@@ -23,8 +23,8 @@
 
 	.tit {
 		position: absolute;
-		top: 100px;
-		left: 300px;
+		top: 5%;
+		left: 20%;
 		line-height: 1;
 		h1 {
 			span {
@@ -51,5 +51,36 @@
 		height: 250px;
 		background: url(../../../../public/img/background_layout.jpg);
 		background-size: cover;
+	}
+}
+
+.tablet {
+	.Layout {
+		.tit {
+			left: 15%;
+		}
+		.bgImage {
+			height: 230px;
+		}
+	}
+}
+
+.mobile {
+	.Layout {
+		.tit {
+			top: 90px;
+			left: 15%;
+			h1 {
+				span {
+					font-size: var(--titSize2);
+				}
+			}
+			h2 {
+				font-size: var(--bodySize2);
+			}
+		}
+		.bgImage {
+			height: 200px;
+		}
 	}
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const useMedia = (opt) => {
-	const defOpt = { mobile: 640, tablet: 1000, laptop: 1400 };
+	const defOpt = { mobile: 740, tablet: 1000, laptop: 1400 };
 	const result = { ...defOpt, ...opt };
 	const [Type, setType] = useState('');
 
