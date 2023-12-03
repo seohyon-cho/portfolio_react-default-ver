@@ -15,7 +15,20 @@ a {
 	font-weight: inherit;
 	text-decoration: none;
 }
-body {
+.wrap {
 	color: var(--baseColor);
 	font-family: var(--baseFont);
+	overflow-y: auto;
+	width: 100%;
+	height: 100vh;
+	font-size: var(--bodySize1);
+	transition: color 1s, background 1s;
+	&::-webkit-scrollbar {
+		width: 6px;
+		background: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+		background: var(--pointColor);
+	}
 }
