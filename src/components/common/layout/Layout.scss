@@ -1,6 +1,7 @@
 .Layout {
 	width: 100%;
 	min-height: 60vw;
+	margin-top: 20px;
 	position: relative;
 	opacity: 0;
 	transform-origin: left top;
@@ -47,10 +48,11 @@
 	}
 
 	.bgImage {
-		width: 100%;
+		width: 90%;
+		margin: 0 auto;
 		height: 250px;
-		background: url(../../../../public/img/background_layout.jpg);
-		background-size: cover;
+		border-bottom: 1px solid black;
+		border-top: 1px solid black;
 	}
 }
 

@@ -16,6 +16,7 @@ a {
 	text-decoration: none;
 }
 .wrap {
+	background: var(--bgColor);
 	color: var(--baseColor);
 	font-family: var(--baseFont);
 	overflow-y: auto;

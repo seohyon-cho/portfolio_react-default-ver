@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Noto+Sans:wght@100;200;300;400&family=Roboto:wght@100;300;400;500;700;900&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans:wght@100;200;300;400&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 :root {
-	--baseFont: 'Roboto', 'arial', '돋움';
-	--pointFont: 'Young Serif', 'arial';
+	--baseFont: 'Montserrat', 'arial', '돋움';
+	--pointFont: 'Italiana', 'arial';
 	--baseColor: #111;
 	--baseColor-code: 18, 18, 18;
 	--baseColorOpposite: white;
 	--baseColorOpposite-code: 255, 255, 255;
-	--pointColor: rgb(0, 44, 132);
+	--pointColor: rgb(1, 1, 1);
 	--pointColor-code: 0, 44, 132;
-	--bgColor: #fff;
-	--contentBgColor: rgb(238, 246, 255);
+	--bgColor: rgb(255, 255, 255);
+	--contentBgColor: rgb(243, 243, 243);
 	--titSize1: 5rem;
 	--titSize2: 3.5rem;
 	--subTitSize: 2rem;

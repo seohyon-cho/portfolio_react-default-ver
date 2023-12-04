@@ -1,9 +1,8 @@
 .topCont {
 	display: flex;
-	width: 100%;
+	width: 90%;
+	margin: 100px auto 70px;
 	min-height: 500px;
-	margin-top: 100px;
-	margin-bottom: 70px;
 
 	.imgBox {
 		width: 45%;
@@ -36,12 +35,12 @@
 			}
 			.comment::before {
 				content: '';
-				width: 60px;
+				width: 50px;
 				height: 1px;
 				background: rgba(var(--baseColor-code), 0.7);
 				position: absolute;
 				top: 50%;
-				left: -70px;
+				left: -60px;
 			}
 
 			.img {
@@ -84,12 +83,12 @@
 			}
 			.comment::after {
 				content: '';
-				width: 60px;
+				width: 55px;
 				height: 1px;
 				background: rgba(var(--baseColor-code), 0.7);
 				position: absolute;
 				top: 50%;
-				right: -60%;
+				right: -45%;
 			}
 		}
 	}
@@ -97,7 +96,7 @@
 	.textBox {
 		width: 55%;
 		color: rgba(var(--baseColor-code), 0.9);
-		background: rgba(var(--pointColor-code), 0.1);
+		background: var(--contentBgColor);
 		padding: 60px 120px;
 		position: relative;
 		overflow: hidden;
@@ -131,13 +130,13 @@
 	.textBox:after {
 		content: '9';
 		display: inline-block;
-		font-size: 40vw;
+		font-size: 35vw;
 		font-weight: 900;
-		color: white;
+		color: var(--bgColor);
 		line-height: 0;
 		position: absolute;
-		top: 140px;
-		right: -60px;
+		top: 100px;
+		right: -100px;
 	}
 }
 .bottomCont {
@@ -160,7 +159,7 @@
 	.content {
 		width: 100%;
 		display: flex;
-		background: rgba(var(--pointColor-code), 0.1);
+		background: var(--contentBgColor);
 		.textPart {
 			width: 35%;
 			min-height: 500px;
