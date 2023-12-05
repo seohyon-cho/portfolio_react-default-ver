@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom/cjs/react-router-dom.min';
 import { useMedia } from './hooks/useMedia';
 import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
+import MainWrap from './components/main/MainWrap';
 import Department from './components/sub/department/Department';
 import Youtube from './components/sub/youtube/Youtube';
 import Gallery from './components/sub/gallery/Gallery';
@@ -18,6 +19,7 @@ export default function App() {
 	return (
 		<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
 			<Header Dark={Dark} setDark={setDark} />
+			<Route exact path='/' component={MainWrap} />
 			<Route path='/department' component={Department} />
 			<Route path='/youtube' component={Youtube} />
 			<Route path='/gallery' component={Gallery} />

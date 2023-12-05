@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import './Header.scss';
-import { MdOutlineLightMode, MdOutlineDarkMode } from 'react-icons/md';
+import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
 
 export default function Header({ Dark, setDark }) {
 	return (
@@ -36,7 +36,7 @@ export default function Header({ Dark, setDark }) {
 				</li>
 			</ul>
 			<ul className='subNav'>
-				<li>
+				<li className='contact'>
 					<NavLink to='/contact' activeClassName={'on'}>
 						Contact
 					</NavLink>
@@ -46,6 +46,9 @@ export default function Header({ Dark, setDark }) {
 					<div className={`themeBox ${Dark && 'dark'}`} onClick={() => setDark(!Dark)}>
 						{Dark ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
 					</div>
+				</li>
+				<li className='tabMob'>
+					<MdMenu />
 				</li>
 			</ul>
 		</header>

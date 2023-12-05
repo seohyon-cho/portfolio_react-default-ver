@@ -1,4 +1,4 @@
-Header {
+header {
 	width: 70vw;
 	padding: 30px 5px;
 	display: flex;
@@ -17,12 +17,49 @@ Header {
 		li a.on {
 			color: var(--pointColor);
 			font-weight: 600;
+			opacity: 1;
 		}
+	}
+	.tabMob {
+		font-size: 1.4rem;
+		line-height: 0;
+		cursor: pointer;
+		display: none;
 	}
 
 	.themeBox {
 		font-size: 1.4rem;
 		line-height: 0;
 		cursor: pointer;
+	}
+}
+
+.tablet {
+	header {
+		width: 80vw;
+		.centerNav {
+			display: none;
+		}
+		.contact {
+			display: none;
+		}
+		.tabMob {
+			display: block;
+		}
+	}
+}
+
+.mobile {
+	header {
+		width: 80vw;
+		.centerNav {
+			display: none;
+		}
+		.contact {
+			display: none;
+		}
+		.tabMob {
+			display: block;
+		}
 	}
 }
