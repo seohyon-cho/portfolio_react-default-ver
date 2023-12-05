@@ -2,42 +2,42 @@
   "designers": [
     {
       "name": "David",
-      "position": "Illustrator",
+      "position": "Designer",
       "pic": "member1.jpg"
     },
     {
       "name": "Julia",
-      "position": "Illustrator",
+      "position": "Designer",
       "pic": "member2.jpg"
     },
     {
       "name": "Emily",
-      "position": "Web Designer",
+      "position": "Designer",
       "pic": "member3.jpg"
     },
     {
       "name": "Michael",
-      "position": "Web Designer",
+      "position": "Designer",
       "pic": "member4.jpg"
     },
     {
       "name": "Emma",
-      "position": "UI Designer",
+      "position": "Designer",
       "pic": "member5.jpg"
     },
     {
       "name": "Peter",
-      "position": "UI Designer",
+      "position": "Designer",
       "pic": "member6.jpg"
     },
     {
       "name": "Alice",
-      "position": "Graphic Designer",
+      "position": "Designer",
       "pic": "member7.jpg"
     },
     {
       "name": "Kate",
-      "position": "Graphic Designer",
+      "position": "Designer",
       "pic": "member8.jpg"
     }
   ]

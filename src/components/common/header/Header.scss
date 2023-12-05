@@ -1,0 +1,22 @@
+Header {
+	width: 70vw;
+	padding: 30px 5px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	h1 {
+		font-family: var(--pointFont);
+		font-size: var(--subTitSize);
+	}
+	ul {
+		display: flex;
+		align-items: center;
+		gap: 30px;
+		font-size: var(--bodySize2);
+		color: rgba(var(--baseColor-code), 0.7);
+		li a.on {
+			color: var(--pointColor);
+			font-weight: 600;
+		}
+	}
+}
