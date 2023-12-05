@@ -96,7 +96,7 @@
 	.textBox {
 		width: 55%;
 		color: rgba(var(--baseColor-code), 0.9);
-		background: var(--contentBgColor);
+		background: rgba(var(--pointColor-code), 0.2);
 		padding: 60px 120px;
 		position: relative;
 		overflow: hidden;
@@ -159,7 +159,7 @@
 	.content {
 		width: 100%;
 		display: flex;
-		background: var(--contentBgColor);
+		background: rgba(var(--pointColor-code), 0.2);
 		.textPart {
 			width: 35%;
 			min-height: 500px;
@@ -173,7 +173,7 @@
 				left: 50%;
 				top: 10%;
 				transform: translateX(-50%);
-				color: var(--baseColorOpposite);
+				color: white;
 
 				p {
 					margin-bottom: 15px;
@@ -258,6 +258,7 @@
 			.memberIntro {
 				width: 67%;
 				min-height: 500px;
+				padding-bottom: 50px;
 			}
 		}
 	}
@@ -340,6 +341,7 @@
 			}
 			.memberIntro {
 				width: 100%;
+				padding-bottom: 20px;
 			}
 		}
 	}

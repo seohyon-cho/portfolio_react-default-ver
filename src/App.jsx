@@ -10,11 +10,14 @@ import Gallery from './components/sub/gallery/Gallery';
 import Community from './components/sub/community/Community';
 import Members from './components/sub/members/Members';
 import Contact from './components/sub/contact/Contact';
+import { useState } from 'react';
 
 export default function App() {
+	const [Dark, setDark] = useState(false);
+
 	return (
-		<div className={`wrap ${useMedia()}`}>
-			<Header />
+		<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
+			<Header Dark={Dark} setDark={setDark} />
 			<Route path='/department' component={Department} />
 			<Route path='/youtube' component={Youtube} />
 			<Route path='/gallery' component={Gallery} />

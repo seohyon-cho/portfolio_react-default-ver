@@ -31,7 +31,7 @@
 			span {
 				font-size: var(--titSize1);
 				font-family: var(--pointFont);
-				color: var(--pointColor);
+				color: var(--baseColor);
 				transform: scale(1);
 				opacity: 0;
 				transition-property: opacity, transform;

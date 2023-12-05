@@ -5,12 +5,9 @@
 	--pointFont: 'Italiana', 'arial';
 	--baseColor: #111;
 	--baseColor-code: 18, 18, 18;
-	--baseColorOpposite: white;
-	--baseColorOpposite-code: 255, 255, 255;
-	--pointColor: rgb(1, 1, 1);
-	--pointColor-code: 0, 44, 132;
+	--pointColor: rgb(128, 108, 96);
+	--pointColor-code: 128, 108, 96;
 	--bgColor: rgb(255, 255, 255);
-	--contentBgColor: rgb(243, 243, 243);
 	--titSize1: 5rem;
 	--titSize2: 3.5rem;
 	--subTitSize: 2rem;
@@ -18,4 +15,10 @@
 	--bodySize0: 1.2rem;
 	--bodySize1: 1rem;
 	--bodySize2: 0.8rem;
+}
+
+.dark {
+	--baseColor: rgb(255, 255, 255);
+	--baseColor-code: 255, 255, 255;
+	--bgColor: #111;
 }
