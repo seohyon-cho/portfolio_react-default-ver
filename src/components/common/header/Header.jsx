@@ -6,7 +6,7 @@ export default function Header({ Dark, setDark }) {
 	return (
 		<header className='Header'>
 			<h1>
-				<Link to='/'>LOGO</Link>
+				<Link to='/'>MELLOW</Link>
 			</h1>
 			<ul className='centerNav'>
 				<li>

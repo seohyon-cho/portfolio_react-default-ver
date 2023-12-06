@@ -1,7 +1,7 @@
 .topCont {
 	display: flex;
 	width: 90%;
-	margin: 100px auto 70px;
+	margin: 120px auto 200px;
 	min-height: 500px;
 
 	.imgBox {
@@ -97,7 +97,7 @@
 		width: 55%;
 		color: rgba(var(--baseColor-code), 0.9);
 		background: rgba(var(--pointColor-code), 0.2);
-		padding: 60px 120px;
+		padding: 70px 120px 100px;
 		position: relative;
 		overflow: hidden;
 		h2 {
@@ -146,8 +146,7 @@
 		display: flex;
 		justify-content: right;
 		gap: 50px;
-		padding-right: 50px;
-		margin-bottom: 20px;
+		padding: 30px 50px 30px 0;
 		li {
 			h2 {
 				font-family: var(--pointFont);
@@ -162,16 +161,14 @@
 		background: rgba(var(--pointColor-code), 0.2);
 		.textPart {
 			width: 35%;
-			min-height: 500px;
 
 			.textBox {
 				width: 75%;
-				min-height: 400px;
 				background: var(--pointColor);
 				padding: 50px 25px;
 				position: relative;
 				left: 50%;
-				top: 10%;
+				top: 100px;
 				transform: translateX(-50%);
 				color: white;
 
@@ -189,13 +186,12 @@
 					font-weight: 100;
 					font-size: 1vw;
 					display: inline-block;
-					padding-top: 30px;
+					padding-top: 70px;
 				}
 			}
 		}
 		.introPart {
 			width: 67%;
-			min-height: 500px;
 		}
 	}
 }
@@ -215,7 +211,7 @@
 		}
 
 		.textBox {
-			padding: 40px 80px;
+			padding: 40px 80px 80px;
 		}
 		.textBox:after {
 			top: 80px;
@@ -226,7 +222,6 @@
 		.memberCategory {
 			gap: 30px;
 			padding-right: 20px;
-			margin-bottom: 15px;
 			li {
 				h2 {
 					font-size: var(--subTitSize2);
@@ -295,7 +290,7 @@
 
 		.textBox {
 			width: 100%;
-			padding: 40px 80px;
+			padding: 60px 80px 90px;
 			.con {
 				gap: 20px;
 			}
@@ -309,7 +304,6 @@
 		.memberCategory {
 			gap: 15px;
 			padding-right: 10px;
-			margin-bottom: 15px;
 			li {
 				h2 {
 					font-size: var(--bodySize0);

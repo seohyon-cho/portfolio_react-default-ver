@@ -7,7 +7,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		padding: 20px 0 40px;
+		padding: 50px 0 50px;
+		border-bottom: 1px solid rgba(var(--baseColor-code), 0.7);
 
 		.links {
 			display: flex;
@@ -17,14 +18,14 @@
 				ul {
 					width: 150px;
 					h3 {
-						padding: 5px 0;
+						padding-bottom: 10px;
 						margin-bottom: 15px;
 						border-bottom: 2px solid rgba(var(--baseColor-code), 0.7);
 						font-size: var(--bodySize1);
 					}
 					li {
 						cursor: pointer;
-						padding-bottom: 8px;
+						padding-bottom: 10px;
 						font-size: var(--bodySize2);
 						font-weight: 500;
 						color: var(--baseColor);
@@ -56,8 +57,48 @@
 				font-size: var(--bodySize0);
 			}
 			li {
+				display: flex;
+				justify-content: right;
+				align-items: center;
+				gap: 5px;
 				font-size: var(--bodySize2);
-				line-height: 1.6;
+				line-height: 1.8;
+			}
+		}
+	}
+
+	.bottomBox {
+		padding: 20px 0;
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+
+			h2 {
+				font-size: var(--subTitSize);
+				font-family: var(--pointFont);
+			}
+			li {
+				font-size: var(--bodySize3);
+				font-weight: 500;
+				cursor: pointer;
+
+				.icons {
+					gap: 8px;
+					cursor: default;
+					li {
+						width: 34px;
+						height: 20px;
+						cursor: default;
+
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+						}
+					}
+				}
 			}
 		}
 	}

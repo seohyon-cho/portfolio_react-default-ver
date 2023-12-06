@@ -1,11 +1,10 @@
 .Layout {
 	width: 100%;
 	min-height: 60vw;
-	margin-top: 20px;
 	position: relative;
 	opacity: 0;
 	transform-origin: left top;
-	transform: translateY(-200px);
+	transform: translateY(200px);
 	transition-property: opacity, transform;
 	transition: opacity 0.5s, transform 1s;
 
@@ -24,7 +23,7 @@
 
 	.tit {
 		position: absolute;
-		top: 5%;
+		top: 100px;
 		left: 20%;
 		line-height: 1;
 		h1 {

@@ -108,7 +108,7 @@ export default function Department() {
 					<section className='textPart'>
 						<div className='textBox'>
 							<p>CREATIVE TECHNOLOGY</p>
-							<h3>We set up teams to shape your identity, push your idea & manage the work-flow from pre- to post production.</h3>
+							<h3>We set up teams to shape your identity, push your idea!</h3>
 							<span>&copy; CREATIVE LAB.</span>
 						</div>
 					</section>
