@@ -1,2 +1,137 @@
 .Gallery {
+	--colNum: 4;
+	.controls {
+		width: 80%;
+		margin: 50px auto 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding: 20px 5px;
+
+		.btnSet {
+			margin-bottom: 30px;
+			display: flex;
+			gap: 20px;
+			button {
+				background: transparent;
+				border: none;
+				cursor: pointer;
+				padding: 7px 0px;
+				font-size: 1rem;
+				color: rgba(var(--baseColor-code), 0.4);
+				position: relative;
+				transition: 0.5s;
+
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 0;
+					height: 1px;
+					background: var(--baseColor);
+					transition: 0.5s;
+				}
+				&.on {
+					color: rgba(var(--baseColor-code), 1);
+					&::after {
+						width: 100%;
+					}
+				}
+			}
+		}
+		form {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+
+			input {
+				width: 120px;
+				border: none;
+				background: transparent;
+				border-bottom: 1px solid rgba(var(--baseColor-code), 0.5);
+				padding: 6px 10px;
+				outline: 0;
+			}
+			.btnSearch {
+				cursor: pointer;
+				border: none;
+				background-color: transparent;
+				font-size: 1.2rem;
+				color: var(--baseColor);
+			}
+		}
+	}
+
+	.frameWrap {
+		--gap: 20px;
+		.frame {
+			width: 80%;
+			margin: 0 auto;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: var(--gap);
+			// article = div.pic에 담긴 이미지 + h2 이미지명 한  덩어리
+			article {
+				width: calc((100% - var(--gap) * (var(--colNum) - 1)) / var(--colNum));
+				margin-bottom: 70px;
+				border: 1px solid rgba(var(--baseColor-code), 0.3);
+				.pic {
+					width: 100%;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+				.profile {
+					padding: 8px 0;
+					position: relative;
+					img {
+						border-radius: 100px;
+						position: absolute;
+						left: 10px;
+						top: -20%;
+						cursor: pointer;
+					}
+					span {
+						font-size: 0.7rem;
+						font-family: var(--bodyFont);
+						color: var(--baseColor);
+						background: var(--bgColor);
+						margin-left: 65px;
+						cursor: pointer;
+					}
+				}
+				h2 {
+					font-weight: normal;
+					font-family: var(--pointFont);
+					color: var(--baseColor);
+					font-size: var(--bodySize0);
+					background: var(--bgColor);
+					padding: 20px;
+				}
+			}
+		}
+	}
+}
+
+.laptop {
+	.Gallery {
+		--colNum: 3;
+	}
+}
+
+.tablet {
+	.Gallery {
+		--colNum: 2;
+	}
+}
+
+.mobile {
+	.Gallery {
+		--colNum: 1;
+	}
 }

@@ -24,6 +24,7 @@ a {
 	height: 100vh;
 	font-size: var(--bodySize1);
 	transition: color 1s, background 1s;
+
 	&::-webkit-scrollbar {
 		width: 6px;
 		background: transparent;

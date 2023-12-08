@@ -6,7 +6,8 @@ export default function MainWrap() {
 	return (
 		<div className='MainWrap'>
 			<div className='image'>
-				<img src={`${path.current}/img/background_layout.jpg`} alt='member2' />
+				{/* <img src={`${path.current}/img/background_layout.jpg`} alt='member2' /> */}
+				<video src={`${path.current}/img/ocean.mp4`} loop autoPlay muted></video>
 			</div>
 		</div>
 	);

@@ -4,6 +4,7 @@ import './Youtube.scss';
 import { useCustomText } from '../../../hooks/useText';
 import { FaArrowRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import React from 'react';
 
 export default function Youtube() {
 	const customText = useCustomText('combined');
@@ -35,8 +36,8 @@ export default function Youtube() {
 				<section className='thumbnail'>
 					{Vids.slice(0, 1).map((data, idx) => {
 						return (
-							<>
-								<article key={data.id} className='info'>
+							<React.Fragment key={data.id}>
+								<article className='info'>
 									<span>{customText(data.snippet.publishedAt.split('T')[0], '.')}</span>
 									<h2>{shortenText(data.snippet.title, 19)}</h2>
 									<p className='descript'>{shortenText(data.snippet.description, 50)}</p>
@@ -47,12 +48,12 @@ export default function Youtube() {
 										</div>
 									</Link>
 								</article>
-								<article key={data + idx} className='image'>
+								<article className='image'>
 									<Link to={`/detail/${data.id}`}>
 										<img src={data.snippet.thumbnails.standard.url} alt={data.snippet.title} />
 									</Link>
 								</article>
-							</>
+							</React.Fragment>
 						);
 					})}
 				</section>
