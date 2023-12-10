@@ -1,5 +1,6 @@
 .Gallery {
-	--colNum: 4;
+	--num: 4;
+	--gap: 20px;
 	.controls {
 		width: 80%;
 		margin: 50px auto 0;
@@ -65,25 +66,26 @@
 	}
 
 	.frameWrap {
-		--gap: 20px;
 		.frame {
 			width: 80%;
 			margin: 0 auto;
 			display: flex;
+			justify-content: flex-start;
 			flex-wrap: wrap;
-			justify-content: space-between;
 			gap: var(--gap);
 			// article = div.pic에 담긴 이미지 + h2 이미지명 한  덩어리
 			article {
-				width: calc((100% - var(--gap) * (var(--colNum) - 1)) / var(--colNum));
-				margin-bottom: 70px;
+				// width: calc((100% - var(--gap) * (var(--num) - 1)) / var(--num));
+				width: 23%;
+				margin-bottom: 20px;
+				border-radius: 20px;
 				border: 1px solid rgba(var(--baseColor-code), 0.3);
+				overflow: hidden;
 				.pic {
 					width: 100%;
+
 					img {
 						width: 100%;
-						height: 100%;
-						object-fit: cover;
 					}
 				}
 				.profile {
@@ -92,7 +94,7 @@
 					img {
 						border-radius: 100px;
 						position: absolute;
-						left: 10px;
+						left: 10%;
 						top: -20%;
 						cursor: pointer;
 					}
@@ -107,11 +109,11 @@
 				}
 				h2 {
 					font-weight: normal;
-					font-family: var(--pointFont);
+					font-family: var(--bodyFont);
 					color: var(--baseColor);
 					font-size: var(--bodySize0);
 					background: var(--bgColor);
-					padding: 20px;
+					padding: 30px 35px;
 				}
 			}
 		}
@@ -120,18 +122,51 @@
 
 .laptop {
 	.Gallery {
-		--colNum: 3;
+		--num: 3;
+		.frame {
+			article {
+				width: 31%;
+			}
+		}
 	}
 }
 
 .tablet {
 	.Gallery {
-		--colNum: 2;
+		--num: 2;
+		.frame {
+			article {
+				width: 46%;
+			}
+		}
 	}
 }
 
 .mobile {
 	.Gallery {
-		--colNum: 1;
+		--num: 1;
+		.frame {
+			article {
+				width: 100%;
+
+				.profile {
+					img {
+						width: 12vw;
+						left: 7vw;
+						top: -50%;
+					}
+					span {
+						font-size: 2.4vw;
+						margin-left: 23vw;
+						margin-top: 0;
+						display: inline-block;
+					}
+				}
+				h2 {
+					font-size: 4vw;
+					padding: 5vw 9vw;
+				}
+			}
+		}
 	}
 }
