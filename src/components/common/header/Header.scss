@@ -40,11 +40,13 @@ header {
 		.centerNav {
 			display: none;
 		}
-		.contact {
-			display: none;
-		}
-		.tabMob {
-			display: block;
+		.subNav {
+			.contact {
+				display: none;
+			}
+			.tabMob {
+				display: block;
+			}
 		}
 	}
 }
@@ -55,11 +57,14 @@ header {
 		.centerNav {
 			display: none;
 		}
-		.contact {
-			display: none;
-		}
-		.tabMob {
-			display: block;
+		.subNav {
+			gap: 20px;
+			.contact {
+				display: none;
+			}
+			.tabMob {
+				display: block;
+			}
 		}
 	}
 }
