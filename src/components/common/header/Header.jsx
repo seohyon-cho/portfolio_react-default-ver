@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import './Header.scss';
 import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
 
-export default function Header({ Dark, setDark }) {
+export default function Header({ Dark, setDark, Toggle, setToggle }) {
 	return (
 		<header className='Header'>
 			<h1>
@@ -47,7 +47,7 @@ export default function Header({ Dark, setDark }) {
 						{Dark ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
 					</div>
 				</li>
-				<li className='tabMob'>
+				<li className='tabMob' onClick={() => setToggle(!Toggle)}>
 					<MdMenu />
 				</li>
 			</ul>

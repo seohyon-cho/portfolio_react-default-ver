@@ -93,7 +93,7 @@ export default function Department() {
 								style={{ color: SelectedCategory === 'Category2' ? 'rgba(var(--baseColor-code), 0.8)' : 'rgba(var(--baseColor-code), 0.3)' }}
 								onClick={() => handleButtonClick('Category2')}
 							>
-								#Cinematographer
+								#Director
 							</h2>
 						</li>
 						<li>

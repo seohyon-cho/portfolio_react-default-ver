@@ -8,7 +8,7 @@ export default function Category1() {
 	const path = useRef(process.env.PUBLIC_URL);
 
 	const fetchDepartment = () => {
-		fetch(`${path.current}/DB/cinematographer.json`)
+		fetch(`${path.current}/DB/Director.json`)
 			.then((data) => data.json())
 			.then((json) => {
 				setMemberTit(Object.keys(json)[0]);

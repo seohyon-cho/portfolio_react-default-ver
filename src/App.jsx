@@ -13,13 +13,15 @@ import Members from './components/sub/members/Members';
 import Contact from './components/sub/contact/Contact';
 import { useState } from 'react';
 import Detail from './components/sub/youtube/Detail';
+import Menu from './components/common/menu/Menu';
 
 export default function App() {
 	const [Dark, setDark] = useState(false);
+	const [Toggle, setToggle] = useState(false);
 
 	return (
 		<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
-			<Header Dark={Dark} setDark={setDark} />
+			<Header Dark={Dark} setDark={setDark} Toggle={Toggle} setToggle={setToggle} />
 			<Route exact path='/' component={MainWrap} />
 			<Route path='/department' component={Department} />
 			<Route path='/youtube' component={Youtube} />
@@ -29,6 +31,7 @@ export default function App() {
 			<Route path='/members' component={Members} />
 			<Route path='/contact' component={Contact} />
 			<Footer />
+			{Toggle && <Menu setToggle={setToggle} />}
 		</div>
 	);
 }

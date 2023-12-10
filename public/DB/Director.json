@@ -1,43 +1,43 @@
 {
-  "cinematographer": [
+  "Director": [
     {
       "name": "David",
-      "position": "cinematographer",
+      "position": "Director",
       "pic": "member8.jpg"
     },
     {
       "name": "Julia",
-      "position": "cinematographer",
+      "position": "Director",
       "pic": "member7.jpg"
     },
     {
       "name": "Emily",
-      "position": "cinematographer",
+      "position": "Director",
       "pic": "member6.jpg"
     },
     {
       "name": "Michael",
-      "position": "cinematographer",
+      "position": "Director",
       "pic": "member5.jpg"
     },
     {
       "name": "Emma",
-      "position": "cinematographer",
+      "position": "Director",
       "pic": "member4.jpg"
     },
     {
       "name": "Peter",
-      "position": "cinematographer",
+      "position": "Director",
       "pic": "member3.jpg"
     },
     {
       "name": "Alice",
-      "position": "cinematographer",
+      "position": "Director",
       "pic": "member2.jpg"
     },
     {
       "name": "Kate",
-      "position": "cinematographer",
+      "position": "Director",
       "pic": "member1.jpg"
     }
   ]
