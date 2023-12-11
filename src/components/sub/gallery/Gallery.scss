@@ -1,13 +1,65 @@
 .Gallery {
 	--num: 4;
 	--gap: 20px;
+	.visual {
+		width: 80vw;
+		min-height: 65vh;
+		margin: 5vw auto 10vw;
+		display: flex;
+		justify-content: space-between;
+		.info {
+			width: 45%;
+			padding-right: 20px;
+			h1 {
+				font-family: var(--pointFont);
+				font-weight: bold;
+				font-size: var(--titSize2);
+				margin: 2vw 0;
+			}
+			p {
+				font-family: var(--bodyFont);
+				font-size: var(--bodySize0);
+				line-height: 2;
+				margin-bottom: 4vw;
+			}
+			button {
+				border: none;
+				background: var(--baseColor);
+				font-family: var(--bodyFont);
+				color: var(--bgColor);
+				font-size: var(--bodySize1);
+				padding: 8px 30px;
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				cursor: pointer;
+				transition: 0.4s;
+				&:hover {
+					transform: scale(1.1);
+				}
+				.arrow {
+					font-size: 2.4rem;
+				}
+			}
+		}
+		.pic {
+			width: 48%;
+			border-radius: 0 0 0 150px;
+			overflow: hidden;
+			video {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
 	.controls {
 		width: 80%;
 		margin: 50px auto 0;
+		padding-top: 30px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		padding: 0 5px;
 		align-content: center;
 		margin-bottom: 30px;
 		.btnSet {
@@ -18,7 +70,7 @@
 				gap: 5px;
 				padding: 7px 15px;
 				border: 2px solid var(--baseColor);
-				border-radius: 10px;
+
 				.filterIcon {
 					font-size: 1.2rem;
 				}
@@ -63,11 +115,11 @@
 			input {
 				width: 180px;
 				border: 2px solid var(--baseColor);
-				border-radius: 10px;
 				background: transparent;
 				padding: 8px 12px;
 				outline: 0;
 				font-family: var(--bodyFont);
+				color: var(--baseColor);
 			}
 			.btnSearch {
 				cursor: pointer;
@@ -83,6 +135,7 @@
 	.frameWrap {
 		.frame {
 			width: 80%;
+			min-height: 500px;
 			margin: 0 auto;
 			display: flex;
 			justify-content: flex-start;
@@ -92,50 +145,67 @@
 			article {
 				// width: calc((100% - var(--gap) * (var(--num) - 1)) / var(--num));
 				width: 23%;
-				margin-bottom: 20px;
-				border-radius: 20px;
-				border: 1px solid rgba(var(--baseColor-code), 0.3);
+				margin-bottom: 40px;
+				border-bottom: 1px solid transparent;
+				border-image: radial-gradient(rgba(var(--baseColor-code), 0.3) 80%, transparent) 1;
 				overflow: hidden;
 				.pic {
 					width: 100%;
+					padding: 5px;
+					border: 1px solid rgba(var(--baseColor-code), 0.3);
+					overflow: hidden;
 
-					img {
+					.picframe {
 						width: 100%;
-						cursor: pointer;
-						transition: 0.3s;
+						height: 100%;
+						overflow: hidden;
+						img {
+							width: 100%;
+							height: 100%;
+							cursor: pointer;
+							transition: 0.3s;
+							filter: saturate(0.6);
+						}
+					}
+					h2 {
+						font-weight: normal;
+						font-family: var(--bodyFont);
+						color: var(--baseColor);
+						font-size: var(--bodySize0);
+						background: var(--bgColor);
+						margin-left: 5px;
+						padding: 10px 0;
 					}
 					&:hover {
 						img {
-							filter: brightness(1.3);
+							filter: saturate(1.3);
+							transform: scale(1.1);
 						}
 					}
 				}
 				.profile {
-					padding: 8px 0;
-					position: relative;
+					cursor: pointer;
+					padding: 12px 10px;
+					display: flex;
+					gap: 12px;
+					align-items: center;
+					justify-content: space-between;
 					img {
-						border-radius: 100px;
-						position: absolute;
-						left: 10%;
-						top: -20%;
+						// 사용자 프로필 이미지
+						border-radius: 20px 20px 0 0;
 						cursor: pointer;
 					}
 					span {
-						font-size: 0.7rem;
+						// 사용자 아이디
+						font-size: 0.9rem;
 						font-family: var(--bodyFont);
 						color: var(--baseColor);
 						background: var(--bgColor);
-						margin-left: 65px;
 						cursor: pointer;
 					}
-				}
-				h2 {
-					font-weight: normal;
-					font-family: var(--bodyFont);
-					color: var(--baseColor);
-					font-size: var(--bodySize0);
-					background: var(--bgColor);
-					padding: 30px 35px;
+					.arrow {
+						font-size: 1.4rem;
+					}
 				}
 			}
 		}
@@ -156,6 +226,23 @@
 .tablet {
 	.Gallery {
 		--num: 2;
+		.visual {
+			.info {
+				width: 45%;
+				padding-right: 0;
+				h1 {
+					font-size: var(--subTitSize0);
+				}
+				p {
+					font-size: var(--bodySize1);
+				}
+				button {
+					font-size: var(--bodySize1);
+					padding: 5px 15px;
+					gap: 10px;
+				}
+			}
+		}
 		.frame {
 			article {
 				width: 46%;
@@ -167,27 +254,34 @@
 .mobile {
 	.Gallery {
 		--num: 1;
+		.visual {
+			flex-direction: column-reverse;
+			.info {
+				width: 100%;
+				padding-right: 0;
+				h1 {
+					font-size: 8vw;
+				}
+				p {
+					font-size: 3.5vw;
+				}
+				button {
+					font-size: 3vw;
+					padding: 1.3vw 3vw;
+					gap: 10px;
+					.arrow {
+						font-size: 1.8rem;
+					}
+				}
+			}
+			.pic {
+				width: 100%;
+				border-radius: 100% 100% 0 0;
+			}
+		}
 		.frame {
 			article {
 				width: 100%;
-
-				.profile {
-					img {
-						width: 12vw;
-						left: 7vw;
-						top: -50%;
-					}
-					span {
-						font-size: 2.4vw;
-						margin-left: 23vw;
-						margin-top: 0;
-						display: inline-block;
-					}
-				}
-				h2 {
-					font-size: 4vw;
-					padding: 5vw 9vw;
-				}
 			}
 		}
 	}

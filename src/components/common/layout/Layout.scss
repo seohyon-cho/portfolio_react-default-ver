@@ -1,5 +1,6 @@
 .Layout {
 	width: 100%;
+	min-height: 100vh;
 	position: relative;
 	opacity: 0;
 	transform-origin: left top;
@@ -46,7 +47,7 @@
 	}
 
 	.bgImage {
-		width: 90%;
+		width: 80vw;
 		margin: 0 auto;
 		height: 250px;
 		border-bottom: 1px solid rgba(var(--baseColor-code), 0.5);

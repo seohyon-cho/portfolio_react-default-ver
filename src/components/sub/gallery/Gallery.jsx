@@ -1,13 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Gallery.scss';
 import Masonry from 'react-masonry-component';
 import { LuSearch } from 'react-icons/lu';
 import { BsFilterLeft } from 'react-icons/bs';
+import { PiArrowDownRightThin } from 'react-icons/pi';
+import { TbHomeShare } from 'react-icons/tb';
 import { useMedia } from '../../../hooks/useMedia';
 import Modal from '../../common/modal/Modal';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 export default function Gallery() {
+	const path = useRef(process.env.PUBLIC_URL);
 	const myID = useRef('199633413@N04');
 	const isUser = useRef(myID.current);
 	const refNav = useRef(null);
@@ -17,6 +21,17 @@ export default function Gallery() {
 	const [Pics, setPics] = useState([]);
 	const [Open, setOpen] = useState(false);
 	const [Index, setIndex] = useState(0);
+
+	// 버튼 클릭 시 하단으로 스크롤 이벤트
+	// const scrollToCustomSection = () => {
+	// 	scroll.scrollTo('customSection', { duration: 500, smooth: true });
+	// };
+	const customSectionRef = useRef(null);
+	const scrollToCustomSection = () => {
+		if (customSectionRef.current) {
+			customSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
 
 	const openModal = (e) => {
 		setOpen(true);
@@ -62,7 +77,7 @@ export default function Gallery() {
 	};
 
 	const fetchFlickr = async (opt) => {
-		const num = 20;
+		const num = 30;
 		const flickr_api = '9714d0fe77bde97690ff70f0d88f4d40';
 		const baseURL = `https://www.flickr.com/services/rest/?&api_key=${flickr_api}&per_page=${num}&format=json&nojsoncallback=1&method=`;
 		const method_interest = 'flickr.interestingness.getList';
@@ -91,7 +106,23 @@ export default function Gallery() {
 		<>
 			<Layout category={'HOME / GALLERY'} title={'Gallery'}>
 				<div className='Gallery'>
-					<section className='controls'>
+					<section className='visual'>
+						<div className='info'>
+							<h1>Find The Best Picture Style For You</h1>
+							<p>
+								We are a full service creative studio specializing in photography, product styling, and creative direction. Discover the world in a
+								new way!
+							</p>
+							<button onClick={scrollToCustomSection}>
+								Move Down
+								<PiArrowDownRightThin className='arrow' />
+							</button>
+						</div>
+						<div className='pic'>
+							<video src={`${path.current}/img/forest.mp4`} loop autoPlay muted></video>
+						</div>
+					</section>
+					<section className='controls' ref={customSectionRef}>
 						<nav className='btnSet' ref={refNav}>
 							<span>
 								<BsFilterLeft className='filterIcon' />
@@ -124,17 +155,20 @@ export default function Gallery() {
 													setIndex(idx);
 												}}
 											>
-												<img src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`} alt={pic.title} />
+												<div className='picframe'>
+													<img src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`} alt={pic.title} />
+												</div>
+												<h2>{pic.title}</h2>
 											</div>
-											<div className='profile'>
+											<div className='profile' onClick={handleUser}>
 												<img
 													src={`http://farm${pic.farm}.staticflickr.com/${pic.server}/buddyicons/${pic.owner}.jpg`}
 													alt='사용자 프로필 이미지'
 													onError={(e) => e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif')}
 												/>
-												<span onClick={handleUser}>{pic.owner}</span>
+												<span>{pic.owner}</span>
+												<TbHomeShare className='arrow' />
 											</div>
-											<h2>{pic.title}</h2>
 										</article>
 									);
 								})
