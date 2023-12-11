@@ -3,6 +3,7 @@ import Layout from '../../common/layout/Layout';
 import './Gallery.scss';
 import Masonry from 'react-masonry-component';
 import { LuSearch } from 'react-icons/lu';
+import { BsFilterLeft } from 'react-icons/bs';
 import { useMedia } from '../../../hooks/useMedia';
 import Modal from '../../common/modal/Modal';
 
@@ -92,6 +93,10 @@ export default function Gallery() {
 				<div className='Gallery'>
 					<section className='controls'>
 						<nav className='btnSet' ref={refNav}>
+							<span>
+								<BsFilterLeft className='filterIcon' />
+								Filter
+							</span>
 							<button onClick={handleInterest}>Interest Gallery</button>
 							<button className='on' onClick={handleMine}>
 								My Gallery

@@ -7,6 +7,7 @@ import { useCustomText } from '../../../hooks/useText';
 import { RiDoubleQuotesL, RiDoubleQuotesR } from 'react-icons/ri';
 
 export default function Detail() {
+	const customText = useCustomText('combined');
 	const shortenText = useCustomText('short');
 	const { id } = useParams();
 	const [YoutubeData, setYoutubeData] = useState(null);
@@ -37,6 +38,7 @@ export default function Detail() {
 							<GrUndo />
 						</div>
 					</Link>
+					<p className='date'>{customText(YoutubeData.publishedAt.split('T')[0], '.')}</p>
 					<h3>{YoutubeData.title}</h3>
 					<div className='videoBox'>
 						<iframe src={`https://www.youtube.com/embed/${YoutubeData?.resourceId.videoId}`} title={YoutubeData.title}></iframe>
@@ -44,7 +46,7 @@ export default function Detail() {
 					<span>
 						<RiDoubleQuotesL />
 					</span>
-					<p>{shortenText(YoutubeData.description, 1000)}</p>
+					<p className='descript'>{shortenText(YoutubeData.description, 1000)}</p>
 					<span>
 						<RiDoubleQuotesR />
 					</span>

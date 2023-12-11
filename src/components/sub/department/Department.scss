@@ -16,7 +16,7 @@
 			z-index: 2;
 
 			.person1 {
-				width: 35%;
+				width: 40%;
 				height: 290px;
 				margin-top: 70px;
 				position: relative;
@@ -56,7 +56,7 @@
 				}
 			}
 			.person2 {
-				width: 35%;
+				width: 40%;
 				height: 290px;
 				margin-top: 140px;
 				position: relative;
@@ -72,7 +72,7 @@
 				.comment {
 					position: absolute;
 					bottom: 10px;
-					left: -180px;
+					left: -170px;
 
 					.caption1 {
 						font-size: var(--bodySize1);
@@ -99,7 +99,7 @@
 			width: 55%;
 			color: rgba(var(--baseColor-code), 0.9);
 			background: rgba(var(--pointColor-code), 0.2);
-			padding: 70px 120px 100px;
+			padding: 70px 90px 100px;
 			position: relative;
 			overflow: hidden;
 			h2 {
@@ -202,20 +202,24 @@
 .tablet {
 	.Department {
 		.topCont {
+			width: 90%;
 			.imgBox {
+				width: 40%;
 				left: 30px;
 				.person1 {
-					width: 45%;
-					height: 230px;
+					width: 50%;
+					height: 200px;
 				}
 				.person2 {
-					width: 45%;
-					height: 230px;
+					width: 50%;
+					height: 200px;
 				}
 			}
 
 			.textBox {
-				padding: 40px 80px 80px;
+				text-align: center;
+				width: 60%;
+				padding: 40px 60px 80px;
 			}
 			.textBox:after {
 				top: 80px;
@@ -281,13 +285,13 @@
 				left: 0;
 
 				.person1 {
-					width: 30%;
+					width: 40%;
 					height: 240px;
 					margin-top: 35px;
 					position: relative;
 				}
 				.person2 {
-					width: 30%;
+					width: 40%;
 					height: 240px;
 					margin-top: 90px;
 					position: relative;
@@ -296,7 +300,8 @@
 
 			.textBox {
 				width: 100%;
-				padding: 60px 80px 90px;
+				padding: 50px 30px 80px;
+				text-align: center;
 				.con {
 					gap: 20px;
 				}

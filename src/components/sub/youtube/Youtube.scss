@@ -97,11 +97,17 @@
 				font-size: var(--bodySize0);
 				line-height: 0.5;
 				li {
-					padding-bottom: 5px;
+					padding-bottom: 8px;
 					cursor: pointer;
-					color: rgba(var(--baseColor-code), 0.6);
+					color: rgba(var(--baseColor-code), 0.5);
 					&:hover {
 						color: var(--baseColor);
+					}
+					&.on {
+						color: rgba(var(--baseColor-code), 1);
+						font-weight: bold;
+						border-bottom: 1px solid transparent;
+						border-image: radial-gradient(rgba(var(--baseColor-code), 0.5) 70%, transparent) 1;
 					}
 				}
 			}
@@ -326,6 +332,9 @@
 			}
 			ul {
 				line-height: 1;
+				li {
+					padding-bottom: 4px;
+				}
 			}
 		}
 		.content {

@@ -7,13 +7,22 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import React from 'react';
 
 export default function Youtube() {
+	// const pid_2023 = 'PLIenA9X9sYejFq450_Ofy4x7tImW-3PUl';
+	// const pid_2022 = 'PLIenA9X9sYejNn5U9ovCvLIyT9BEkoA_L';
+	// const pid_2021 = 'PLIenA9X9sYehUWVqjgWzxctrghO8F6mIq';
+
 	const customText = useCustomText('combined');
 	const shortenText = useCustomText('short');
 	const [Vids, setVids] = useState([]);
+	const [SelectedYear, setSelectedYear] = useState(null);
 
-	const fetchYoutube = async () => {
+	// 'PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH'
+	// 2023 'PLIenA9X9sYejFq450_Ofy4x7tImW-3PUl'
+	// 2022 'PLIenA9X9sYejNn5U9ovCvLIyT9BEkoA_L'
+	// 2021 'PLIenA9X9sYehUWVqjgWzxctrghO8F6mIq'
+	const fetchYoutube = async (opt = 'PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH') => {
 		const api_key = 'AIzaSyDwxSLXdnfN8bTNC5fnycohdatm0Qk4dLM';
-		const pid = 'PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH';
+		const pid = opt;
 		const num = '10';
 		const baseURL = `https://www.googleapis.com/youtube/v3/playlistItems?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
 
@@ -21,6 +30,7 @@ export default function Youtube() {
 			const data = await fetch(baseURL);
 			const json = await data.json();
 			setVids(json.items);
+			console.log(json.items);
 		} catch (err) {
 			console.error(err);
 		}
@@ -34,7 +44,7 @@ export default function Youtube() {
 		<Layout category={'HOME / YOUTUBE'} title={'Our Project'}>
 			<div className='Youtube'>
 				<section className='thumbnail'>
-					{Vids.slice(0, 1).map((data, idx) => {
+					{Vids.slice(5, 6).map((data, idx) => {
 						return (
 							<React.Fragment key={data.id}>
 								<article className='info'>
@@ -61,10 +71,42 @@ export default function Youtube() {
 					<div className='headline'>
 						<h3>CHECK ALL LATEST RELEASES</h3>
 						<ul>
-							<li>All</li>
-							<li>2023</li>
-							<li>2022</li>
-							<li>2021</li>
+							<li
+								onClick={() => {
+									fetchYoutube();
+									setSelectedYear(null);
+								}}
+								className={SelectedYear === null ? 'on' : ''}
+							>
+								All
+							</li>
+							<li
+								onClick={() => {
+									fetchYoutube('PLIenA9X9sYejFq450_Ofy4x7tImW-3PUl');
+									setSelectedYear(2023);
+								}}
+								className={SelectedYear === 2023 ? 'on' : ''}
+							>
+								2023
+							</li>
+							<li
+								onClick={() => {
+									fetchYoutube('PLIenA9X9sYejNn5U9ovCvLIyT9BEkoA_L');
+									setSelectedYear(2022);
+								}}
+								className={SelectedYear === 2022 ? 'on' : ''}
+							>
+								2022
+							</li>
+							<li
+								onClick={() => {
+									fetchYoutube('PLIenA9X9sYehUWVqjgWzxctrghO8F6mIq');
+									setSelectedYear(2021);
+								}}
+								className={SelectedYear === 2021 ? 'on' : ''}
+							>
+								2021
+							</li>
 						</ul>
 					</div>
 					<div className='content'>

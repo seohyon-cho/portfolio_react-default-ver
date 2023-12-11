@@ -24,13 +24,21 @@ div.Detail {
 			color: rgba(var(--baseColor-code), 0.8);
 		}
 	}
+	p.date {
+		display: block;
+		height: 30px;
+		text-align: center;
+		color: var(--baseColor);
+		font-size: var(--bodySize0);
+		margin-top: 50px;
+	}
 	h3 {
 		color: var(--baseColor);
 		font-size: var(--subTitSize0);
 		text-align: center;
 		width: 80%;
 		margin: 0 auto;
-		padding: 100px 0;
+		padding: 30px 0 100px;
 		border-bottom: 1px solid transparent;
 		border-image: radial-gradient(rgba(var(--baseColor-code), 0.3) 80%, transparent) 1;
 	}
@@ -49,7 +57,7 @@ div.Detail {
 			transform-origin: center;
 		}
 	}
-	> p {
+	> p.descript {
 		padding: 50px 20px;
 		line-height: 2.2;
 		letter-spacing: 1px;
@@ -74,7 +82,7 @@ div.Detail {
 			font-size: var(--subTitSize);
 			width: 90%;
 			margin: 0 auto;
-			padding: 70px 0;
+			padding: 10px 0 70px;
 		}
 		.videoBox {
 			height: 45vw;
@@ -105,7 +113,10 @@ div.Detail {
 		}
 		h3 {
 			font-size: 5vw;
-			padding: 40px 0 30px;
+			padding: 10px 0 30px;
+		}
+		p.date {
+			margin-top: 20px;
 		}
 		.videoBox {
 			height: 50vw;
