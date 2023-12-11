@@ -272,6 +272,8 @@
 			height: auto;
 			article {
 				width: 100%;
+				border-bottom: 1px solid transparent;
+				border-image: radial-gradient(rgba(var(--baseColor-code), 0.5) 70%, transparent) 1;
 				&:nth-child(even) {
 					flex-direction: row-reverse;
 					.pic {
