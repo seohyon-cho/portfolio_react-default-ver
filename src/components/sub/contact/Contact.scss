@@ -1,2 +1,135 @@
 .Contact {
+	.visual {
+		display: none;
+		width: 80vw;
+		margin: 20px auto;
+		background: var(--baseColor);
+		min-height: 90vh;
+		padding-top: 100px;
+		h1 {
+			font-size: 5rem;
+			text-align: center;
+			color: var(--bgColor);
+			font-family: var(--pointFont);
+		}
+	}
+	section.info {
+		border: 1px solid red;
+		padding: 40px 0;
+		width: 80vw;
+		margin: 0 auto;
+		min-height: 50vh;
+		display: flex;
+		.message {
+			width: 50%;
+			padding-right: 5vw;
+			border-right: 1px solid transparent;
+			border-image: radial-gradient(rgba(var(--baseColor-code), 0.9) 70%, transparent) 1;
+			h3 {
+				font-size: var(--subTitSize2);
+				color: var(--baseColor);
+				font-weight: 400;
+				margin-bottom: 8px;
+			}
+			p {
+				font-size: var(--bodySize1);
+				color: rgba(var(--baseColor-code), 0.7);
+				font-weight: 300;
+			}
+			// form email zone
+			form {
+				margin-top: 40px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				.sendBtn {
+					border: none;
+					background: var(--baseColor);
+					color: var(--bgColor);
+					font-family: var(--bodyFont);
+					font-weight: 300;
+					font-size: 1rem;
+					padding: 6px 20px;
+					cursor: pointer;
+					transition: 0.4s;
+					margin-left: calc(100% - 80px);
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+				div {
+					display: flex;
+					flex-direction: column;
+					margin-bottom: 40px;
+					&.nameSection,
+					&.emailSection {
+						width: 47%;
+					}
+					&.messageSection {
+						width: 100%;
+					}
+					label {
+						font-weight: 500;
+					}
+					input,
+					textarea {
+						resize: none;
+						color: rgba(var(--baseColor-code), 0.7);
+						background: var(--bgColor);
+						outline: 0;
+						border: none;
+						border-bottom: 2px solid var(--baseColor);
+						font-family: var(--bodyFont);
+					}
+					input {
+						height: 30px;
+					}
+				}
+			}
+		}
+		.detailInfo {
+			padding-left: 6vw;
+			width: 50%;
+			ul.info {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				li {
+					ul {
+						display: flex;
+						flex-direction: column;
+						gap: 8px;
+						h4 {
+							font-weight: 600;
+							font-size: var(--bodySize0);
+						}
+						li {
+							font-size: var(--bodySize2);
+							color: rgba(var(--baseColor-code), 0.7);
+							&:nth-of-type(2) {
+								display: flex;
+								gap: 10px;
+								span {
+									color: var(--pointColor);
+									background: rgba(var(--pointColor-code), 0.1);
+									border-radius: 10px;
+									height: 20px;
+									padding: 0 3px;
+								}
+								.icon {
+									color: var(--pointColor);
+									font-size: 1.5rem;
+									background: rgba(var(--pointColor-code), 0.2);
+									border-radius: 100%;
+									padding: 3px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
