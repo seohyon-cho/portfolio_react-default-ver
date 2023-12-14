@@ -3,9 +3,18 @@ import './Contact.scss';
 import { IoIosCall } from 'react-icons/io';
 import { IoLocationSharp, IoChatbubblesSharp } from 'react-icons/io5';
 import emailjs from '@emailjs/browser';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { AiFillMinusSquare, AiFillPlusSquare } from 'react-icons/ai';
 
 export default function Contact() {
+	const [FaqIndex, setFaqIndex] = useState(null);
+
+	const kakao = useRef(window.kakao);
+	const [Index, setIndex] = useState(1);
+	const mapFrame = useRef(null);
+	const marker = useRef(null);
+	const mapInstance = useRef(null);
+
 	// form Email
 	const form = useRef();
 	const resetForm = () => {
@@ -33,6 +42,54 @@ export default function Contact() {
 		);
 	};
 
+	// kakao map part
+	const setCenter = () => mapInstance.current.setCenter(mapInfo.current[Index].latlng);
+
+	const mapInfo = useRef([
+		{
+			title: '삼성역 코엑스',
+			latlng: new kakao.current.maps.LatLng(37.51100661425726, 127.06162026853143),
+			imgSrc: `${process.env.PUBLIC_URL}/img/pin.png`,
+			imgSize: new kakao.current.maps.Size(60, 60),
+			imgPos: { offset: new kakao.current.maps.Point(116, 99) }
+		},
+		{
+			title: '넥슨 본사',
+			latlng: new kakao.current.maps.LatLng(37.40211707077346, 127.10344953763003),
+			imgSrc: `${process.env.PUBLIC_URL}/img/pin.png`,
+			imgSize: new kakao.current.maps.Size(60, 60),
+			imgPos: { offset: new kakao.current.maps.Point(116, 99) }
+		},
+		{
+			title: '서울 시청',
+			latlng: new kakao.current.maps.LatLng(37.5662952, 126.9779451),
+			imgSrc: `${process.env.PUBLIC_URL}/img/pin.png`,
+			imgSize: new kakao.current.maps.Size(60, 60),
+			imgPos: { offset: new kakao.current.maps.Point(116, 99) }
+		}
+	]);
+
+	marker.current = new kakao.current.maps.Marker({
+		position: mapInfo.current[Index].latlng,
+		image: new kakao.current.maps.MarkerImage(mapInfo.current[Index].imgSrc, mapInfo.current[Index].imgSize, mapInfo.current[Index].imgOpt)
+	});
+
+	// FAQ part
+	const faqInfo = useRef([
+		{ question: 'What file-format should I submit?', answer: 'This is the answer to the first question, thank you.' },
+		{ question: 'What is the 3% under allowance policy?', answer: 'This is the answer to the second question, thank you.' },
+		{ question: 'How much do I have to pay to get started?', answer: 'This is the answer to the third question, thank you.' },
+		{ question: 'What is your minimum order quantity?', answer: 'This is the answer to the fourth question, thank you.' }
+	]);
+
+	useEffect(() => {
+		mapInstance.current = new kakao.current.maps.Map(mapFrame.current, { center: mapInfo.current[Index].latlng, level: 3 });
+		marker.current.setMap(mapInstance.current);
+
+		window.addEventListener('resize', setCenter);
+		return () => window.removeEventListener('resize', setCenter);
+	}, [Index]);
+
 	return (
 		<Layout category={'HOME / CONTACT'} title={'Contact Us'}>
 			<div className='Contact'>
@@ -42,7 +99,7 @@ export default function Contact() {
 				<section className='info'>
 					<div className='message'>
 						<h3>Send a Message</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio amet natus iure tempora exercitationem architecto.</p>
+						<p>It is very important for us to keep in touch with you, so we are always ready to answer any question that interests you. Shoot!</p>
 						<form ref={form} onSubmit={sendEmail}>
 							<div className='nameSection'>
 								<label>Name</label>
@@ -64,7 +121,9 @@ export default function Contact() {
 							<li>
 								<ul className='call'>
 									<h4>Call Us</h4>
-									<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sequi odit, optio distinctio tempore consectetur.</li>
+									<li>
+										It is very important for us to keep in touch with you, so we are always ready to answer any question that interests you. Shoot!
+									</li>
 									<li>
 										<IoIosCall className='icon' /> <span>+82 1234 10 20 81</span>
 									</li>
@@ -73,7 +132,9 @@ export default function Contact() {
 							<li>
 								<ul className='visit'>
 									<h4>Visit Us</h4>
-									<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sequi odit, optio distinctio tempore consectetur.</li>
+									<li>
+										It is very important for us to keep in touch with you, so we are always ready to answer any question that interests you. Shoot!
+									</li>
 									<li>
 										<IoLocationSharp className='icon' /> <span>6A Hampstead High Street</span>
 									</li>
@@ -82,7 +143,9 @@ export default function Contact() {
 							<li>
 								<ul className='live'>
 									<h4>Live Chat</h4>
-									<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sequi odit.</li>
+									<li>
+										It is very important for us to keep in touch with you, so we are always ready to answer any question that interests you. Shoot!
+									</li>
 									<li>
 										<IoChatbubblesSharp className='icon' /> <span>support@trafficbot.uk</span>
 									</li>
@@ -91,8 +154,79 @@ export default function Contact() {
 						</ul>
 					</div>
 				</section>
-				<div className='map'></div>
-				<section className='question'></section>
+				<div className='map' ref={mapFrame}></div>
+				<section className='question'>
+					<article className='left'>
+						<p>FAQ</p>
+						<h2>Frequently asked questions.</h2>
+					</article>
+					<article className='right'>
+						<h4>
+							Here are some common questions about <span>MELLOW</span>.
+						</h4>
+						<p>Our help center can instantly give you answers to many frequently asked qustions. Here are some common questions about our company.</p>
+						<ul className='questionList'>
+							{/* <li
+								onClick={() => {
+									setAnswer(!Answer);
+								}}>
+								What file-format should I submit? <BsFillPlusSquareFill className='icon' />
+								{Answer && (
+									<div className='answer' Answer={Answer} setAnswer={setAnswer}>
+										this is answer
+									</div>
+								)}
+							</li> */}
+							{faqInfo.current.map((data, idx) => {
+								const showAnswer = idx === FaqIndex;
+
+								return (
+									<li key={data + idx} onClick={() => setFaqIndex(showAnswer ? null : idx)} className={showAnswer ? 'expanded' : ''}>
+										{data.question}
+										{showAnswer ? <AiFillMinusSquare className='icon' /> : <AiFillPlusSquare className='icon' />}
+										{showAnswer && <div className='answer'>{data.answer}</div>}
+									</li>
+								);
+							})}
+							{/* <li
+								onClick={() => {
+									setAnswer(!Answer);
+								}}>
+								What is the 3% under allowance policy?
+								<BsFillPlusSquareFill className='icon' />
+								{Answer && (
+									<div className='answer' Answer={Answer} setAnswer={setAnswer}>
+										this is answer
+									</div>
+								)}
+							</li>
+							<li
+								onClick={() => {
+									setAnswer(!Answer);
+								}}>
+								How much do I have to pay to get started?
+								<BsFillPlusSquareFill className='icon' />
+								{Answer && (
+									<div className='answer' Answer={Answer} setAnswer={setAnswer}>
+										this is answer
+									</div>
+								)}
+							</li>
+							<li
+								onClick={() => {
+									setAnswer(!Answer);
+								}}>
+								What is your minimum order quantity?
+								<BsFillPlusSquareFill className='icon' />
+								{Answer && (
+									<div className='answer' Answer={Answer} setAnswer={setAnswer}>
+										this is answer
+									</div>
+								)}
+							</li> */}
+						</ul>
+					</article>
+				</section>
 			</div>
 		</Layout>
 	);

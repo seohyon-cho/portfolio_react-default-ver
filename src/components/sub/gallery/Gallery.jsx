@@ -8,7 +8,6 @@ import { PiArrowDownRightThin } from 'react-icons/pi';
 import { TbHomeShare } from 'react-icons/tb';
 import { useMedia } from '../../../hooks/useMedia';
 import Modal from '../../common/modal/Modal';
-import { Link, animateScroll as scroll } from 'react-scroll';
 
 export default function Gallery() {
 	const path = useRef(process.env.PUBLIC_URL);
@@ -33,37 +32,37 @@ export default function Gallery() {
 		}
 	};
 
-	const openModal = (e) => {
+	const openModal = e => {
 		setOpen(true);
 	};
 
-	const activateBtn = (e) => {
+	const activateBtn = e => {
 		const btns = refNav.current.querySelectorAll('button');
-		btns.forEach((btn) => btn.classList.remove('on'));
+		btns.forEach(btn => btn.classList.remove('on'));
 		e && e.target.classList.add('on');
 	};
 
-	const handleInterest = (e) => {
+	const handleInterest = e => {
 		if (e.target.classList.contains('on')) return;
 		isUser.current = '';
 		activateBtn(e);
 		fetchFlickr({ type: 'interest' });
 	};
-	const handleMine = (e) => {
+	const handleMine = e => {
 		if (e.target.classList.contains('on') || isUser.current === myID.current) return;
 		isUser.current = myID.current;
 		activateBtn(e);
 		fetchFlickr({ type: 'user', id: myID.current });
 	};
 
-	const handleUser = (e) => {
+	const handleUser = e => {
 		if (isUser.current) return;
 		isUser.current = e.target.innerText;
 		activateBtn();
 		fetchFlickr({ type: 'user', id: e.target.innerText });
 	};
 
-	const handleSearch = (e) => {
+	const handleSearch = e => {
 		e.preventDefault();
 		isUser.current = '';
 		activateBtn();
@@ -76,7 +75,7 @@ export default function Gallery() {
 		searched.current = true;
 	};
 
-	const fetchFlickr = async (opt) => {
+	const fetchFlickr = async opt => {
 		const num = 30;
 		const flickr_api = '9714d0fe77bde97690ff70f0d88f4d40';
 		const baseURL = `https://www.flickr.com/services/rest/?&api_key=${flickr_api}&per_page=${num}&format=json&nojsoncallback=1&method=`;
@@ -153,8 +152,7 @@ export default function Gallery() {
 												onClick={() => {
 													setOpen(true);
 													setIndex(idx);
-												}}
-											>
+												}}>
 												<div className='picframe'>
 													<img src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`} alt={pic.title} />
 												</div>
@@ -164,7 +162,7 @@ export default function Gallery() {
 												<img
 													src={`http://farm${pic.farm}.staticflickr.com/${pic.server}/buddyicons/${pic.owner}.jpg`}
 													alt='사용자 프로필 이미지'
-													onError={(e) => e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif')}
+													onError={e => e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif')}
 												/>
 												<span>{pic.owner}</span>
 												<TbHomeShare className='arrow' />
