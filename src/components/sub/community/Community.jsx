@@ -6,6 +6,7 @@ import { IoPersonCircleOutline } from 'react-icons/io5';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
 import { FaRegCheckSquare } from 'react-icons/fa';
 import { useCustomText } from '../../../hooks/useText';
+import postData from './dummyPosts.json';
 
 export default function Community() {
 	const changeText = useCustomText('combined');
@@ -13,7 +14,7 @@ export default function Community() {
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
 		if (data) return JSON.parse(data);
-		else return [];
+		else return postData.dummyPosts;
 	};
 
 	const [Post, setPost] = useState(getLocalData);
