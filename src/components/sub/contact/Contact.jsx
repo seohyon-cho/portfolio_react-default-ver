@@ -11,7 +11,7 @@ export default function Contact() {
 
 	// 지도 관련
 	const kakao = useRef(window.kakao);
-	const [Index, setIndex] = useState(1);
+	const [Index, setIndex] = useState(0);
 	const mapFrame = useRef(null);
 	const marker = useRef(null);
 	const mapInstance = useRef(null);
@@ -50,8 +50,9 @@ export default function Contact() {
 	const mapInfo = useRef([
 		{
 			title: 'SEOUL Office',
-			address: '50, Apgujeong-ro 46-gil, Gangnam-gu, Seoul, Republic of Korea',
-			latlng: new kakao.current.maps.LatLng(37.525358, 127.035649),
+			address: '50, Apgujeong-ro, Gangnam-gu, Seoul, Republic of Korea',
+			tel: '+82 10 1324 3546',
+			latlng: new kakao.current.maps.LatLng(37.52535227165237, 127.03564376627601),
 			imgSrc: `${process.env.PUBLIC_URL}/img/pin.png`,
 			imgSize: new kakao.current.maps.Size(60, 60),
 			imgPos: { offset: new kakao.current.maps.Point(116, 99) }
@@ -59,15 +60,17 @@ export default function Contact() {
 		{
 			title: 'BUSAN Office',
 			address: '167, Marine city 1-ro, Haeundae-gu, Busan, Republic of Korea',
-			latlng: new kakao.current.maps.LatLng(35.157524, 129.149748),
+			tel: '+82 10 9786 8697',
+			latlng: new kakao.current.maps.LatLng(35.15752121998794, 129.14974694751137),
 			imgSrc: `${process.env.PUBLIC_URL}/img/pin.png`,
 			imgSize: new kakao.current.maps.Size(60, 60),
 			imgPos: { offset: new kakao.current.maps.Point(116, 99) }
 		},
 		{
 			title: 'JEJU Office',
-			address: '242, Cheomdan-ro, Jeju-si, Jeju-do, Republic of Korea',
-			latlng: new kakao.current.maps.LatLng(33.45021, 126.570145),
+			address: '1floor, 242, Cheomdan-ro, Jeju-si, Jeju-do, Republic of Korea',
+			tel: '+82 10 4657 5746',
+			latlng: new kakao.current.maps.LatLng(33.450198555072305, 126.5701366730962),
 			imgSrc: `${process.env.PUBLIC_URL}/img/pin.png`,
 			imgSize: new kakao.current.maps.Size(60, 60),
 			imgPos: { offset: new kakao.current.maps.Point(116, 99) }
@@ -176,6 +179,10 @@ export default function Contact() {
 							<div key={el + idx} onClick={() => setIndex(idx)} className={idx === Index ? 'on' : ''}>
 								<h2>{el.title}</h2>
 								<p>{el.address}</p>
+								<p className='tel'>
+									<IoIosCall className='icon' />
+									{el.tel}
+								</p>
 							</div>
 						))}
 					</nav>

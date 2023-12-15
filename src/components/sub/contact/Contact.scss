@@ -157,9 +157,28 @@
 					color: var(--baseColor);
 					font-size: var(--bodySize2);
 					text-align: center;
+					&.tel {
+						margin-top: 15px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: 7px;
+						.icon {
+							font-size: 1rem;
+							color: var(--baseColor);
+							background: rgba(var(--baseColor-code), 0.2);
+							border-radius: 100%;
+							width: 25px;
+							height: 25px;
+							padding: 0 3px;
+						}
+					}
 				}
 				&:hover {
 					transform: scale(1.05);
+					background: rgba(var(--pointColor-code), 0.8);
+				}
+				&.on {
 					background: rgba(var(--pointColor-code), 0.8);
 				}
 			}
@@ -221,6 +240,10 @@
 					justify-content: space-between;
 					div.answer {
 						width: 100%;
+						height: 50px;
+						display: flex;
+						align-items: center;
+						padding-left: 10px;
 						cursor: default;
 						font-size: var(--bodySize2);
 						color: rgba(var(--baseColor-code), 0.7);
