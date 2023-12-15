@@ -133,6 +133,38 @@
 			}
 		}
 	}
+	.controlBox {
+		width: 80%;
+		margin: 0 auto;
+		nav.branch {
+			display: flex;
+			justify-content: space-between;
+			div {
+				cursor: pointer;
+				width: 32%;
+				min-height: 150px;
+				padding: 20px;
+				background: rgba(var(--pointColor-code), 0.3);
+				transition: 0.3s;
+				h2 {
+					color: var(--baseColor);
+					font-family: var(--pointFont);
+					font-size: var(--subTitSize);
+					text-align: center;
+					margin-bottom: 20px;
+				}
+				p {
+					color: var(--baseColor);
+					font-size: var(--bodySize2);
+					text-align: center;
+				}
+				&:hover {
+					transform: scale(1.05);
+					background: rgba(var(--pointColor-code), 0.8);
+				}
+			}
+		}
+	}
 	.map {
 		width: 80%;
 		margin: 0 auto;

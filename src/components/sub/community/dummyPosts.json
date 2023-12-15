@@ -1,94 +1,94 @@
 {
 	"dummyPosts": [
 		{
-			"title": "13",
-			"content": "13",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Hello!",
+			"content": "It is very important for us to keep in touch with you, so we are always ready to answer any question that interests you.",
+			"date": "2023-12-14T16:05:57.864Z",
+			"username": "David Kim",
 			"enableUpdate": false
 		},
 		{
-			"title": "12",
-			"content": "12",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "I have a question.",
+			"content": "Our help center can instantly give you answers to many frequently asked qustions.",
+			"date": "2023-12-14T16:05:57.864Z",
+			"username": "Julia Lee",
 			"enableUpdate": false
 		},
 		{
-			"title": "11",
-			"content": "11",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "How are you?",
+			"content": "Here are some common questions about our company.",
+			"date": "2023-12-13T16:05:57.864Z",
+			"username": "Emily Cho",
 			"enableUpdate": false
 		},
 		{
-			"title": "10",
-			"content": "10",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Inquiry about Website.",
+			"content": "Our help center can instantly give you answers to many frequently asked qustions.",
+			"date": "2023-12-13T16:05:57.864Z",
+			"username": "Michael Jeong",
 			"enableUpdate": false
 		},
 		{
-			"title": "9",
-			"content": "9",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Inquiry about Website.",
+			"content": "Here are some common questions about our company.",
+			"date": "2023-12-12T16:05:57.864Z",
+			"username": "Emma Park",
 			"enableUpdate": false
 		},
 		{
-			"title": "8",
-			"content": "8",
+			"title": "Inquiry about Website.",
+			"content": "Our help center can instantly give you answers to many frequently asked qustions.",
 			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"username": "Peter Kim",
 			"enableUpdate": false
 		},
 		{
-			"title": "7",
-			"content": "7",
+			"title": "Inquiry about Website.",
+			"content": "Here are some common questions about our company.",
 			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"username": "Alice Lee",
 			"enableUpdate": false
 		},
 		{
-			"title": "6",
-			"content": "6",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Inquiry about Website.",
+			"content": "Our help center can instantly give you answers to many frequently asked qustions.",
+			"date": "2023-12-09T16:05:57.864Z",
+			"username": "Kate Park",
 			"enableUpdate": false
 		},
 		{
-			"title": "5",
-			"content": "5",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Inquiry about Website.",
+			"content": "Here are some common questions about our company.",
+			"date": "2023-12-09T16:05:57.864Z",
+			"username": "Bliss Hong",
 			"enableUpdate": false
 		},
 		{
-			"title": "4",
-			"content": "4",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Inquiry about Website.",
+			"content": "Our help center can instantly give you answers to many frequently asked qustions.",
+			"date": "2023-12-07T16:05:57.864Z",
+			"username": "Tom Kim",
 			"enableUpdate": false
 		},
 		{
-			"title": "3",
-			"content": "3",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Inquiry about Website.",
+			"content": "Here are some common questions about our company.",
+			"date": "2023-12-06T16:05:57.864Z",
+			"username": "Sunny Lee",
 			"enableUpdate": false
 		},
 		{
-			"title": "2",
-			"content": "2",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Inquiry about Website.",
+			"content": "Our help center can instantly give you answers to many frequently asked qustions.",
+			"date": "2023-12-05T16:05:57.864Z",
+			"username": "Olivia Jeong",
 			"enableUpdate": false
 		},
 		{
-			"title": "1",
-			"content": "1",
-			"date": "2023-12-11T16:05:57.864Z",
-			"username": "someone",
+			"title": "Inquiry about Website.",
+			"content": "Here are some common questions about our company.",
+			"date": "2023-12-03T16:05:57.864Z",
+			"username": "Lookas Kim",
 			"enableUpdate": false
 		}
 	]
