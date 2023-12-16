@@ -1,2 +1,20 @@
 .Members {
+	.wrap {
+		width: 80%;
+		margin: 0 auto;
+		height: auto;
+		padding: 30px;
+		.frame {
+			width: 100%;
+			min-height: 500px;
+			border: 1px solid rgba(var(--baseColor-code), 0.5);
+			h1 {
+				font-family: var(--pointFont);
+				color: var(--bgColor);
+				font-size: var(--subTitSize0);
+				text-align: center;
+				text-shadow: 0px 0px 1px var(--baseColor);
+			}
+		}
+	}
 }
