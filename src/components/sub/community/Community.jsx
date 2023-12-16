@@ -12,7 +12,6 @@ import { GrPrevious, GrNext } from 'react-icons/gr';
 export default function Community() {
 	const path = useRef(process.env.PUBLIC_URL);
 	const changeText = useCustomText('combined');
-
 	// pagenation 관련
 	const [CurNum, setCurNum] = useState(0); // 페이징 버튼 클릭 시, 현재 보일 페이지 번호가 담긴 state
 	const [PageNum, setPageNum] = useState(0);
