@@ -16,19 +16,16 @@ export default function Members() {
 										{/* userid, email */}
 										<tr>
 											<td>
-												<label htmlFor='userid'>MY ID</label>
-												<input type='text' name='userid' placeholder='User ID' id='userid' />
+												<input type='text' name='userid' placeholder='User ID' />
 											</td>
 											<td>
-												<label htmlFor='email'>MY EMAIL</label>
-												<input type='text' name='email' placeholder='Email' id='email' />
+												<input type='text' name='email' placeholder='Email' />
 											</td>
 										</tr>
 										{/* pwd1, pwd3 */}
 										<tr>
 											<td>
-												<label htmlFor='pwd'>MY PASSWORD</label>
-												<input type='password' name='pwd1' placeholder='Password' id='pwd' />
+												<input type='password' name='pwd1' placeholder='Password' />
 											</td>
 											<td>
 												<input type='password' name='pwd2' placeholder='Re-Password' />
@@ -37,8 +34,7 @@ export default function Members() {
 										{/* edu */}
 										<tr>
 											<td colSpan='2'>
-												<label htmlFor='edu'>EDU</label>
-												<select name='edu' id='edu'>
+												<select name='edu'>
 													<option value=''>Education</option>
 													<option value='elementary-school'>초등학교 졸업</option>
 													<option value='middle-school'>중학교 졸업</option>

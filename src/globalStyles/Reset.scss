@@ -25,6 +25,38 @@ a {
 	font-size: var(--bodySize1);
 	transition: color 1s, background 1s;
 
+	// table (members 폼 관련) reset 작업
+	.legend {
+		position: absolute;
+		top: -9999999px;
+		opacity: 0;
+	}
+
+	table,
+	th,
+	td {
+		border-collapse: collpase;
+	}
+	textarea {
+		resize: none;
+	}
+	input,
+	button {
+		outline: 0;
+	}
+	fieldset {
+		border: none;
+	}
+	input,
+	textarea {
+		&::placeholder {
+			background-color: transparent;
+			font-size: 1rem;
+			color: rgba(var(--baseColor-code), 0.5);
+			font-family: var(--baseFont);
+		}
+	}
+
 	&::-webkit-scrollbar {
 		width: 8px;
 		background: transparent;
