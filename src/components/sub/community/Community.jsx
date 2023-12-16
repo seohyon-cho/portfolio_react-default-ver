@@ -136,7 +136,7 @@ export default function Community() {
 						</li>
 					</ul>
 				</div>
-				<nav className='pagination'>
+				{/* <nav className='pagination'>
 					<button className='iconPrev' onClick={() => CurNum > 0 && setCurNum(CurNum - 1)}>
 						<GrPrevious />
 					</button>
@@ -152,7 +152,7 @@ export default function Community() {
 					<button className='iconNext' onClick={() => CurNum + 1 < PageNum && setCurNum(CurNum + 1)}>
 						<GrNext />
 					</button>
-				</nav>
+				</nav> */}
 				<div className='wrap'>
 					<div className='inputSpace'>
 						<div className='inputBox'>
@@ -230,6 +230,23 @@ export default function Community() {
 								return null;
 							}
 						})}
+						<nav className='pagination'>
+							<button className='iconPrev' onClick={() => CurNum > 0 && setCurNum(CurNum - 1)}>
+								<GrPrevious />
+							</button>
+							{Array(PageNum)
+								.fill()
+								.map((_, idx) => {
+									return (
+										<button key={idx} onClick={() => idx !== CurNum && setCurNum(idx)} className={idx === CurNum ? 'on' : ''}>
+											{idx + 1}
+										</button>
+									);
+								})}
+							<button className='iconNext' onClick={() => CurNum + 1 < PageNum && setCurNum(CurNum + 1)}>
+								<GrNext />
+							</button>
+						</nav>
 					</div>
 				</div>
 			</div>
