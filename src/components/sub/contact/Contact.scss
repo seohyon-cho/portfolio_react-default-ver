@@ -136,6 +136,25 @@
 	.controlBox {
 		width: 80%;
 		margin: 0 auto;
+		nav.traffic {
+			margin: 20px 0;
+			display: flex;
+			gap: 20px;
+			button {
+				cursor: pointer;
+				border: 1px solid rgba(var(--baseColor-code), 0.6);
+				background: var(--bgColor);
+				color: var(--baseColor);
+				padding: 5px 10px;
+				font-family: var(--baseFont);
+				transition: 0.3s;
+
+				&:hover {
+					background: var(--baseColor);
+					color: var(--bgColor);
+				}
+			}
+		}
 		nav.branch {
 			display: flex;
 			justify-content: space-between;
@@ -184,12 +203,32 @@
 			}
 		}
 	}
-	.map {
+	section.tab {
 		width: 80%;
-		margin: 0 auto;
 		height: 60vh;
-		margin-top: 50px;
+		margin: 40px auto 0;
 		background: var(--baseColor);
+		position: relative;
+		filter: saturate(0.5);
+		transition: filter 0.4s;
+		&:hover {
+			filter: saturate(1.2);
+		}
+		.mapBox,
+		.viewBox {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			opacity: 0;
+			z-index: 1;
+
+			&.on {
+				opacity: 1;
+				z-index: 2;
+			}
+		}
 	}
 	section.question {
 		width: 80%;
@@ -254,6 +293,19 @@
 						color: var(--baseColor);
 					}
 				}
+			}
+		}
+	}
+}
+
+.dark {
+	.Contact {
+		.tab {
+			filter: saturate(0) contrast(0.8) brightness(0.6);
+			transition: filter 0.4s;
+
+			&:hover {
+				filter: saturate(0.6) contrast(1) brightness(0.9);
 			}
 		}
 	}

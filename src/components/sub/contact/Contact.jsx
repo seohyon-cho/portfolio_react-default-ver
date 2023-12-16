@@ -13,9 +13,11 @@ export default function Contact() {
 	const kakao = useRef(window.kakao);
 	const [Index, setIndex] = useState(0);
 	const mapFrame = useRef(null);
+	const viewFrame = useRef(null);
 	const marker = useRef(null);
 	const mapInstance = useRef(null);
 	const [Traffic, setTraffic] = useState(false);
+	const [View, setView] = useState(true);
 
 	// form Email
 	const form = useRef();
@@ -45,7 +47,16 @@ export default function Contact() {
 	};
 
 	// kakao map part
-	const setCenter = () => mapInstance.current.setCenter(mapInfo.current[Index].latlng);
+	const roadview = () => {
+		new kakao.current.maps.RoadviewClient().getNearestPanoId(mapInfo.current[Index].latlng, 50, panoId => {
+			new kakao.current.maps.Roadview(viewFrame.current).setPanoId(panoId, mapInfo.current[Index].latlng);
+		});
+	};
+
+	const setCenter = () => {
+		mapInstance.current.setCenter(mapInfo.current[Index].latlng);
+		roadview();
+	};
 
 	const mapInfo = useRef([
 		{
@@ -61,7 +72,7 @@ export default function Contact() {
 			title: 'BUSAN Office',
 			address: '167, Marine city 1-ro, Haeundae-gu, Busan, Republic of Korea',
 			tel: '+82 10 9786 8697',
-			latlng: new kakao.current.maps.LatLng(35.15752121998794, 129.14974694751137),
+			latlng: new kakao.current.maps.LatLng(35.147731904188646, 129.1100687388588),
 			imgSrc: `${process.env.PUBLIC_URL}/img/pin.png`,
 			imgSize: new kakao.current.maps.Size(60, 60),
 			imgPos: { offset: new kakao.current.maps.Point(116, 99) }
@@ -96,6 +107,20 @@ export default function Contact() {
 		mapInstance.current = new kakao.current.maps.Map(mapFrame.current, { center: mapInfo.current[Index].latlng, level: 3 });
 		marker.current.setMap(mapInstance.current);
 		setTraffic(false);
+		setView(true);
+		roadview();
+
+		new kakao.current.maps.RoadviewClient().getNearestPanoId(mapInfo.current[Index].latlng, 50, panoId => {
+			new kakao.current.maps.Roadview(viewFrame.current).setPanoId(panoId, mapInfo.current[Index].latlng);
+		});
+
+		// 지도 타입 컨트롤러 추가
+		mapInstance.current.addControl(new kakao.current.maps.MapTypeControl(), kakao.current.maps.ControlPosition.TOPRIGHT);
+		// 지도 줌 컨트롤러 추가
+		mapInstance.current.addControl(new kakao.current.maps.ZoomControl(), kakao.current.maps.ControlPosition.RIGHT);
+		// 마우스 휠에 기본적으로 내장되어 있는 줌 기능 비활성화
+		mapInstance.current.setZoomable(false);
+
 		window.addEventListener('resize', setCenter);
 		return () => window.removeEventListener('resize', setCenter);
 	}, [Index]);
@@ -173,6 +198,8 @@ export default function Contact() {
 				<div className='controlBox'>
 					<nav className='traffic'>
 						<button onClick={() => setTraffic(!Traffic)}>{Traffic ? 'Traffic OFF' : 'Traffic ON'}</button>
+						<button onClick={() => setView(!View)}>{View ? 'ROAD VIEW' : 'MAP'}</button>
+						<button onClick={setCenter}>RESET</button>
 					</nav>
 					<nav className='branch'>
 						{mapInfo.current.map((el, idx) => (
@@ -187,7 +214,10 @@ export default function Contact() {
 						))}
 					</nav>
 				</div>
-				<article className='map' ref={mapFrame}></article>
+				<section className='tab'>
+					<article className={`mapBox ${View ? 'on' : ''}`} ref={mapFrame}></article>
+					<article className={`viewBox ${View ? '' : 'on'}`} ref={viewFrame}></article>
+				</section>
 				<section className='question'>
 					<article className='left'>
 						<p>FAQ</p>
