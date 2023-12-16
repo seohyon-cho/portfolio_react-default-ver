@@ -8,7 +8,7 @@
 		display: flex;
 		justify-content: space-between;
 		.info {
-			width: 45%;
+			width: 48%;
 			padding-right: 20px;
 			h1 {
 				font-family: var(--pointFont);
@@ -17,7 +17,7 @@
 				margin: 2vw 0;
 			}
 			p {
-				font-family: var(--bodyFont);
+				font-family: var(--baseFont);
 				font-size: var(--bodySize0);
 				line-height: 2;
 				margin-bottom: 4vw;

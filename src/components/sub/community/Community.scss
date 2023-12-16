@@ -1,4 +1,67 @@
 .Community {
+	.visual {
+		width: 80%;
+		min-height: 300px;
+		margin: 100px auto 200px;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+
+		.pic {
+			width: 48%;
+			border-radius: 150px 0 0 0;
+			overflow: hidden;
+			video {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.info {
+			width: 49%;
+			padding-bottom: 50px;
+
+			h1 {
+				font-family: var(--pointFont);
+				font-weight: bold;
+				font-size: var(--titSize2);
+				margin: 2vw 0;
+				padding-right: 50px;
+			}
+			p {
+				font-family: var(--baseFont);
+				font-size: var(--bodySize0);
+				line-height: 2;
+				margin-bottom: 4vw;
+			}
+		}
+		ul.numinfo {
+			display: flex;
+			width: 60%;
+			position: absolute;
+			right: 0;
+			bottom: -40px;
+			background: rgba(var(--baseColor-code), 0.8);
+			color: var(--bgColor);
+			li {
+				// border-right: 1px solid rgba(var(--bgColor-code), 0.3);
+				border-right: 1px solid transparent;
+				border-image: radial-gradient(rgba(var(--bgColor-code), 0.3) 80%, transparent) 1;
+				text-align: center;
+				width: 33.3%;
+				// padding: 20px;
+				margin: 20px 0;
+				h4 {
+					font-family: var(--baseFont);
+					font-size: var(--bodySize0);
+					font-weight: 600;
+				}
+				p {
+					font-family: var(--pointFont);
+				}
+			}
+		}
+	}
 	.wrap {
 		width: 80%;
 		height: auto;

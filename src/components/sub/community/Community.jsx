@@ -9,6 +9,7 @@ import { useCustomText } from '../../../hooks/useText';
 import postData from './dummyPosts.json';
 
 export default function Community() {
+	const path = useRef(process.env.PUBLIC_URL);
 	const changeText = useCustomText('combined');
 
 	const getLocalData = () => {
@@ -87,14 +88,39 @@ export default function Community() {
 	};
 
 	useEffect(() => {
-		//  아래 구문 쓰면 null 어쩌고 오류 뜨고 그리고 갑자기 layout 관련 classList 에 대해서 오류도 생김
-		// Post.map(el => (el.enableUpdate = false));
+		Post.map(el => (el.enableUpdate = false));
 		localStorage.setItem('post', JSON.stringify(Post));
 	}, [Post]);
 
 	return (
 		<Layout category={'HOME / COMMUNITY'} title={'Community'}>
 			<div className='Community'>
+				<div className='visual'>
+					<div className='pic'>
+						<video src={`${path.current}/img/ocean2.mp4`} loop autoPlay muted playsInline></video>
+					</div>
+					<div className='info'>
+						<h1>What People Say About Us</h1>
+						<p>
+							We are a full service creative studio specializing in photography, product styling, and creative direction. Discover the world in a new
+							way!
+						</p>
+					</div>
+					<ul className='numinfo'>
+						<li>
+							<h4>2014</h4>
+							<p>caption</p>
+						</li>
+						<li>
+							<h4>8900+</h4>
+							<p>caption</p>
+						</li>
+						<li>
+							<h4>3100+</h4>
+							<p>caption</p>
+						</li>
+					</ul>
+				</div>
 				<div className='wrap'>
 					<div className='inputSpace'>
 						<div className='inputBox'>
@@ -114,10 +140,6 @@ export default function Community() {
 					</div>
 					<div className='showSpace'>
 						{Post.map((el, idx) => {
-							/* 하단 if문 안 쓰면 title이랑 date가 null로 잡혀서 오류 뜨는데 어떻게 해결해야할지..  */
-							if (!el || !el.title || !el.date) {
-								return null;
-							}
 							const date = JSON.stringify(el.date);
 							const strDate = changeText(date?.split('T')[0].slice(1), '.');
 
