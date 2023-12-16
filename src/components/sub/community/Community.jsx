@@ -7,10 +7,19 @@ import { AiOutlineCloseSquare } from 'react-icons/ai';
 import { FaRegCheckSquare } from 'react-icons/fa';
 import { useCustomText } from '../../../hooks/useText';
 import postData from './dummyPosts.json';
+import { GrPrevious, GrNext } from 'react-icons/gr';
 
 export default function Community() {
 	const path = useRef(process.env.PUBLIC_URL);
 	const changeText = useCustomText('combined');
+
+	// pagenation 관련
+	const [CurNum, setCurNum] = useState(0); // 페이징 버튼 클릭 시, 현재 보일 페이지 번호가 담긴 state
+	const [PageNum, setPageNum] = useState(0);
+
+	const len = useRef(0); // 전체 post 갯수를 담을 참조 객체
+	const pageNum = useRef(0); // 전체 페이지 갯수를 추후에 연산해서 담을 참조 객체
+	const perNum = useRef(6); // 한 페이지당 보여질 Post 갯수
 
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
@@ -90,6 +99,13 @@ export default function Community() {
 	useEffect(() => {
 		Post.map(el => (el.enableUpdate = false));
 		localStorage.setItem('post', JSON.stringify(Post));
+
+		// 전체 Post 갯수 구하기
+		len.current = Post.length;
+
+		// 전체 페이지 버튼 갯수 구하기
+		pageNum.current = len.current % perNum.current === 0 ? len.current / perNum.current : parseInt(len.current / perNum.current) + 1;
+		setPageNum(pageNum.current);
 	}, [Post]);
 
 	return (
@@ -121,6 +137,23 @@ export default function Community() {
 						</li>
 					</ul>
 				</div>
+				<nav className='pagination'>
+					<button className='iconPrev' onClick={() => CurNum > 0 && setCurNum(CurNum - 1)}>
+						<GrPrevious />
+					</button>
+					{Array(PageNum)
+						.fill()
+						.map((_, idx) => {
+							return (
+								<button key={idx} onClick={() => idx !== CurNum && setCurNum(idx)} className={idx === CurNum ? 'on' : ''}>
+									{idx + 1}
+								</button>
+							);
+						})}
+					<button className='iconNext' onClick={() => CurNum + 1 < PageNum && setCurNum(CurNum + 1)}>
+						<GrNext />
+					</button>
+				</nav>
 				<div className='wrap'>
 					<div className='inputSpace'>
 						<div className='inputBox'>
@@ -143,53 +176,59 @@ export default function Community() {
 							const date = JSON.stringify(el.date);
 							const strDate = changeText(date?.split('T')[0].slice(1), '.');
 
-							if (el.enableUpdate) {
+							if (idx >= perNum.current * CurNum && idx < perNum.current * (CurNum + 1)) {
 								return (
 									<article key={el + idx}>
-										<h1>
-											<input type='text' defaultValue={el.title} ref={refEditTit} />
-										</h1>
-										<p className='time'>{strDate}</p>
-										<p className='txt'>
-											<textarea cols='30' rows='10' defaultValue={el.content} ref={refEditCon}></textarea>
-										</p>
-										<div className='profile'>
-											<IoPersonCircleOutline className='icon' />
-											<p className='name'>
-												<input type='text' defaultValue={el.username} ref={refEditUser} />
-											</p>
-										</div>
-										<nav>
-											{/* 수정모드일 때 해당 버튼 클릭 시 다시 출력모드 변경 */}
-											<button onClick={() => disableUpdate(idx)}>
-												<AiOutlineCloseSquare />
-											</button>
-											<button onClick={() => updatePost(idx)}>
-												<FaRegCheckSquare />
-											</button>
-										</nav>
+										{el.enableUpdate ? (
+											// 수정 모드
+											<>
+												<h1>
+													<input type='text' defaultValue={el.title} ref={refEditTit} />
+												</h1>
+												<p className='time'>{strDate}</p>
+												<p className='txt'>
+													<textarea cols='30' rows='10' defaultValue={el.content} ref={refEditCon}></textarea>
+												</p>
+												<div className='profile'>
+													<IoPersonCircleOutline className='icon' />
+													<p className='name'>
+														<input type='text' defaultValue={el.username} ref={refEditUser} />
+													</p>
+												</div>
+												<nav>
+													{/* 수정모드일 때 해당 버튼 클릭 시 다시 출력모드 변경 */}
+													<button onClick={() => disableUpdate(idx)}>
+														<AiOutlineCloseSquare />
+													</button>
+													<button onClick={() => updatePost(idx)}>
+														<FaRegCheckSquare />
+													</button>
+												</nav>
+											</>
+										) : (
+											// 출력 모드
+											<>
+												<h1>{el.title}</h1>
+												<p className='time'>{strDate}</p>
+												<p className='txt'>{el.content}</p>
+												<div className='profile'>
+													<IoPersonCircleOutline className='icon' />
+													<p className='name'>{el.username}</p>
+												</div>
+												<nav>
+													<button onClick={() => enableUpdate(idx)}>
+														<FiEdit />
+													</button>
+													<button onClick={() => deletePost(idx)}>
+														<FiTrash />
+													</button>
+												</nav>
+											</>
+										)}
 									</article>
 								);
 							} else {
-								return (
-									<article key={el + idx}>
-										<h1>{el.title}</h1>
-										<p className='time'>{strDate}</p>
-										<p className='txt'>{el.content}</p>
-										<div className='profile'>
-											<IoPersonCircleOutline className='icon' />
-											<p className='name'>{el.username}</p>
-										</div>
-										<nav>
-											<button onClick={() => enableUpdate(idx)}>
-												<FiEdit />
-											</button>
-											<button onClick={() => deletePost(idx)}>
-												<FiTrash />
-											</button>
-										</nav>
-									</article>
-								);
+								return null;
 							}
 						})}
 					</div>
