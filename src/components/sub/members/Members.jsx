@@ -45,7 +45,7 @@ export default function Members() {
 		const spc = /[~!@#$%^&*()_.+]/;
 
 		if (!num.test(value.pwd1) || !txt.test(value.pwd1) || !spc.test(value.pwd1) || value.pwd1.length < 5)
-			errs.pwd1 = '비밀번호는 특수문자, 영문자, 숫자를 모두 포함하여 5글자 이상 입력하세요.';
+			errs.pwd1 = '특수문자, 영문자, 숫자를 포함하여 5글자 이상 입력하세요.';
 		if (value.pwd1 !== value.pwd2 || !value.pwd2) errs.pwd2 = '입력한 비밀번호가 일치하지 않습니다.';
 		if (value.userid.length < 5) errs.userid = '아이디는 최소 5글자 이상 입력하세요.';
 		if (value.comments.length < 10) errs.comments = '코멘트는 최소 10글자 이상 입력하세요.';
@@ -61,7 +61,7 @@ export default function Members() {
 	};
 
 	const handleCancel = () => {
-		setVal(!initVal.current);
+		setVal(initVal.current);
 	};
 
 	const handleSubmit = e => {
