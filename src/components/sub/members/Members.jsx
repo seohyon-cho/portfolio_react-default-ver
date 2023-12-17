@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Members.scss';
+import { useHistory } from 'react-router-dom';
+import { useDebounce } from '../../../hooks/useDebounce';
 
 export default function Members() {
+	const history = useHistory();
 	const initVal = useRef({
 		userid: '',
 		email: '',
@@ -15,6 +18,7 @@ export default function Members() {
 	});
 
 	const [Val, setVal] = useState(initVal.current);
+	const DebouncedVal = useDebounce(Val, 500);
 	const [Errs, setErrs] = useState({});
 
 	// 실시간으로 이루어짐.
@@ -34,20 +38,45 @@ export default function Members() {
 
 	// 인증 절차 로직
 	const check = value => {
+		console.log('check!');
 		const errs = {};
+		const num = /[0-9]/;
+		const txt = /[a-zA-Z]/;
+		const spc = /[~!@#$%^&*()_.+]/;
+
+		if (!num.test(value.pwd1) || !txt.test(value.pwd1) || !spc.test(value.pwd1) || value.pwd1.length < 5)
+			errs.pwd1 = '비밀번호는 특수문자, 영문자, 숫자를 모두 포함하여 5글자 이상 입력하세요.';
+		if (value.pwd1 !== value.pwd2 || !value.pwd2) errs.pwd2 = '입력한 비밀번호가 일치하지 않습니다.';
 		if (value.userid.length < 5) errs.userid = '아이디는 최소 5글자 이상 입력하세요.';
 		if (value.comments.length < 10) errs.comments = '코멘트는 최소 10글자 이상 입력하세요.';
 		if (!value.gender) errs.gender = '성별을 선택해주세요.';
 		if (!value.interest.length) errs.interest = '관심분야를 한 가지 이상 선택하세요.';
 		if (!value.edu) errs.edu = '최종 학력을 선택하세요.';
 
+		const [m1, m2] = value.email.split('@');
+		const m3 = m2 && m2.split('.');
+		if (!m1 || !m2 || !m3[0] || !m3[1]) errs.email = '올바른 이메일 형식을 입력하세요.';
+
 		return errs;
+	};
+
+	const handleCancel = () => {
+		setVal(!initVal.current);
+	};
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		if (Object.keys(check(Val)).length === 0) {
+			alert('회원가입을 축하합니다!');
+			history.push('/');
+		}
 	};
 
 	useEffect(() => {
 		console.log(Val);
-		setErrs(check(Val));
-	}, [Val]);
+		setErrs(check(DebouncedVal));
+	}, [DebouncedVal]);
+
 	return (
 		<Layout category={'HOME / MEMBERS'} title={'Join with Us'}>
 			<div className='Members'>
@@ -70,13 +99,15 @@ export default function Members() {
 												{Errs.email && <p>{Errs.email}</p>}
 											</td>
 										</tr>
-										{/* pwd1, pwd3 */}
+										{/* pwd1, pwd2 */}
 										<tr>
 											<td>
 												<input type='password' name='pwd1' placeholder='Password' value={Val.pwd1} onChange={handleChange} />
+												{Errs.pwd1 && <p>{Errs.pwd1}</p>}
 											</td>
 											<td>
 												<input type='password' name='pwd2' placeholder='Re-Password' value={Val.pwd2} onChange={handleChange} />
+												{Errs.pwd2 && <p>{Errs.pwd2}</p>}
 											</td>
 										</tr>
 										{/* edu */}
@@ -106,16 +137,16 @@ export default function Members() {
 										{/* interests */}
 										<tr>
 											<td colSpan='2'>
-												<input type='checkbox' name='interest' id='sports' defaultValue='sports' onChange={handleChange} />
+												<input type='checkbox' name='interest' id='sports' defaultValue='sports' onChange={handleCheck} />
 												<label htmlFor='sports'>Sports</label>
 
-												<input type='checkbox' name='interest' id='reading' defaultValue='reading' onChange={handleChange} />
+												<input type='checkbox' name='interest' id='reading' defaultValue='reading' onChange={handleCheck} />
 												<label htmlFor='reading'>Reading</label>
 
-												<input type='checkbox' name='interest' id='music' defaultValue='music' onChange={handleChange} />
+												<input type='checkbox' name='interest' id='music' defaultValue='music' onChange={handleCheck} />
 												<label htmlFor='music'>Music</label>
 
-												<input type='checkbox' name='interest' id='game' defaultValue='game' onChange={handleChange} />
+												<input type='checkbox' name='interest' id='game' defaultValue='game' onChange={handleCheck} />
 												<label htmlFor='game'>Game</label>
 												{Errs.interest && <p>{Errs.interest}</p>}
 											</td>
@@ -136,8 +167,8 @@ export default function Members() {
 										{/* button */}
 										<tr>
 											<td colSpan='2'>
-												<input type='reset' value='Cancel' className='button' />
-												<input type='submit' value='Submit' className='button' />
+												<input type='reset' value='Cancel' className='button' onClick={handleCancel} />
+												<input type='submit' value='Submit' className='button' onClick={handleSubmit} />
 											</td>
 										</tr>
 									</tbody>
