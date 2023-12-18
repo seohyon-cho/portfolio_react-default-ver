@@ -112,7 +112,7 @@ export default function Community() {
 			<div className='Community'>
 				<div className='visual'>
 					<div className='pic'>
-						<img src={`${path.current}/img/person1.jpg`} alt='person image' />
+						<img src={`${path.current}/img/person1.jpg`} alt='person' />
 						{/* <video src={`${path.current}/img/ocean2.mp4`} loop autoPlay muted playsInline></video> */}
 					</div>
 					<div className='info'>
@@ -137,23 +137,6 @@ export default function Community() {
 						</li>
 					</ul>
 				</div>
-				{/* <nav className='pagination'>
-					<button className='iconPrev' onClick={() => CurNum > 0 && setCurNum(CurNum - 1)}>
-						<GrPrevious />
-					</button>
-					{Array(PageNum)
-						.fill()
-						.map((_, idx) => {
-							return (
-								<button key={idx} onClick={() => idx !== CurNum && setCurNum(idx)} className={idx === CurNum ? 'on' : ''}>
-									{idx + 1}
-								</button>
-							);
-						})}
-					<button className='iconNext' onClick={() => CurNum + 1 < PageNum && setCurNum(CurNum + 1)}>
-						<GrNext />
-					</button>
-				</nav> */}
 				<div className='wrap'>
 					<div className='inputSpace'>
 						<div className='inputBox'>
