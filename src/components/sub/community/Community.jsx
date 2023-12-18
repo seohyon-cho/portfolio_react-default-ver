@@ -112,7 +112,8 @@ export default function Community() {
 			<div className='Community'>
 				<div className='visual'>
 					<div className='pic'>
-						<video src={`${path.current}/img/ocean2.mp4`} loop autoPlay muted playsInline></video>
+						<img src={`${path.current}/img/person1.jpg`} alt='person image' />
+						{/* <video src={`${path.current}/img/ocean2.mp4`} loop autoPlay muted playsInline></video> */}
 					</div>
 					<div className='info'>
 						<h1>What People Say About Us</h1>
