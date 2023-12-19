@@ -113,12 +113,12 @@
 			// height: auto;
 			padding: 30px 3vw;
 			.frame {
-				padding: 5vw 2vw;
+				padding: 6vw 2vw;
 				// width: 100%;
 				min-height: 300px;
 				// border: 2.5px solid rgba(var(--baseColor-code), 0.5);
 				h1 {
-					margin-bottom: 5vw;
+					margin-bottom: 6vw;
 					// font-family: var(--pointFont);
 					// color: var(--bgColor);
 					font-size: var(--subTitSize);
@@ -221,12 +221,12 @@
 			// height: auto;
 			padding: 20px 0;
 			.frame {
-				padding: 4vw 1vw;
+				padding: 6vw 1vw 10vw;
 				// width: 100%;
 				min-height: 200px;
 				// border: 2.5px solid rgba(var(--baseColor-code), 0.5);
 				h1 {
-					margin-bottom: 4vw;
+					margin-bottom: 6vw;
 					// font-family: var(--pointFont);
 					// color: var(--bgColor);
 					font-size: var(--subTitSize2);
@@ -246,6 +246,7 @@
 							&:nth-child(4),
 							&:nth-child(5) {
 								td {
+									padding-bottom: 3vw;
 									display: flex;
 									flex-wrap: wrap;
 									align-items: center;
