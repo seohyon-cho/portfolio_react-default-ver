@@ -1,44 +1,44 @@
 {
-  "Director": [
-    {
-      "name": "David",
-      "position": "Director",
-      "pic": "member8.jpg"
-    },
-    {
-      "name": "Julia",
-      "position": "Director",
-      "pic": "member7.jpg"
-    },
-    {
-      "name": "Emily",
-      "position": "Director",
-      "pic": "member6.jpg"
-    },
-    {
-      "name": "Michael",
-      "position": "Director",
-      "pic": "member5.jpg"
-    },
-    {
-      "name": "Emma",
-      "position": "Director",
-      "pic": "member4.jpg"
-    },
-    {
-      "name": "Peter",
-      "position": "Director",
-      "pic": "member3.jpg"
-    },
-    {
-      "name": "Alice",
-      "position": "Director",
-      "pic": "member2.jpg"
-    },
-    {
-      "name": "Kate",
-      "position": "Director",
-      "pic": "member1.jpg"
-    }
-  ]
+	"Director": [
+		{
+			"name": "Amber",
+			"position": "Director",
+			"pic": "member8.jpg"
+		},
+		{
+			"name": "Julia",
+			"position": "Director",
+			"pic": "member7.jpg"
+		},
+		{
+			"name": "Emily",
+			"position": "Director",
+			"pic": "member6.jpg"
+		},
+		{
+			"name": "Michael",
+			"position": "Director",
+			"pic": "member5.jpg"
+		},
+		{
+			"name": "Emma",
+			"position": "Director",
+			"pic": "member4.jpg"
+		},
+		{
+			"name": "Peter",
+			"position": "Director",
+			"pic": "member3.jpg"
+		},
+		{
+			"name": "Alice",
+			"position": "Director",
+			"pic": "member2.jpg"
+		},
+		{
+			"name": "Kate",
+			"position": "Director",
+			"pic": "member1.jpg"
+		}
+	]
 }
