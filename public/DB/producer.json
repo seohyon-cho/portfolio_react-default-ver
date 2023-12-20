@@ -1,0 +1,44 @@
+{
+	"Producer": [
+		{
+			"name": "David",
+			"position": "Producer",
+			"pic": "member3.jpg"
+		},
+		{
+			"name": "Julia",
+			"position": "Producer",
+			"pic": "member5.jpg"
+		},
+		{
+			"name": "Emily",
+			"position": "Producer",
+			"pic": "member1.jpg"
+		},
+		{
+			"name": "Michael",
+			"position": "Producer",
+			"pic": "member2.jpg"
+		},
+		{
+			"name": "Emma",
+			"position": "Producer",
+			"pic": "member8.jpg"
+		},
+		{
+			"name": "Peter",
+			"position": "Producer",
+			"pic": "member4.jpg"
+		},
+		{
+			"name": "Alice",
+			"position": "Producer",
+			"pic": "member6.jpg"
+		},
+		{
+			"name": "Kate",
+			"position": "Producer",
+			"pic": "member7.jpg"
+		}
+	]
+}

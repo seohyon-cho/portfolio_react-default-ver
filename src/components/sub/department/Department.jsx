@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
+import { IoIosMail, IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
 
 export default function Department() {
 	const path = useRef(process.env.PUBLIC_URL);
@@ -47,7 +48,7 @@ export default function Department() {
 						</div>
 						<div className='person2'>
 							<div className='img'>
-								<img src={`${path.current}/img/member4.jpg`} alt='member4' />
+								<img src={`${path.current}/img/member2.jpg`} alt='member4' />
 							</div>
 							<div className='comment'>
 								<p className='caption1'>Fabian Alexander</p>
@@ -97,12 +98,12 @@ export default function Department() {
 						</li>
 						<li>
 							<h2
-								style={{ opacity: SelectedCategory === 'Photographer' ? 0.8 : 0.3 }}
+								style={{ opacity: SelectedCategory === 'Producer' ? 0.8 : 0.3 }}
 								onClick={() => {
-									setSelectedCategory('Photographer');
-									fetchDepartment(`${path.current}/DB/photographer.json`);
+									setSelectedCategory('Producer');
+									fetchDepartment(`${path.current}/DB/producer.json`);
 								}}>
-								#Photographer
+								#Producer
 							</h2>
 						</li>
 					</ul>
@@ -110,7 +111,7 @@ export default function Department() {
 						<section className='textPart'>
 							<div className='textBox'>
 								<p>CREATIVE TECHNOLOGY</p>
-								<h3>We set up teams to shape your identity, push your idea!</h3>
+								<h3>We set up teams to shape your identity, Push your idea!</h3>
 								<span>&copy; CREATIVE LAB.</span>
 							</div>
 						</section>
@@ -121,8 +122,27 @@ export default function Department() {
 										<div className='pic'>
 											<img src={`${path.current}/img/${member.pic}`} alt={member.name} />
 										</div>
-										<h3>{member.name}</h3>
-										<p>{member.position}</p>
+										<div className='memberInfo'>
+											<h3>{member.name}</h3>
+											<p>{member.position}</p>
+										</div>
+										<ul className='social'>
+											<li>
+												<a href='https://www.gmail.com' target='_blank' rel='noopener noreferrer'>
+													<IoIosMail className='icon' />
+												</a>
+											</li>
+											<li>
+												<a href='https://www.instagram.com' target='_blank' rel='noopener noreferrer'>
+													<IoLogoInstagram className='icon' />
+												</a>
+											</li>
+											<li>
+												<a href='https://www.facebook.com' target='_blank' rel='noopener noreferrer'>
+													<IoLogoFacebook className='icon' />
+												</a>
+											</li>
+										</ul>
 									</article>
 								);
 							})}
