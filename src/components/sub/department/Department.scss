@@ -1,6 +1,5 @@
 .Department {
 	.topCont {
-		// border: 1px solid red;
 		display: flex;
 		width: 80%;
 		margin: 120px auto 200px;
@@ -147,7 +146,6 @@
 		margin: 0 auto 200px;
 		.memberCategory {
 			width: 100%;
-			margin: 0 auto;
 			display: flex;
 			justify-content: right;
 			gap: 2vw;
@@ -164,16 +162,11 @@
 		.content {
 			width: 100%;
 			display: flex;
-			// background: rgba(var(--pointColor-code), 0.2);
 			.textPart {
 				width: 35%;
 				padding-right: 2vw;
 				.textBox {
 					width: 100%;
-					// background: var(--pointColor);
-					// padding: 50px 25px;
-					// color: white;
-
 					p {
 						font-size: 1.2vw;
 						font-weight: 300;
@@ -202,13 +195,12 @@
 				article {
 					margin-bottom: 1.5vw;
 					width: 45%;
-					background: white;
 					position: relative;
 					div.memberInfo {
 						width: 100%;
 						padding-left: 1.5vw;
 						position: absolute;
-						left: 0;
+						left: 1vw;
 						top: 1vw;
 						text-shadow: 0px 0px 1px white;
 						color: #111;
@@ -232,9 +224,8 @@
 							transition: 0.3s;
 							line-height: 0.6;
 							padding: 0.5vw 0;
-							color: black;
-							// background: rgba(255, 255, 255, 1);
-							background: rgba(var(--pointColor-code), 0.1);
+							color: var(--baseColor);
+							background: rgba(var(--pointColor-code), 0.2);
 							&:nth-child(2) {
 								border-left: none;
 								border-right: none;
@@ -246,9 +237,8 @@
 							cursor: pointer;
 							&:hover {
 								flex: 2.5;
-								// background: rgba(18, 18, 18, 0.9);
 								background: rgba(var(--pointColor-code), 0.7);
-								color: white;
+								color: var(--bgColor);
 							}
 						}
 					}
@@ -268,36 +258,6 @@
 						}
 					}
 				}
-
-				// article {
-				// 	width: 30%;
-				// 	margin-bottom: 50px;
-				// 	text-align: center;
-				// 	background: white;
-				// 	.pic {
-				// 		width: 100%;
-				// 		height: 200px;
-				// 		margin-bottom: 10px;
-
-				// 		img {
-				// 			width: 100%;
-				// 			height: 100%;
-				// 			object-fit: cover;
-				// 		}
-				// 	}
-				// 	h3 {
-				// 		font-weight: 600;
-				// 		margin-bottom: 5px;
-				// 		font-size: var(--bodySize1);
-				// 		color: rgba(0, 0, 0, 0.8);
-				// 	}
-				// 	p {
-				// 		margin-bottom: 15px;
-				// 		font-weight: 300;
-				// 		font-size: var(--bodySize2);
-				// 		color: rgba(0, 0, 0, 0.8);
-				// 	}
-				// }
 			}
 		}
 	}
@@ -305,10 +265,10 @@
 .tablet {
 	.Department {
 		.topCont {
-			width: 90%;
+			width: 80%;
 			.imgBox {
-				width: 40%;
-				left: 30px;
+				width: 50%;
+				left: 20px;
 				.person1 {
 					width: 50%;
 					height: 200px;
@@ -322,52 +282,82 @@
 			.textBox {
 				text-align: center;
 				width: 60%;
-				padding: 40px 60px 80px;
+				padding: 40px 40px 50px;
+				.con {
+					article {
+						h3 {
+							font-size: 3.6vw;
+						}
+						ul {
+							li {
+								font-size: 2vw;
+							}
+						}
+					}
+				}
 			}
 			.textBox:after {
 				top: 80px;
 				right: -80px;
 			}
 		}
-		// .bottomCont {
-		// 	.memberCategory {
-		// 		gap: 30px;
-		// 		padding-right: 20px;
-		// 		li {
-		// 			h2 {
-		// 				font-size: var(--subTitSize2);
-		// 			}
-		// 		}
-		// 	}
-		// 	.content {
-		// 		.textPart {
-		// 			width: 33%;
-		// 			.textBox {
-		// 				width: 85%;
-		// 				min-height: 200px;
-		// 				padding: 35px 25px;
-		// 				top: 5.5%;
-
-		// 				p {
-		// 					font-size: var(--bodySize2);
-		// 				}
-		// 				h3 {
-		// 					font-size: var(--bodySize0);
-		// 					line-height: 1.5;
-		// 					font-weight: 500;
-		// 				}
-		// 				span {
-		// 					font-size: var(--bodySize2);
-		// 				}
-		// 			}
-		// 		}
-		// 		.memberIntro {
-		// 			width: 67%;
-		// 			min-height: 500px;
-		// 			padding-bottom: 50px;
-		// 		}
-		// 	}
-		// }
+		.bottomCont {
+			margin: 0 auto 120px;
+			.memberCategory {
+				padding: 25px 0;
+				li {
+					h2 {
+						font-size: 2.8vw;
+					}
+				}
+			}
+			.content {
+				flex-direction: column;
+				.textPart {
+					width: 100%;
+					padding-bottom: 3vw;
+					margin-bottom: 6vw;
+					border-bottom: 1px solid transparent;
+					border-image: radial-gradient(rgba(var(--baseColor-code), 0.3) 80%, transparent) 1;
+					.textBox {
+						p {
+							font-size: 1.4vw;
+						}
+						h3 {
+							font-size: 5vw;
+						}
+						span {
+							font-size: 1.4vw;
+						}
+					}
+				}
+				.memberIntro {
+					border: none;
+					padding: 0;
+					width: 100%;
+					article {
+						width: 47%;
+						background: none;
+						div.memberInfo {
+							h3 {
+								font-size: 3.3vw;
+							}
+							p {
+								font-size: 1.8vw;
+							}
+						}
+						ul.social {
+							li {
+								padding: 1vw 0;
+							}
+						}
+						.pic {
+							height: 40vw;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -400,13 +390,24 @@
 					position: relative;
 				}
 			}
-
 			.textBox {
-				width: 100%;
-				padding: 50px 30px 80px;
 				text-align: center;
+				width: 100%;
+				padding: 30px 20px 50px;
+				h2 {
+					font-size: 11vw;
+				}
 				.con {
-					gap: 20px;
+					article {
+						h3 {
+							font-size: 8vw;
+						}
+						ul {
+							li {
+								font-size: 3.6vw;
+							}
+						}
+					}
 				}
 			}
 			.textBox:after {
@@ -414,44 +415,66 @@
 				top: 90px;
 			}
 		}
-		// .bottomCont {
-		// 	.memberCategory {
-		// 		gap: 15px;
-		// 		padding-right: 10px;
-		// 		li {
-		// 			h2 {
-		// 				font-size: var(--bodySize0);
-		// 			}
-		// 		}
-		// 	}
-		// 	.content {
-		// 		flex-direction: column;
-		// 		.textPart {
-		// 			width: 100%;
-		// 			min-height: 0;
-		// 			.textBox {
-		// 				margin-top: 40px;
-		// 				width: 55%;
-		// 				min-height: 0;
-		// 				padding: 20px;
-		// 				top: 0;
-
-		// 				p {
-		// 					font-size: var(--bodySize2);
-		// 				}
-		// 				h3 {
-		// 					font-size: var(--bodySize0);
-		// 				}
-		// 				span {
-		// 					font-size: var(--bodySize2);
-		// 				}
-		// 			}
-		// 		}
-		// 		.memberIntro {
-		// 			width: 100%;
-		// 			padding-bottom: 20px;
-		// 		}
-		// 	}
-		// }
+		.bottomCont {
+			margin: 0 auto 60px;
+			.memberCategory {
+				padding: 25px 0;
+				li {
+					h2 {
+						font-size: 3.4vw;
+					}
+				}
+			}
+			.content {
+				flex-direction: column;
+				.textPart {
+					width: 100%;
+					padding-bottom: 3vw;
+					margin-bottom: 10vw;
+					border-bottom: 1px solid transparent;
+					border-image: radial-gradient(rgba(var(--baseColor-code), 0.3) 80%, transparent) 1;
+					.textBox {
+						p {
+							font-size: 2.2vw;
+						}
+						h3 {
+							font-size: 7vw;
+						}
+						span {
+							font-size: 2.2vw;
+						}
+					}
+				}
+				.memberIntro {
+					border: none;
+					padding: 0;
+					width: 100%;
+					article {
+						margin-bottom: 10vw;
+						width: 100%;
+						background: none;
+						div.memberInfo {
+							h3 {
+								font-size: 6.6vw;
+							}
+							p {
+								font-size: 3.3vw;
+							}
+						}
+						ul.social {
+							li {
+								padding: 1.2vw 0;
+								.icon {
+									font-size: 7vw;
+								}
+							}
+						}
+						.pic {
+							height: 65vw;
+						}
+					}
+				}
+			}
+		}
 	}
 }
