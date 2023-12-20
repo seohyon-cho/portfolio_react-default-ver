@@ -1,37 +1,34 @@
 import { useEffect, useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
-import Category1 from './memberCategory/Category1';
-import Category2 from './memberCategory/Category2';
-import Category3 from './memberCategory/Category3';
 
 export default function Department() {
 	const path = useRef(process.env.PUBLIC_URL);
-	const [SelectedCategory, setSelectedCategory] = useState('Category1');
 	const [HistoryTit, setHistoryTit] = useState('');
 	const [HistoryData, setHistoryData] = useState([]);
+	const [MemberTit, setMemberTit] = useState('');
+	const [MemberData, setMemberData] = useState([]);
+	const [SelectedCategory, setSelectedCategory] = useState('Designer');
 
-	const categoryComponents = {
-		Category1: <Category1 />,
-		Category2: <Category2 />,
-		Category3: <Category3 />,
+	const fetchDepartment = async (file = `${path.current}/DB/designer.json`) => {
+		const data = await fetch(file);
+		const json = await data.json();
+		setMemberTit(Object.keys(json)[0]);
+		setMemberData(Object.values(json)[0]);
 	};
 
 	const fetchHistory = () => {
 		fetch(`${path.current}/DB/history.json`)
-			.then((data) => data.json())
-			.then((json) => {
+			.then(data => data.json())
+			.then(json => {
 				setHistoryTit(Object.keys(json)[0]);
 				setHistoryData(Object.values(json)[0]);
 			});
 	};
 
-	const handleButtonClick = (category) => {
-		setSelectedCategory(category);
-	};
-
 	useEffect(() => {
 		fetchHistory();
+		fetchDepartment();
 	}, []);
 
 	return (
@@ -80,27 +77,31 @@ export default function Department() {
 					<ul className='memberCategory'>
 						<li>
 							<h2
-								style={{ color: SelectedCategory === 'Category1' ? 'rgba(var(--baseColor-code), 0.8)' : 'rgba(var(--baseColor-code), 0.3)' }}
+								style={{ opacity: SelectedCategory === 'Designer' ? 0.8 : 0.3 }}
 								onClick={() => {
-									handleButtonClick('Category1');
-								}}
-							>
+									setSelectedCategory('Designer');
+									fetchDepartment(`${path.current}/DB/designer.json`);
+								}}>
 								#Designer
 							</h2>
 						</li>
 						<li>
 							<h2
-								style={{ color: SelectedCategory === 'Category2' ? 'rgba(var(--baseColor-code), 0.8)' : 'rgba(var(--baseColor-code), 0.3)' }}
-								onClick={() => handleButtonClick('Category2')}
-							>
+								style={{ opacity: SelectedCategory === 'Director' ? 0.8 : 0.3 }}
+								onClick={() => {
+									setSelectedCategory('Director');
+									fetchDepartment(`${path.current}/DB/director.json`);
+								}}>
 								#Director
 							</h2>
 						</li>
 						<li>
 							<h2
-								style={{ color: SelectedCategory === 'Category3' ? 'rgba(var(--baseColor-code), 0.8)' : 'rgba(var(--baseColor-code), 0.3)' }}
-								onClick={() => handleButtonClick('Category3')}
-							>
+								style={{ opacity: SelectedCategory === 'Photographer' ? 0.8 : 0.3 }}
+								onClick={() => {
+									setSelectedCategory('Photographer');
+									fetchDepartment(`${path.current}/DB/photographer.json`);
+								}}>
 								#Photographer
 							</h2>
 						</li>
@@ -113,7 +114,19 @@ export default function Department() {
 								<span>&copy; CREATIVE LAB.</span>
 							</div>
 						</section>
-						<section className='memberIntro'>{categoryComponents[SelectedCategory]}</section>
+						<section className='memberIntro'>
+							{MemberData.map((member, idx) => {
+								return (
+									<article key={member + idx}>
+										<div className='pic'>
+											<img src={`${path.current}/img/${member.pic}`} alt={member.name} />
+										</div>
+										<h3>{member.name}</h3>
+										<p>{member.position}</p>
+									</article>
+								);
+							})}
+						</section>
 					</div>
 				</section>
 			</div>

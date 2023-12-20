@@ -7,10 +7,6 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import React from 'react';
 
 export default function Youtube() {
-	// const pid_2023 = 'PLIenA9X9sYejFq450_Ofy4x7tImW-3PUl';
-	// const pid_2022 = 'PLIenA9X9sYejNn5U9ovCvLIyT9BEkoA_L';
-	// const pid_2021 = 'PLIenA9X9sYehUWVqjgWzxctrghO8F6mIq';
-
 	const customText = useCustomText('combined');
 	const shortenText = useCustomText('short');
 	const [Vids, setVids] = useState([]);
@@ -76,8 +72,7 @@ export default function Youtube() {
 									fetchYoutube();
 									setSelectedYear(null);
 								}}
-								className={SelectedYear === null ? 'on' : ''}
-							>
+								className={SelectedYear === null ? 'on' : ''}>
 								All
 							</li>
 							<li
@@ -85,8 +80,7 @@ export default function Youtube() {
 									fetchYoutube('PLIenA9X9sYejFq450_Ofy4x7tImW-3PUl');
 									setSelectedYear(2023);
 								}}
-								className={SelectedYear === 2023 ? 'on' : ''}
-							>
+								className={SelectedYear === 2023 ? 'on' : ''}>
 								2023
 							</li>
 							<li
@@ -94,8 +88,7 @@ export default function Youtube() {
 									fetchYoutube('PLIenA9X9sYejNn5U9ovCvLIyT9BEkoA_L');
 									setSelectedYear(2022);
 								}}
-								className={SelectedYear === 2022 ? 'on' : ''}
-							>
+								className={SelectedYear === 2022 ? 'on' : ''}>
 								2022
 							</li>
 							<li
@@ -103,8 +96,7 @@ export default function Youtube() {
 									fetchYoutube('PLIenA9X9sYehUWVqjgWzxctrghO8F6mIq');
 									setSelectedYear(2021);
 								}}
-								className={SelectedYear === 2021 ? 'on' : ''}
-							>
+								className={SelectedYear === 2021 ? 'on' : ''}>
 								2021
 							</li>
 						</ul>

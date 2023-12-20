@@ -20,9 +20,9 @@ export default function Footer() {
 					<li>
 						<ul className='Link2'>
 							<h3>About Us</h3>
-							<li>Career</li>
-							<li>Our Blog</li>
-							<li>Affiliates</li>
+							<li>Gallery</li>
+							<li>Youtube</li>
+							<li>Department</li>
 						</ul>
 					</li>
 					<li>
