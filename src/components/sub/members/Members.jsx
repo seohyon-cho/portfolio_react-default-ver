@@ -73,7 +73,6 @@ export default function Members() {
 	};
 
 	useEffect(() => {
-		console.log(Val);
 		setErrs(check(DebouncedVal));
 	}, [DebouncedVal]);
 

@@ -12,7 +12,7 @@ export default function Layout({ children, title, category }) {
 		setTimeout(() => {
 			refFrame.current.classList.add('on');
 		}, 300);
-	}, []);
+	}, [splitText, title]);
 
 	return (
 		<main ref={refFrame} className={`Layout ${title}`}>

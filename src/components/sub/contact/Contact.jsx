@@ -3,7 +3,7 @@ import './Contact.scss';
 import { IoIosCall } from 'react-icons/io';
 import { IoLocationSharp, IoChatbubblesSharp } from 'react-icons/io5';
 import emailjs from '@emailjs/browser';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AiFillMinusSquare, AiFillPlusSquare } from 'react-icons/ai';
 
 export default function Contact() {
@@ -47,16 +47,16 @@ export default function Contact() {
 	};
 
 	// kakao map part
-	const roadview = () => {
+	const roadview = useRef(() => {
 		new kakao.current.maps.RoadviewClient().getNearestPanoId(mapInfo.current[Index].latlng, 50, panoId => {
 			new kakao.current.maps.Roadview(viewFrame.current).setPanoId(panoId, mapInfo.current[Index].latlng);
 		});
-	};
+	});
 
-	const setCenter = () => {
+	const setCenter = useCallback(() => {
 		mapInstance.current.setCenter(mapInfo.current[Index].latlng);
-		roadview();
-	};
+		roadview.current();
+	}, [Index]);
 
 	const mapInfo = useRef([
 		{
@@ -108,7 +108,7 @@ export default function Contact() {
 		marker.current.setMap(mapInstance.current);
 		setTraffic(false);
 		setView(true);
-		roadview();
+		roadview.current();
 
 		new kakao.current.maps.RoadviewClient().getNearestPanoId(mapInfo.current[Index].latlng, 50, panoId => {
 			new kakao.current.maps.Roadview(viewFrame.current).setPanoId(panoId, mapInfo.current[Index].latlng);
@@ -123,7 +123,7 @@ export default function Contact() {
 
 		window.addEventListener('resize', setCenter);
 		return () => window.removeEventListener('resize', setCenter);
-	}, [Index]);
+	}, [Index, setCenter]);
 
 	useEffect(() => {
 		Traffic

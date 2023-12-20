@@ -26,7 +26,6 @@ export default function Youtube() {
 			const data = await fetch(baseURL);
 			const json = await data.json();
 			setVids(json.items);
-			console.log(json.items);
 		} catch (err) {
 			console.error(err);
 		}

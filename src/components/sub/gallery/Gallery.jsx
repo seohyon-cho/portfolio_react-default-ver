@@ -21,19 +21,11 @@ export default function Gallery() {
 	const [Open, setOpen] = useState(false);
 	const [Index, setIndex] = useState(0);
 
-	// 버튼 클릭 시 하단으로 스크롤 이벤트
-	// const scrollToCustomSection = () => {
-	// 	scroll.scrollTo('customSection', { duration: 500, smooth: true });
-	// };
 	const customSectionRef = useRef(null);
 	const scrollToCustomSection = () => {
 		if (customSectionRef.current) {
 			customSectionRef.current.scrollIntoView({ behavior: 'smooth' });
 		}
-	};
-
-	const openModal = e => {
-		setOpen(true);
 	};
 
 	const activateBtn = e => {

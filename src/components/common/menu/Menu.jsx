@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import './Menu.scss';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -8,16 +8,16 @@ import { MdOndemandVideo, MdChatBubbleOutline } from 'react-icons/md';
 import { GrGallery } from 'react-icons/gr';
 
 export default function Menu({ setToggle }) {
-	const closeMenu = () => {
+	const closeMenu = useCallback(() => {
 		window.innerWidth >= 1000 && setToggle(false);
-	};
+	}, [setToggle]);
 
 	useEffect(() => {
 		window.addEventListener('resize', closeMenu);
 		return () => {
 			window.removeEventListener('resize', closeMenu);
 		};
-	}, []);
+	}, [closeMenu]);
 	return (
 		<AnimatePresence>
 			<motion.aside className='Menu' initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ duration: 0.5 }}>
