@@ -20,5 +20,8 @@ export const FLICKR = {
 	fail: 'FLICKR_FAIL'
 };
 export const MODAL = {
-	start: 'FLICKR_START'
+	start: 'MODAL_START'
+};
+export const MENU = {
+	start: 'MENU_START'
 };

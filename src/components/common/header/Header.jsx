@@ -1,8 +1,13 @@
 import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import './Header.scss';
 import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
+import { useSelector, useDispatch } from 'react-redux';
+import * as types from '../../../redux/actionType';
 
-export default function Header({ Dark, setDark, Toggle, setToggle }) {
+export default function Header({ Dark, setDark }) {
+	const dispatch = useDispatch();
+	const Open = useSelector(store => store.menuReducer.menu);
+
 	return (
 		<header className='Header'>
 			<h1>
@@ -42,12 +47,11 @@ export default function Header({ Dark, setDark, Toggle, setToggle }) {
 					</NavLink>
 				</li>
 				<li>
-					{/* <button onClick={() => setDark(!Dark)}>theme</button> */}
 					<div className={`themeBox ${Dark && 'dark'}`} onClick={() => setDark(!Dark)}>
 						{Dark ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
 					</div>
 				</li>
-				<li className='tabMob' onClick={() => setToggle(!Toggle)}>
+				<li className='tabMob' onClick={() => dispatch({ type: types.MENU.start, payload: !Open })}>
 					<MdMenu />
 				</li>
 			</ul>
