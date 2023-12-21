@@ -20,7 +20,6 @@ export default function Gallery() {
 	const refFrameWrap = useRef(null);
 	const searched = useRef(false);
 	const gap = useRef(20);
-	const [Open, setOpen] = useState(false);
 	const [Index, setIndex] = useState(0);
 
 	const customSectionRef = useRef(null);
@@ -122,7 +121,7 @@ export default function Gallery() {
 											<div
 												className='pic'
 												onClick={() => {
-													setOpen(true);
+													dispatch({ type: types.MODAL.start, payload: true });
 													setIndex(idx);
 												}}>
 												<div className='picframe'>
@@ -147,13 +146,12 @@ export default function Gallery() {
 					</section>
 				</div>
 			</Layout>
-			{Open && (
-				<Modal Open={Open} setOpen={setOpen}>
-					{Pics.length !== 0 && (
-						<img src={`https://live.staticflickr.com/${Pics[Index].server}/${Pics[Index].id}_${Pics[Index].secret}_b.jpg`} alt={Pics[Index].title} />
-					)}
-				</Modal>
-			)}
+
+			<Modal>
+				{Pics.length !== 0 && (
+					<img src={`https://live.staticflickr.com/${Pics[Index].server}/${Pics[Index].id}_${Pics[Index].secret}_b.jpg`} alt={Pics[Index].title} />
+				)}
+			</Modal>
 		</>
 	);
 }
