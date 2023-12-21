@@ -4,9 +4,11 @@ import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
 import { useSelector, useDispatch } from 'react-redux';
 import * as types from '../../../redux/actionType';
 
-export default function Header({ Dark, setDark }) {
+export default function Header() {
 	const dispatch = useDispatch();
-	const Open = useSelector(store => store.menuReducer.menu);
+	const { menuReducer, darkReducer } = useSelector(store => store);
+	const Open = menuReducer.menu;
+	const Dark = darkReducer.dark;
 
 	return (
 		<header className='Header'>
@@ -47,7 +49,7 @@ export default function Header({ Dark, setDark }) {
 					</NavLink>
 				</li>
 				<li>
-					<div className={`themeBox ${Dark && 'dark'}`} onClick={() => setDark(!Dark)}>
+					<div className={`themeBox ${Dark && 'dark'}`} onClick={() => dispatch({ type: types.DARK.start, payload: !Dark })}>
 						{Dark ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
 					</div>
 				</li>

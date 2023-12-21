@@ -11,14 +11,15 @@ import Gallery from './components/sub/gallery/Gallery';
 import Community from './components/sub/community/Community';
 import Members from './components/sub/members/Members';
 import Contact from './components/sub/contact/Contact';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Detail from './components/sub/youtube/Detail';
 import Menu from './components/common/menu/Menu';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as types from './redux/actionType';
 
 export default function App() {
 	const dispatch = useDispatch();
+	const Dark = useSelector(store => store.darkReducer.dark);
 	useEffect(() => {
 		dispatch({ type: types.MEMBERS.start });
 		dispatch({ type: types.HISTORY.start });
@@ -26,11 +27,9 @@ export default function App() {
 		dispatch({ type: types.FLICKR.start });
 	}, [dispatch]);
 
-	const [Dark, setDark] = useState(false);
-
 	return (
 		<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
-			<Header Dark={Dark} setDark={setDark} />
+			<Header />
 			<Route exact path='/' component={MainWrap} />
 			<Route path='/department' component={Department} />
 			<Route path='/youtube' component={Youtube} />
