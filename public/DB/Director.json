@@ -1,22 +1,22 @@
 {
-	"Director": [
+	"members": [
 		{
 			"name": "Amber",
 			"position": "Director",
 			"pic": "member8.jpg"
 		},
 		{
-			"name": "Julia",
+			"name": "Chloe",
 			"position": "Director",
 			"pic": "member7.jpg"
 		},
 		{
-			"name": "Emily",
+			"name": "Lucy",
 			"position": "Director",
 			"pic": "member6.jpg"
 		},
 		{
-			"name": "Michael",
+			"name": "Zoey",
 			"position": "Director",
 			"pic": "member5.jpg"
 		},

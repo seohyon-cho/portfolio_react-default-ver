@@ -7,14 +7,12 @@ export default function Department() {
 	const path = useRef(process.env.PUBLIC_URL);
 	const [HistoryTit, setHistoryTit] = useState('');
 	const [HistoryData, setHistoryData] = useState([]);
-	const [MemberTit, setMemberTit] = useState('');
 	const [MemberData, setMemberData] = useState([]);
 	const [SelectedCategory, setSelectedCategory] = useState('Designer');
 
 	const fetchDepartment = async (file = `${path.current}/DB/designer.json`) => {
 		const data = await fetch(file);
 		const json = await data.json();
-		setMemberTit(Object.keys(json)[0]);
 		setMemberData(Object.values(json)[0]);
 	};
 
