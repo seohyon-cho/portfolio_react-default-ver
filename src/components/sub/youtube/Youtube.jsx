@@ -1,45 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Youtube.scss';
 import { useCustomText } from '../../../hooks/useText';
 import { FaArrowRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as types from '../../../redux/actionType';
 
 export default function Youtube() {
+	const dispatch = useDispatch();
+	const Vids = useSelector(store => store.youtubeReducer.youtube);
 	const customText = useCustomText('combined');
 	const shortenText = useCustomText('short');
-	const [Vids, setVids] = useState([]);
 	const [SelectedYear, setSelectedYear] = useState(null);
-
-	// 'PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH'
-	// 2023 'PLIenA9X9sYejFq450_Ofy4x7tImW-3PUl'
-	// 2022 'PLIenA9X9sYejNn5U9ovCvLIyT9BEkoA_L'
-	// 2021 'PLIenA9X9sYehUWVqjgWzxctrghO8F6mIq'
-	const fetchYoutube = async (opt = 'PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH') => {
-		const api_key = 'AIzaSyDwxSLXdnfN8bTNC5fnycohdatm0Qk4dLM';
-		const pid = opt;
-		const num = '10';
-		const baseURL = `https://www.googleapis.com/youtube/v3/playlistItems?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
-
-		try {
-			const data = await fetch(baseURL);
-			const json = await data.json();
-			setVids(json.items);
-		} catch (err) {
-			console.error(err);
-		}
-	};
-
-	useEffect(() => {
-		fetchYoutube();
-	}, []);
 
 	return (
 		<Layout category={'HOME / YOUTUBE'} title={'Our Project'}>
 			<div className='Youtube'>
 				<section className='thumbnail'>
-					{Vids.slice(5, 6).map((data, idx) => {
+					{Vids?.slice(5, 6).map((data, idx) => {
 						return (
 							<React.Fragment key={data.id}>
 								<article className='info'>
@@ -68,7 +48,7 @@ export default function Youtube() {
 						<ul>
 							<li
 								onClick={() => {
-									fetchYoutube();
+									dispatch({ type: types.YOUTUBE.start, opt: { type: 'All' } });
 									setSelectedYear(null);
 								}}
 								className={SelectedYear === null ? 'on' : ''}>
@@ -76,7 +56,7 @@ export default function Youtube() {
 							</li>
 							<li
 								onClick={() => {
-									fetchYoutube('PLIenA9X9sYejFq450_Ofy4x7tImW-3PUl');
+									dispatch({ type: types.YOUTUBE.start, opt: { type: '2023' } });
 									setSelectedYear(2023);
 								}}
 								className={SelectedYear === 2023 ? 'on' : ''}>
@@ -84,7 +64,7 @@ export default function Youtube() {
 							</li>
 							<li
 								onClick={() => {
-									fetchYoutube('PLIenA9X9sYejNn5U9ovCvLIyT9BEkoA_L');
+									dispatch({ type: types.YOUTUBE.start, opt: { type: '2022' } });
 									setSelectedYear(2022);
 								}}
 								className={SelectedYear === 2022 ? 'on' : ''}>
@@ -92,7 +72,7 @@ export default function Youtube() {
 							</li>
 							<li
 								onClick={() => {
-									fetchYoutube('PLIenA9X9sYehUWVqjgWzxctrghO8F6mIq');
+									dispatch({ type: types.YOUTUBE.start, opt: { type: '2021' } });
 									setSelectedYear(2021);
 								}}
 								className={SelectedYear === 2021 ? 'on' : ''}>
@@ -101,7 +81,7 @@ export default function Youtube() {
 						</ul>
 					</div>
 					<div className='content'>
-						{Vids.map((data, idx) => {
+						{Vids?.map((data, idx) => {
 							const [date, time] = data.snippet.publishedAt.split('T');
 
 							return (
