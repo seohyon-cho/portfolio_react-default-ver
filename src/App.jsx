@@ -11,11 +11,25 @@ import Gallery from './components/sub/gallery/Gallery';
 import Community from './components/sub/community/Community';
 import Members from './components/sub/members/Members';
 import Contact from './components/sub/contact/Contact';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Detail from './components/sub/youtube/Detail';
 import Menu from './components/common/menu/Menu';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function App() {
+	const dispatch = useDispatch();
+	const path = useRef(process.env.PUBLIC_URL);
+
+	const fetchHistory = useCallback(async () => {
+		const data = await fetch(`${path.current}/DB/history.json`);
+		const json = await data.json();
+		dispatch({ type: 'SET_HISTORY', payload: json.history });
+	}, [dispatch]);
+
+	useEffect(() => {
+		fetchHistory();
+	}, [fetchHistory]);
+
 	const [Dark, setDark] = useState(false);
 	const [Toggle, setToggle] = useState(false);
 

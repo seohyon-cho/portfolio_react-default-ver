@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
+import { useCustomText } from '../../../hooks/useText';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
 import { IoIosMail, IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
+import { useSelector } from 'react-redux';
 
 export default function Department() {
+	const HistoryData = useSelector(store => store.historyReducer.history);
 	const path = useRef(process.env.PUBLIC_URL);
-	const [HistoryTit, setHistoryTit] = useState('');
-	const [HistoryData, setHistoryData] = useState([]);
+	const combinedTitle = useCustomText('combined');
 	const [MemberData, setMemberData] = useState([]);
 	const [SelectedCategory, setSelectedCategory] = useState('Designer');
 
@@ -16,17 +18,7 @@ export default function Department() {
 		setMemberData(Object.values(json)[0]);
 	};
 
-	const fetchHistory = () => {
-		fetch(`${path.current}/DB/history.json`)
-			.then(data => data.json())
-			.then(json => {
-				setHistoryTit(Object.keys(json)[0]);
-				setHistoryData(Object.values(json)[0]);
-			});
-	};
-
 	useEffect(() => {
-		fetchHistory();
 		fetchDepartment();
 	}, []);
 
@@ -55,9 +47,9 @@ export default function Department() {
 						</div>
 					</div>
 					<div className='textBox'>
-						<h2>{HistoryTit}</h2>
+						<h2>{combinedTitle('History')}</h2>
 						<div className='con'>
-							{HistoryData.map((history, idx) => {
+							{HistoryData?.map((history, idx) => {
 								return (
 									<article key={history + idx}>
 										<h3>{Object.keys(history)[0]}</h3>
@@ -114,7 +106,7 @@ export default function Department() {
 							</div>
 						</section>
 						<section className='memberIntro'>
-							{MemberData.map((member, idx) => {
+							{MemberData?.map((member, idx) => {
 								return (
 									<article key={member + idx}>
 										<div className='pic'>
