@@ -1,34 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
 import { IoIosMail, IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux';
+import * as types from '../../../redux/actionType';
 
 export default function Department() {
+	const dispatch = useDispatch();
 	const path = useRef(process.env.PUBLIC_URL);
-	const [HistoryTit, setHistoryTit] = useState('');
-	const [HistoryData, setHistoryData] = useState([]);
-	const [MemberData, setMemberData] = useState([]);
 	const [SelectedCategory, setSelectedCategory] = useState('Designer');
+	const { historyReducer, membersReducer } = useSelector(store => store);
 
-	const fetchDepartment = async (file = `${path.current}/DB/designer.json`) => {
-		const data = await fetch(file);
-		const json = await data.json();
-		setMemberData(Object.values(json)[0]);
-	};
-
-	const fetchHistory = () => {
-		fetch(`${path.current}/DB/history.json`)
-			.then(data => data.json())
-			.then(json => {
-				setHistoryTit(Object.keys(json)[0]);
-				setHistoryData(Object.values(json)[0]);
-			});
-	};
-
-	useEffect(() => {
-		fetchHistory();
-		fetchDepartment();
-	}, []);
+	const HistoryTit = Object.keys(historyReducer)[0];
+	const HistoryData = Object.values(historyReducer)[0];
+	const MemberData = membersReducer.members;
 
 	return (
 		<Layout category={'HOME / DEPARTMENT'} title={'Who we are'}>
@@ -79,7 +64,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Designer' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Designer');
-									fetchDepartment(`${path.current}/DB/designer.json`);
+									dispatch({ type: types.MEMBERS.start, opt: { type: 'designer' } });
 								}}>
 								#Designer
 							</h2>
@@ -89,7 +74,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Director' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Director');
-									fetchDepartment(`${path.current}/DB/director.json`);
+									dispatch({ type: types.MEMBERS.start, opt: { type: 'director' } });
 								}}>
 								#Director
 							</h2>
@@ -99,7 +84,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Producer' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Producer');
-									fetchDepartment(`${path.current}/DB/producer.json`);
+									dispatch({ type: types.MEMBERS.start, opt: { type: 'producer' } });
 								}}>
 								#Producer
 							</h2>
