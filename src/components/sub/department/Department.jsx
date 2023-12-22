@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
 import { IoIosMail, IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
@@ -14,6 +14,10 @@ export default function Department() {
 	const HistoryTit = Object.keys(historyReducer)[0];
 	const HistoryData = Object.values(historyReducer)[0];
 	const MemberData = membersReducer.members;
+
+	useEffect(() => {
+		dispatch({ type: types.MEMBERS.start, opt: { type: 'designer' } });
+	}, [dispatch]);
 
 	return (
 		<Layout category={'HOME / DEPARTMENT'} title={'Who we are'}>

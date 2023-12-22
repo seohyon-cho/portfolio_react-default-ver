@@ -70,7 +70,8 @@ export default function Gallery() {
 
 	useEffect(() => {
 		refFrameWrap.current.style.setProperty('--gap', gap.current);
-	}, []);
+		dispatch({ type: types.FLICKR.start, opt: { type: 'user', id: '199633413@N04' } });
+	}, [dispatch]);
 
 	return (
 		<>
