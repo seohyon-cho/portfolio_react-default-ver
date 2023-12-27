@@ -1,32 +1,20 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import './Detail.scss';
 import Layout from '../../common/layout/Layout';
-import { GrUndo } from 'react-icons/gr';
+import { Link, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCustomText } from '../../../hooks/useText';
+import { useYoutubeQueryById } from '../../../hooks/useYoutubeQuery';
+import { GrUndo } from 'react-icons/gr';
 import { RiDoubleQuotesL, RiDoubleQuotesR } from 'react-icons/ri';
 
 export default function Detail() {
 	const customText = useCustomText('combined');
 	const shortenText = useCustomText('short');
 	const { id } = useParams();
-	const [YoutubeData, setYoutubeData] = useState(null);
-	const fetchSingleData = useCallback(async () => {
-		const api_key = 'AIzaSyDwxSLXdnfN8bTNC5fnycohdatm0Qk4dLM';
-		const baseURL = `https://www.googleapis.com/youtube/v3/playlistItems?key=${api_key}&part=snippet&id=${id}`;
-
-		const data = await fetch(baseURL);
-		const json = await data.json();
-		setYoutubeData(json.items[0].snippet);
-	}, [id]);
-
-	useEffect(() => {
-		fetchSingleData();
-	}, [fetchSingleData]);
+	const { data: YoutubeData, isSuccess } = useYoutubeQueryById(id);
 
 	return (
 		<Layout title={'Detail'}>
-			{YoutubeData && (
+			{isSuccess && YoutubeData && (
 				<div className='Detail'>
 					<Link to='/youtube'>
 						<div className='undoButton'>
