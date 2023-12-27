@@ -15,8 +15,3 @@ export const useDepartmentQuery = opt => {
 		retry: 3
 	});
 };
-
-// const path = process.env.PUBLIC_URL;
-// `${path.current}/DB/designer.json`
-
-// json key값 다 members 로 바꾸고 return 을 json.members 로 해도 되나?
