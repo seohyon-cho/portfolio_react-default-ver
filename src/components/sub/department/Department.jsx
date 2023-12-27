@@ -1,36 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
 import { IoIosMail, IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
+import { useHistoryQuery } from '../../../hooks/useHistoryQuery';
+import { useDepartmentQuery } from '../../../hooks/useDepartmentQuery';
+import { useCustomText } from '../../../hooks/useText';
 
 export default function Department() {
-	const path = useRef(process.env.PUBLIC_URL);
-	const [HistoryTit, setHistoryTit] = useState('');
-	const [HistoryData, setHistoryData] = useState([]);
-	const [MemberTit, setMemberTit] = useState('');
-	const [MemberData, setMemberData] = useState([]);
 	const [SelectedCategory, setSelectedCategory] = useState('Designer');
-
-	const fetchDepartment = async (file = `${path.current}/DB/designer.json`) => {
-		const data = await fetch(file);
-		const json = await data.json();
-		setMemberTit(Object.keys(json)[0]);
-		setMemberData(Object.values(json)[0]);
-	};
-
-	const fetchHistory = () => {
-		fetch(`${path.current}/DB/history.json`)
-			.then(data => data.json())
-			.then(json => {
-				setHistoryTit(Object.keys(json)[0]);
-				setHistoryData(Object.values(json)[0]);
-			});
-	};
-
-	useEffect(() => {
-		fetchHistory();
-		fetchDepartment();
-	}, []);
+	const combinedTitle = useCustomText('combined');
+	const path = useRef(process.env.PUBLIC_URL);
+	const [Opt, setOpt] = useState(`${path.current}/DB/designer.json`);
+	const { data: HistoryData, isSuccess: isHistory } = useHistoryQuery();
+	const { data: MemberData, isSuccess: isMember } = useDepartmentQuery(Opt);
 
 	return (
 		<Layout category={'HOME / DEPARTMENT'} title={'Who we are'}>
@@ -57,20 +39,21 @@ export default function Department() {
 						</div>
 					</div>
 					<div className='textBox'>
-						<h2>{HistoryTit}</h2>
+						<h2>{combinedTitle('History')}</h2>
 						<div className='con'>
-							{HistoryData.map((history, idx) => {
-								return (
-									<article key={history + idx}>
-										<h3>{Object.keys(history)[0]}</h3>
-										<ul>
-											{Object.values(history)[0].map((list, idx) => {
-												return <li key={list + idx}>{list}</li>;
-											})}
-										</ul>
-									</article>
-								);
-							})}
+							{isHistory &&
+								HistoryData.map((history, idx) => {
+									return (
+										<article key={history + idx}>
+											<h3>{Object.keys(history)[0]}</h3>
+											<ul>
+												{Object.values(history)[0].map((list, idx) => {
+													return <li key={list + idx}>{list}</li>;
+												})}
+											</ul>
+										</article>
+									);
+								})}
 						</div>
 					</div>
 				</section>
@@ -81,7 +64,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Designer' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Designer');
-									fetchDepartment(`${path.current}/DB/designer.json`);
+									setOpt(`${path.current}/DB/designer.json`);
 								}}>
 								#Designer
 							</h2>
@@ -91,7 +74,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Director' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Director');
-									fetchDepartment(`${path.current}/DB/director.json`);
+									setOpt(`${path.current}/DB/director.json`);
 								}}>
 								#Director
 							</h2>
@@ -101,7 +84,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Producer' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Producer');
-									fetchDepartment(`${path.current}/DB/producer.json`);
+									setOpt(`${path.current}/DB/producer.json`);
 								}}>
 								#Producer
 							</h2>
@@ -116,36 +99,37 @@ export default function Department() {
 							</div>
 						</section>
 						<section className='memberIntro'>
-							{MemberData.map((member, idx) => {
-								return (
-									<article key={member + idx}>
-										<div className='pic'>
-											<img src={`${path.current}/img/${member.pic}`} alt={member.name} />
-										</div>
-										<div className='memberInfo'>
-											<h3>{member.name}</h3>
-											<p>{member.position}</p>
-										</div>
-										<ul className='social'>
-											<li>
-												<a href='https://www.gmail.com' target='_blank' rel='noopener noreferrer'>
-													<IoIosMail className='icon' />
-												</a>
-											</li>
-											<li>
-												<a href='https://www.instagram.com' target='_blank' rel='noopener noreferrer'>
-													<IoLogoInstagram className='icon' />
-												</a>
-											</li>
-											<li>
-												<a href='https://www.facebook.com' target='_blank' rel='noopener noreferrer'>
-													<IoLogoFacebook className='icon' />
-												</a>
-											</li>
-										</ul>
-									</article>
-								);
-							})}
+							{isMember &&
+								MemberData.map((member, idx) => {
+									return (
+										<article key={member + idx}>
+											<div className='pic'>
+												<img src={`${path.current}/img/${member.pic}`} alt={member.name} />
+											</div>
+											<div className='memberInfo'>
+												<h3>{member.name}</h3>
+												<p>{member.position}</p>
+											</div>
+											<ul className='social'>
+												<li>
+													<a href='https://www.gmail.com' target='_blank' rel='noopener noreferrer'>
+														<IoIosMail className='icon' />
+													</a>
+												</li>
+												<li>
+													<a href='https://www.instagram.com' target='_blank' rel='noopener noreferrer'>
+														<IoLogoInstagram className='icon' />
+													</a>
+												</li>
+												<li>
+													<a href='https://www.facebook.com' target='_blank' rel='noopener noreferrer'>
+														<IoLogoFacebook className='icon' />
+													</a>
+												</li>
+											</ul>
+										</article>
+									);
+								})}
 						</section>
 					</div>
 				</section>

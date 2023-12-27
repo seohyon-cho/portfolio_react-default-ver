@@ -1,5 +1,5 @@
 {
-	"Producer": [
+	"members": [
 		{
 			"name": "Bella",
 			"position": "Producer",
@@ -11,12 +11,12 @@
 			"pic": "member5.jpg"
 		},
 		{
-			"name": "Emily",
+			"name": "Kelly",
 			"position": "Producer",
 			"pic": "member1.jpg"
 		},
 		{
-			"name": "Michael",
+			"name": "Asha",
 			"position": "Producer",
 			"pic": "member2.jpg"
 		},
