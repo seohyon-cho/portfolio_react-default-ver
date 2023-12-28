@@ -16,22 +16,25 @@ export default function CookiePopup() {
 	return (
 		<>
 			{!Close && (
-				<aside className='CookiePopup'>
-					<div className='frame'>
-						<span className='close' onClick={handleClose}>
-							<IoMdClose />
-						</span>
-						<div className='content'>
-							<h1>WELCOME MESSAGE</h1>
-							<p>Please, accept these sweeties to continue enjoying our site!</p>
-						</div>
+				<>
+					<div className='mask'></div>
+					<aside className='CookiePopup'>
+						<div className='frame'>
+							<span className='close' onClick={handleClose}>
+								<IoMdClose />
+							</span>
+							<div className='content'>
+								<h1>WELCOME MESSAGE</h1>
+								<p>Please, accept these sweeties to continue enjoying our site!</p>
+							</div>
 
-						<nav>
-							<input type='checkbox' ref={checkEl} />
-							<span>Don't show for 24hours</span>
-						</nav>
-					</div>
-				</aside>
+							<nav>
+								<input type='checkbox' ref={checkEl} />
+								<span>Don't show for 24hours</span>
+							</nav>
+						</div>
+					</aside>
+				</>
 			)}
 		</>
 	);
