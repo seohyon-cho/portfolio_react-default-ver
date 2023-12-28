@@ -17,12 +17,9 @@ import Menu from './components/common/menu/Menu';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useGlobalData } from './hooks/useGlobalData';
-import CookiePopup from './components/common/cookiePopup/CookiePopup';
-import { useCookie } from './hooks/useCookie';
 
 export default function App() {
 	const queryClient = new QueryClient();
-	useCookie('today', 'done', 20);
 	const { Dark } = useGlobalData();
 
 	return (
@@ -39,7 +36,6 @@ export default function App() {
 				<Route path='/contact' component={Contact} />
 				<Footer />
 				<Menu />
-				<CookiePopup />
 			</div>
 			<ReactQueryDevtools />
 		</QueryClientProvider>
