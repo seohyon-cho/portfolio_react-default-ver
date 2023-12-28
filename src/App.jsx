@@ -19,13 +19,12 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 export default function App() {
 	const [Dark, setDark] = useState(false);
-	const [Toggle, setToggle] = useState(false);
 	const queryClient = new QueryClient();
 
 	return (
 		<QueryClientProvider client={queryClient}>
 			<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
-				<Header Dark={Dark} setDark={setDark} Toggle={Toggle} setToggle={setToggle} />
+				<Header Dark={Dark} setDark={setDark} />
 				<Route exact path='/' component={MainWrap} />
 				<Route path='/department' component={Department} />
 				<Route path='/youtube' component={Youtube} />
@@ -35,7 +34,7 @@ export default function App() {
 				<Route path='/members' component={Members} />
 				<Route path='/contact' component={Contact} />
 				<Footer />
-				{Toggle && <Menu setToggle={setToggle} />}
+				<Menu />
 			</div>
 			<ReactQueryDevtools />
 		</QueryClientProvider>
