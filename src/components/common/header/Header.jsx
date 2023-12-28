@@ -3,8 +3,8 @@ import './Header.scss';
 import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
 import { useGlobalData } from '../../../hooks/useGlobalData';
 
-export default function Header({ Dark, setDark }) {
-	const { MenuOpen, setMenuOpen } = useGlobalData();
+export default function Header() {
+	const { MenuOpen, setMenuOpen, Dark, setDark } = useGlobalData();
 	return (
 		<header className='Header'>
 			<h1>

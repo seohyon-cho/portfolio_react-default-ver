@@ -11,20 +11,21 @@ import Gallery from './components/sub/gallery/Gallery';
 import Community from './components/sub/community/Community';
 import Members from './components/sub/members/Members';
 import Contact from './components/sub/contact/Contact';
-import { useState } from 'react';
+
 import Detail from './components/sub/youtube/Detail';
 import Menu from './components/common/menu/Menu';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { useGlobalData } from './hooks/useGlobalData';
 
 export default function App() {
-	const [Dark, setDark] = useState(false);
 	const queryClient = new QueryClient();
+	const { Dark } = useGlobalData();
 
 	return (
 		<QueryClientProvider client={queryClient}>
 			<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
-				<Header Dark={Dark} setDark={setDark} />
+				<Header />
 				<Route exact path='/' component={MainWrap} />
 				<Route path='/department' component={Department} />
 				<Route path='/youtube' component={Youtube} />
