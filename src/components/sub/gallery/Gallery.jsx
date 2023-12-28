@@ -9,6 +9,7 @@ import { TbHomeShare } from 'react-icons/tb';
 import Modal from '../../common/modal/Modal';
 
 import { useFlickrQuery } from '../../../hooks/useFlickrQuery';
+import { useGlobalData } from '../../../hooks/useGlobalData';
 
 export default function Gallery() {
 	const path = useRef(process.env.PUBLIC_URL);
@@ -19,7 +20,7 @@ export default function Gallery() {
 	const searched = useRef(false);
 	const gap = useRef(20);
 
-	const [Open, setOpen] = useState(false);
+	const { setModalOpen } = useGlobalData();
 	const [Index, setIndex] = useState(0);
 
 	const [Opt, setOpt] = useState({ type: 'user', id: myID.current });
@@ -125,7 +126,7 @@ export default function Gallery() {
 											<div
 												className='pic'
 												onClick={() => {
-													setOpen(true);
+													setModalOpen(true);
 													setIndex(idx);
 												}}>
 												<div className='picframe'>
@@ -150,13 +151,12 @@ export default function Gallery() {
 					</section>
 				</div>
 			</Layout>
-			{Open && (
-				<Modal Open={Open} setOpen={setOpen}>
-					{isSuccess && Pics.length !== 0 && (
-						<img src={`https://live.staticflickr.com/${Pics[Index].server}/${Pics[Index].id}_${Pics[Index].secret}_b.jpg`} alt={Pics[Index].title} />
-					)}
-				</Modal>
-			)}
+
+			<Modal>
+				{isSuccess && Pics.length !== 0 && (
+					<img src={`https://live.staticflickr.com/${Pics[Index].server}/${Pics[Index].id}_${Pics[Index].secret}_b.jpg`} alt={Pics[Index].title} />
+				)}
+			</Modal>
 		</>
 	);
 }
