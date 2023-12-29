@@ -69,6 +69,7 @@ aside.CookiePopup {
 					border: 1.5px solid var(--baseColor);
 					font-family: var(--baseFont);
 					padding-left: 10px;
+					background: var(--bgColor);
 					&::placeholder {
 						font-size: 0.8rem;
 					}
