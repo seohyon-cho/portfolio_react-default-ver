@@ -17,6 +17,7 @@ import Menu from './components/common/menu/Menu';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useGlobalData } from './hooks/useGlobalData';
+import ThemeControl from './components/common/themeControl/ThemeControl';
 
 export default function App() {
 	const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ export default function App() {
 				<Route path='/contact' component={Contact} />
 				<Footer />
 				<Menu />
+				<ThemeControl />
 			</div>
 			<ReactQueryDevtools />
 		</QueryClientProvider>
