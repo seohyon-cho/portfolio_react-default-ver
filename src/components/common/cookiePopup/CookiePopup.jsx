@@ -9,7 +9,8 @@ export default function CookiePopup() {
 	const [Close, setClose] = useState(isCookie('today=done'));
 	const handleClose = () => {
 		const isChecked = checkEl.current.checked;
-		if (isChecked) setCookie('today', 'done', 60 * 60 * 24);
+		const isEmailSubmitted = isCookie('emailPopupClosed');
+		if (isChecked || isEmailSubmitted) setCookie('today', 'done', 60 * 60 * 24);
 		setClose(true);
 	};
 
@@ -26,11 +27,21 @@ export default function CookiePopup() {
 							<div className='content'>
 								<h1>WELCOME MESSAGE</h1>
 								<p>Please, accept these sweeties to continue enjoying our site!</p>
+								<span>Subscribe to our Newsletter for fresh updates!</span>
+								<form
+									onSubmit={e => {
+										e.preventDefault();
+										setCookie('emailPopupClosed', 'true', 60 * 60 * 24);
+										handleClose();
+									}}>
+									<input type='email' placeholder='Enter Your Email' required />
+									<button type='submit'>SUBMIT</button>
+								</form>
 							</div>
 
 							<nav>
 								<input type='checkbox' ref={checkEl} />
-								<span>Don't show for 24hours</span>
+								<span>Don't show for 24 hours</span>
 							</nav>
 						</div>
 					</aside>
