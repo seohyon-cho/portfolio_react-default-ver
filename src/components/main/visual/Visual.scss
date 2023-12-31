@@ -1,0 +1,28 @@
+.Visual {
+	width: 100%;
+	height: calc(100vh - 90px);
+	position: relative;
+	margin: 0 auto;
+	border: 1px solid red;
+
+	.swiper {
+		width: 100%;
+		height: 100%;
+		border: 1px solid blue;
+		.swiper-wrapper {
+			.swiper-slide {
+				padding: 100px 0;
+				.inner {
+					width: 70%;
+					height: 100%;
+					margin: 0 auto;
+					background-color: var(--pointColor);
+					color: var(--bgColor);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+		}
+	}
+}
