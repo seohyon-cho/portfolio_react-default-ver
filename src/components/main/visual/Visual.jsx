@@ -2,9 +2,19 @@ import { useState } from 'react';
 import './Visual.scss';
 import 'swiper/css';
 import { useYoutubeQuery } from '../../../hooks/useYoutubeQuery';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper';
 import 'swiper/css/pagination';
+
+function Btns() {
+	const swiper = useSwiper();
+	return (
+		<nav className='swiperController'>
+			<button onClick={() => swiper.autoplay.stop()}>stop</button>
+			<button onClick={() => swiper.autoplay.start()}>start</button>
+		</nav>
+	);
+}
 
 export default function Visual() {
 	const [Opt, setOpt] = useState('PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH');
@@ -13,12 +23,16 @@ export default function Visual() {
 	return (
 		<figure className='Visual'>
 			<Swiper
-				modules={[Pagination]}
+				modules={[Pagination, Autoplay]}
 				pagination={{
 					clickbable: true,
 					renderBullet: (index, className) => {
 						return `<span class=${className}>${index + 1}</span>`;
 					}
+				}}
+				autoplay={{
+					delay: 3000,
+					disableOnInteraction: true
 				}}
 				loop={true}>
 				{isSuccess &&
@@ -32,6 +46,7 @@ export default function Visual() {
 							</SwiperSlide>
 						);
 					})}
+				<Btns />
 			</Swiper>
 		</figure>
 	);
