@@ -3,6 +3,8 @@ import './Visual.scss';
 import 'swiper/css';
 import { useYoutubeQuery } from '../../../hooks/useYoutubeQuery';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
+import 'swiper/css/pagination';
 
 export default function Visual() {
 	const [Opt, setOpt] = useState('PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH');
@@ -10,7 +12,15 @@ export default function Visual() {
 
 	return (
 		<figure className='Visual'>
-			<Swiper>
+			<Swiper
+				modules={[Pagination]}
+				pagination={{
+					clickbable: true,
+					renderBullet: (index, className) => {
+						return `<span class=${className}>${index + 1}</span>`;
+					}
+				}}
+				loop={true}>
 				{isSuccess &&
 					Vids.map((vid, idx) => {
 						if (idx >= 5) return null;
