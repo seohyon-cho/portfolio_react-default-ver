@@ -16,6 +16,7 @@ import Detail from './components/sub/youtube/Detail';
 import Menu from './components/common/menu/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 import * as types from './redux/actionType';
+import ThemeControl from './components/common/themeControl/ThemeControl';
 
 export default function App() {
 	const dispatch = useDispatch();
@@ -40,6 +41,7 @@ export default function App() {
 			<Route path='/contact' component={Contact} />
 			<Footer />
 			<Menu />
+			<ThemeControl />
 		</div>
 	);
 }
