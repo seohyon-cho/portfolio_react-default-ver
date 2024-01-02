@@ -5,6 +5,7 @@ import { IoLocationSharp, IoChatbubblesSharp } from 'react-icons/io5';
 import emailjs from '@emailjs/browser';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AiFillMinusSquare, AiFillPlusSquare } from 'react-icons/ai';
+import { useThrottle } from '../../../hooks/useThrottle';
 
 export default function Contact() {
 	const [FaqIndex, setFaqIndex] = useState(null);
@@ -47,16 +48,17 @@ export default function Contact() {
 	};
 
 	// kakao map part
-	const roadview = useRef(() => {
+	const roadview = useCallback(() => {
 		new kakao.current.maps.RoadviewClient().getNearestPanoId(mapInfo.current[Index].latlng, 50, panoId => {
 			new kakao.current.maps.Roadview(viewFrame.current).setPanoId(panoId, mapInfo.current[Index].latlng);
 		});
-	});
+	}, [Index]);
 
 	const setCenter = useCallback(() => {
 		mapInstance.current.setCenter(mapInfo.current[Index].latlng);
-		roadview.current();
 	}, [Index]);
+
+	const throttleSetCenter = useThrottle(setCenter);
 
 	const mapInfo = useRef([
 		{
@@ -104,15 +106,11 @@ export default function Contact() {
 	useEffect(() => {
 		// 지도 중첩 생성 방지 초기화 작업
 		mapFrame.current.innerHTML = '';
+		viewFrame.current.innerHTML = '';
 		mapInstance.current = new kakao.current.maps.Map(mapFrame.current, { center: mapInfo.current[Index].latlng, level: 3 });
 		marker.current.setMap(mapInstance.current);
 		setTraffic(false);
 		setView(true);
-		roadview.current();
-
-		new kakao.current.maps.RoadviewClient().getNearestPanoId(mapInfo.current[Index].latlng, 50, panoId => {
-			new kakao.current.maps.Roadview(viewFrame.current).setPanoId(panoId, mapInfo.current[Index].latlng);
-		});
 
 		// 지도 타입 컨트롤러 추가
 		mapInstance.current.addControl(new kakao.current.maps.MapTypeControl(), kakao.current.maps.ControlPosition.TOPRIGHT);
@@ -120,10 +118,16 @@ export default function Contact() {
 		mapInstance.current.addControl(new kakao.current.maps.ZoomControl(), kakao.current.maps.ControlPosition.RIGHT);
 		// 마우스 휠에 기본적으로 내장되어 있는 줌 기능 비활성화
 		mapInstance.current.setZoomable(false);
+	}, [Index]);
 
-		window.addEventListener('resize', setCenter);
-		return () => window.removeEventListener('resize', setCenter);
-	}, [Index, setCenter]);
+	useEffect(() => {
+		window.addEventListener('resize', throttleSetCenter);
+		return () => window.removeEventListener('resize', throttleSetCenter);
+	}, [throttleSetCenter]);
+
+	useEffect(() => {
+		View && viewFrame.current.children.length === 0 && roadview();
+	}, [View, roadview]);
 
 	useEffect(() => {
 		Traffic
