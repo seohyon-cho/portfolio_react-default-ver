@@ -12,7 +12,7 @@ export default function ThemeControl() {
 		isCookie('theme')
 			? document.body.style.setProperty('--pointColor', document.cookie.split('theme=')[1].split(';')[0])
 			: document.body.style.setProperty('--pointColor', getComputedStyle(document.body).getPropertyValue('--pointColor'));
-		// inputEl.current.value = document.body.style.getPropertyValue('--pointColor');
+		if (inputEl.current) inputEl.current.value = document.body.style.getPropertyValue('--pointColor');
 	}, [isCookie]);
 
 	const changeThemeColor = () => {
