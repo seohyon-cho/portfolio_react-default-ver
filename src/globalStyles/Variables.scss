@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans:wght@100;200;300;400&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Italiana&family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Noto+Sans:wght@100;200;300;400&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
 	--baseFont: 'Poppins', 'arial', '돋움';
-	--pointFont: 'Italiana', 'arial';
+	--pointFont: 'Nanum Myeongjo', 'arial'; // Italiana
 	--baseColor: #111;
 	--baseColor-code: 18, 18, 18;
 	--pointColor: rgb(146, 178, 137);
