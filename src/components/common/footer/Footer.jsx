@@ -68,9 +68,9 @@ export default function Footer() {
 			<div className='bottomBox'>
 				<ul>
 					<h2>MELLOW</h2>
-					<li>End User License Agreement</li>
-					<li>Privacy Policy</li>
-					<li>Terms & Conditions</li>
+					<li className='info'>End User License Agreement</li>
+					<li className='info'>Privacy Policy</li>
+					<li className='info'>Terms & Conditions</li>
 					<li>
 						<ul className='icons'>
 							<li>
@@ -84,7 +84,7 @@ export default function Footer() {
 							</li>
 						</ul>
 					</li>
-					<li>&copy; 2023 Creative.Lab</li>
+					<li className='copy'>&copy; 2023 Creative.Lab</li>
 				</ul>
 			</div>
 		</footer>
