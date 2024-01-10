@@ -1,14 +1,15 @@
 header {
-	width: 80vw;
-	padding: 40px 5px;
+	width: 100vw;
+	padding: 40px 10vw;
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto;
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 7;
+	position: fixed;
+	z-index: 5;
+	// top: 0;
+	// left: 50%;
+	// transform: translateX(-50%);
+	// z-index: 7;
 	h1 {
 		font-family: var(--pointFont);
 		font-size: var(--subTitSize);
@@ -41,7 +42,7 @@ header {
 
 .tablet {
 	header {
-		width: 80vw;
+		width: 100vw;
 		.centerNav {
 			display: none;
 		}
@@ -58,7 +59,7 @@ header {
 
 .mobile {
 	header {
-		width: 80vw;
+		width: 100vw;
 		.centerNav {
 			display: none;
 		}
