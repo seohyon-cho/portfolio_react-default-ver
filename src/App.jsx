@@ -11,13 +11,29 @@ import Gallery from './components/sub/gallery/Gallery';
 import Community from './components/sub/community/Community';
 import Members from './components/sub/members/Members';
 import Contact from './components/sub/contact/Contact';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Detail from './components/sub/youtube/Detail';
 import Menu from './components/common/menu/Menu';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchYoutube } from './redux/youtubeSlice';
+import { fetchHistory } from './redux/historySlice';
+import { fetchMember } from './redux/memberSlice';
+import { fetchFlickr } from './redux/flickrSlice';
+
 export default function App() {
+	const dispatch = useDispatch();
+	useSelector(store => console.log(store));
+
 	const [Dark, setDark] = useState(false);
 	const [Toggle, setToggle] = useState(false);
+
+	useEffect(() => {
+		dispatch(fetchYoutube());
+		dispatch(fetchMember());
+		dispatch(fetchHistory());
+		dispatch(fetchFlickr());
+	}, [dispatch]);
 
 	return (
 		<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
