@@ -4,6 +4,11 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 7;
 	h1 {
 		font-family: var(--pointFont);
 		font-size: var(--subTitSize);
