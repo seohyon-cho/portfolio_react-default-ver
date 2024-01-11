@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
 import { IoIosMail, IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
@@ -8,23 +8,9 @@ import { fetchMember } from '../../../redux/memberSlice';
 export default function Department() {
 	const dispatch = useDispatch();
 	const MemberData = useSelector(store => store.member.data);
+	const HistoryData = useSelector(store => store.history.data);
 	const path = useRef(process.env.PUBLIC_URL);
-	const [HistoryTit, setHistoryTit] = useState('');
-	const [HistoryData, setHistoryData] = useState([]);
 	const [SelectedCategory, setSelectedCategory] = useState('Designer');
-
-	const fetchHistory = () => {
-		fetch(`${path.current}/DB/history.json`)
-			.then(data => data.json())
-			.then(json => {
-				setHistoryTit(Object.keys(json)[0]);
-				setHistoryData(Object.values(json)[0]);
-			});
-	};
-
-	useEffect(() => {
-		fetchHistory();
-	}, []);
 
 	return (
 		<Layout category={'HOME / DEPARTMENT'} title={'Who we are'}>
@@ -51,7 +37,7 @@ export default function Department() {
 						</div>
 					</div>
 					<div className='textBox'>
-						<h2>{HistoryTit}</h2>
+						<h2>History</h2>
 						<div className='con'>
 							{HistoryData.map((history, idx) => {
 								return (
