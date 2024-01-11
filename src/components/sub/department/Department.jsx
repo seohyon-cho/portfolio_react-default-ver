@@ -2,21 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
 import { IoIosMail, IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMember } from '../../../redux/memberSlice';
 
 export default function Department() {
+	const dispatch = useDispatch();
+	const MemberData = useSelector(store => store.member.data);
 	const path = useRef(process.env.PUBLIC_URL);
 	const [HistoryTit, setHistoryTit] = useState('');
 	const [HistoryData, setHistoryData] = useState([]);
-	const [MemberTit, setMemberTit] = useState('');
-	const [MemberData, setMemberData] = useState([]);
 	const [SelectedCategory, setSelectedCategory] = useState('Designer');
-
-	const fetchDepartment = async (file = `${path.current}/DB/designer.json`) => {
-		const data = await fetch(file);
-		const json = await data.json();
-		setMemberTit(Object.keys(json)[0]);
-		setMemberData(Object.values(json)[0]);
-	};
 
 	const fetchHistory = () => {
 		fetch(`${path.current}/DB/history.json`)
@@ -29,7 +24,6 @@ export default function Department() {
 
 	useEffect(() => {
 		fetchHistory();
-		fetchDepartment();
 	}, []);
 
 	return (
@@ -81,7 +75,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Designer' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Designer');
-									fetchDepartment(`${path.current}/DB/designer.json`);
+									dispatch(fetchMember({ type: 'designer' }));
 								}}>
 								#Designer
 							</h2>
@@ -91,7 +85,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Director' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Director');
-									fetchDepartment(`${path.current}/DB/director.json`);
+									dispatch(fetchMember({ type: 'director' }));
 								}}>
 								#Director
 							</h2>
@@ -101,7 +95,7 @@ export default function Department() {
 								style={{ opacity: SelectedCategory === 'Producer' ? 0.8 : 0.3 }}
 								onClick={() => {
 									setSelectedCategory('Producer');
-									fetchDepartment(`${path.current}/DB/producer.json`);
+									dispatch(fetchMember({ type: 'producer' }));
 								}}>
 								#Producer
 							</h2>

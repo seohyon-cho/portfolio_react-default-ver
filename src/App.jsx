@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 import Detail from './components/sub/youtube/Detail';
 import Menu from './components/common/menu/Menu';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchHistory } from './redux/historySlice';
 import { fetchMember } from './redux/memberSlice';
@@ -30,7 +30,7 @@ export default function App() {
 		dispatch(fetchYoutube());
 		dispatch(fetchMember());
 		dispatch(fetchHistory());
-		dispatch(fetchFlickr({ type: 'user', id: '199633413@N04' }));
+		dispatch(fetchFlickr());
 	}, [dispatch]);
 
 	return (
