@@ -23,8 +23,6 @@ import { fetchFlickr } from './redux/flickrSlice';
 
 export default function App() {
 	const dispatch = useDispatch();
-	useSelector(store => console.log(store));
-
 	const [Dark, setDark] = useState(false);
 	const [Toggle, setToggle] = useState(false);
 
@@ -32,7 +30,7 @@ export default function App() {
 		dispatch(fetchYoutube());
 		dispatch(fetchMember());
 		dispatch(fetchHistory());
-		dispatch(fetchFlickr());
+		dispatch(fetchFlickr({ type: 'user', id: '199633413@N04' }));
 	}, [dispatch]);
 
 	return (
