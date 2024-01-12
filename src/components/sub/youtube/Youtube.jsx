@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Youtube.scss';
 import { useCustomText } from '../../../hooks/useText';
@@ -13,31 +13,7 @@ export default function Youtube() {
 	const Vids = useSelector(store => store.youtube.data);
 	const customText = useCustomText('combined');
 	const shortenText = useCustomText('short');
-	// const [Vids, setVids] = useState([]);
 	const [SelectedYear, setSelectedYear] = useState(null);
-
-	// 'PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH'
-	// 2023 'PLIenA9X9sYejFq450_Ofy4x7tImW-3PUl'
-	// 2022 'PLIenA9X9sYejNn5U9ovCvLIyT9BEkoA_L'
-	// 2021 'PLIenA9X9sYehUWVqjgWzxctrghO8F6mIq'
-	// const fetchYoutube = async (opt = 'PLIenA9X9sYejBz8kBsdDV-BbZTeDJeTEH') => {
-	// 	const api_key = 'AIzaSyDwxSLXdnfN8bTNC5fnycohdatm0Qk4dLM';
-	// 	const pid = opt;
-	// 	const num = '10';
-	// 	const baseURL = `https://www.googleapis.com/youtube/v3/playlistItems?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
-
-	// 	try {
-	// 		const data = await fetch(baseURL);
-	// 		const json = await data.json();
-	// 		setVids(json.items);
-	// 	} catch (err) {
-	// 		console.error(err);
-	// 	}
-	// };
-
-	// useEffect(() => {
-	// 	fetchYoutube();
-	// }, []);
 
 	return (
 		<Layout category={'HOME / YOUTUBE'} title={'Our Project'}>
