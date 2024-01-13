@@ -9,6 +9,7 @@ import memberReducer from './redux/memberSlice';
 import historyReducer from './redux/historySlice';
 import flickrReducer from './redux/flickrSlice';
 import modalReducer from './redux/modalSlice';
+import menuReducer from './redux/menuSlice';
 
 const store = configureStore({
 	reducer: {
@@ -16,7 +17,8 @@ const store = configureStore({
 		member: memberReducer,
 		history: historyReducer,
 		flickr: flickrReducer,
-		modal: modalReducer
+		modal: modalReducer,
+		menu: menuReducer
 	}
 });
 
