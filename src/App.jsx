@@ -11,11 +11,11 @@ import Gallery from './components/sub/gallery/Gallery';
 import Community from './components/sub/community/Community';
 import Members from './components/sub/members/Members';
 import Contact from './components/sub/contact/Contact';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Detail from './components/sub/youtube/Detail';
 import Menu from './components/common/menu/Menu';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchHistory } from './redux/historySlice';
 import { fetchMember } from './redux/memberSlice';
@@ -23,7 +23,7 @@ import { fetchFlickr } from './redux/flickrSlice';
 
 export default function App() {
 	const dispatch = useDispatch();
-	const [Dark, setDark] = useState(false);
+	const Dark = useSelector(store => store.dark.isDark);
 
 	useEffect(() => {
 		dispatch(fetchYoutube());
@@ -34,7 +34,7 @@ export default function App() {
 
 	return (
 		<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
-			<Header Dark={Dark} setDark={setDark} />
+			<Header />
 			<Route exact path='/' component={MainWrap} />
 			<Route path='/department' component={Department} />
 			<Route path='/youtube' component={Youtube} />

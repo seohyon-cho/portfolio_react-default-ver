@@ -10,6 +10,7 @@ import historyReducer from './redux/historySlice';
 import flickrReducer from './redux/flickrSlice';
 import modalReducer from './redux/modalSlice';
 import menuReducer from './redux/menuSlice';
+import darkReducer from './redux/darkSlice';
 
 const store = configureStore({
 	reducer: {
@@ -18,7 +19,8 @@ const store = configureStore({
 		history: historyReducer,
 		flickr: flickrReducer,
 		modal: modalReducer,
-		menu: menuReducer
+		menu: menuReducer,
+		dark: darkReducer
 	}
 });
 
