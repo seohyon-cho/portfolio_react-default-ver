@@ -71,7 +71,8 @@ export default function Gallery() {
 
 	useEffect(() => {
 		refFrameWrap.current.style.setProperty('--gap', gap.current);
-	}, []);
+		dispatch(fetchFlickr());
+	}, [dispatch]);
 
 	return (
 		<>

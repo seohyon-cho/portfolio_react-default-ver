@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Department.scss';
 import { IoIosMail, IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
@@ -11,6 +11,10 @@ export default function Department() {
 	const HistoryData = useSelector(store => store.history.data);
 	const path = useRef(process.env.PUBLIC_URL);
 	const [SelectedCategory, setSelectedCategory] = useState('Designer');
+
+	useEffect(() => {
+		dispatch(fetchMember());
+	}, [dispatch]);
 
 	return (
 		<Layout category={'HOME / DEPARTMENT'} title={'Who we are'}>

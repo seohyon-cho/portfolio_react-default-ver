@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../../common/layout/Layout';
 import './Youtube.scss';
 import { useCustomText } from '../../../hooks/useText';
@@ -14,6 +14,10 @@ export default function Youtube() {
 	const customText = useCustomText('combined');
 	const shortenText = useCustomText('short');
 	const [SelectedYear, setSelectedYear] = useState(null);
+
+	useEffect(() => {
+		dispatch(fetchYoutube());
+	}, [dispatch]);
 
 	return (
 		<Layout category={'HOME / YOUTUBE'} title={'Our Project'}>
