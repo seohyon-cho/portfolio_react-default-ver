@@ -1,0 +1,115 @@
+.ShopInfo {
+	width: 100%;
+	height: 100vh;
+	margin: 0 auto;
+	display: flex;
+
+	.text {
+		padding: 5vw 0 0 10vw;
+		width: 40%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		h2 {
+			font-weight: 300;
+			font-size: var(--titSize3);
+		}
+		p {
+			font-family: var(--pointFont);
+			font-size: var(--bodySize0);
+			letter-spacing: 1.2px;
+		}
+		.linkButton {
+			font-weight: 300;
+			font-size: var(--bodySize0);
+			border: 1px solid rgba(var(--baseColor-code), 0.3);
+			width: 23vw;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			padding-left: 1.5vw;
+			cursor: pointer;
+			transition: 0.3s;
+			&:hover {
+				background: var(--baseColor);
+				color: var(--bgColor);
+			}
+		}
+	}
+	.slide {
+		width: 60%;
+		height: 100%;
+		padding: 5vw 0;
+		.swiper {
+			width: 100%;
+			height: 100%;
+			padding-bottom: 10vw;
+
+			.swiper-wrapper {
+				width: 100%;
+				height: 100%;
+
+				.swiper-slide {
+					width: 100%;
+					height: 100%;
+
+					> .inner {
+						width: 100%;
+						height: 100%;
+						.picBox {
+							width: 100%;
+							height: 100%;
+							overflow: hidden;
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+							}
+						}
+						.txtBox {
+							opacity: 0;
+							transition: opacity 0.5s 0.5s;
+							margin-top: 10px;
+							font-weight: 300;
+							font-family: var(--pointFont);
+							letter-spacing: 1.3px;
+						}
+					}
+				}
+
+				// active slide style
+				.swiper-slide-active {
+					.inner {
+						.txtBox {
+							opacity: 1;
+						}
+					}
+				}
+			}
+			.swiper-pagination {
+				bottom: 100px;
+				width: 100%;
+				background-color: rgba(var(--baseColor-code), 0.3);
+				display: flex;
+				gap: 0;
+				span {
+					background-color: rgba(var(--baseColor-code), 0.3);
+					display: inline-block;
+					flex: 1;
+					height: 3px;
+					background-color: none;
+					text-indent: -9999px;
+					transition: 0.5s;
+					border-radius: 0;
+					transform: translateX(100%);
+
+					&.swiper-pagination-bullet-active {
+						transform: translateX(0);
+						background-color: rgba(var(--baseColor-code), 0.9);
+					}
+				}
+			}
+		}
+	}
+}
