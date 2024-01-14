@@ -130,13 +130,13 @@ export default function Gallery() {
 												</div>
 												<h2>{pic.title}</h2>
 											</div>
-											<div className='profile' onClick={handleUser}>
+											<div className='profile'>
 												<img
 													src={`http://farm${pic.farm}.staticflickr.com/${pic.server}/buddyicons/${pic.owner}.jpg`}
 													alt='사용자 프로필 이미지'
 													onError={e => e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif')}
 												/>
-												<span>{pic.owner}</span>
+												<span onClick={handleUser}>{pic.owner}</span>
 												<TbHomeShare className='arrow' />
 											</div>
 										</article>
