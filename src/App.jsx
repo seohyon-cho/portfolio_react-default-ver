@@ -20,6 +20,7 @@ import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchHistory } from './redux/historySlice';
 import { fetchMember } from './redux/memberSlice';
 import { fetchFlickr } from './redux/flickrSlice';
+import ThemeControl from './components/common/themeControl/ThemeControl';
 
 export default function App() {
 	const dispatch = useDispatch();
@@ -45,6 +46,7 @@ export default function App() {
 			<Route path='/contact' component={Contact} />
 			<Footer />
 			<Menu />
+			<ThemeControl />
 		</div>
 	);
 }
