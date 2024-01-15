@@ -5,7 +5,7 @@
 	display: flex;
 
 	.text {
-		padding: 5vw 0 0 10vw;
+		padding: 5vw 2vw 0 10vw;
 		width: 40%;
 		height: 100%;
 		display: flex;
@@ -41,10 +41,43 @@
 		width: 60%;
 		height: 100%;
 		padding: 5vw 0;
+		position: relative;
+
+		nav {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: 35%;
+			z-index: 3;
+			display: flex;
+			justify-content: space-between;
+			overflow: hidden;
+
+			button {
+				width: 80px;
+				height: 80px;
+				background: var(--baseColor);
+				color: var(--bgColor);
+				border: none;
+				cursor: pointer;
+				font-size: 2rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: 0.4s;
+				&.prev {
+					transform: translateX(-80px);
+				}
+				&.next {
+					transform: translateX(80px);
+				}
+			}
+		}
 		.swiper {
 			width: 100%;
 			height: 100%;
 			padding-bottom: 10vw;
+			position: relative;
 
 			.swiper-wrapper {
 				width: 100%;
@@ -88,7 +121,8 @@
 				}
 			}
 			.swiper-pagination {
-				bottom: 100px;
+				position: absolute;
+				bottom: 5vw;
 				width: 100%;
 				background-color: rgba(var(--baseColor-code), 0.3);
 				display: flex;
@@ -107,6 +141,143 @@
 					&.swiper-pagination-bullet-active {
 						transform: translateX(0);
 						background-color: rgba(var(--baseColor-code), 0.9);
+					}
+				}
+			}
+		}
+		&:hover {
+			nav {
+				button {
+					&.prev {
+						transform: translateX(0);
+					}
+					&.next {
+						transform: translateX(0);
+					}
+				}
+			}
+		}
+	}
+}
+
+.tablet {
+	.ShopInfo {
+		width: 80vw;
+		height: auto;
+		flex-direction: column;
+
+		.text {
+			width: 100%;
+			padding: 5vw 13vw 0 0;
+			gap: 25px;
+			p {
+				font-size: 1.4rem;
+			}
+			.linkButton {
+				width: 26vw;
+			}
+		}
+		.slide {
+			width: 100%;
+			nav {
+				top: 34%;
+				button {
+					width: 60px;
+					height: 60px;
+					font-size: 1.6rem;
+					&.prev {
+						transform: translateX(-60px);
+					}
+					&.next {
+						transform: translateX(60px);
+					}
+				}
+			}
+			.swiper {
+				.swiper-wrapper {
+					.swiper-slide {
+						> .inner {
+							.txtBox {
+								font-size: 1.3rem;
+							}
+						}
+					}
+				}
+			}
+			&:hover {
+				nav {
+					button {
+						&.prev {
+							transform: translateX(0);
+						}
+						&.next {
+							transform: translateX(0);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.mobile {
+	.ShopInfo {
+		width: 80vw;
+		height: auto;
+		flex-direction: column;
+
+		.text {
+			width: 100%;
+			padding: 5vw 13vw 0 0;
+			gap: 5vw;
+			h2 {
+				font-size: 8vw;
+			}
+			p {
+				font-size: 4.4vw;
+			}
+			.linkButton {
+				font-size: 3.5vw;
+				width: 40vw;
+				height: 10vw;
+			}
+		}
+		.slide {
+			width: 100%;
+			nav {
+				top: 30%;
+				button {
+					width: 9vw;
+					height: 9vw;
+					font-size: 5vw;
+					&.prev {
+						transform: translateX(-60px);
+					}
+					&.next {
+						transform: translateX(60px);
+					}
+				}
+			}
+			.swiper {
+				.swiper-wrapper {
+					.swiper-slide {
+						> .inner {
+							.txtBox {
+								font-size: 1.1rem;
+							}
+						}
+					}
+				}
+			}
+			&:hover {
+				nav {
+					button {
+						&.prev {
+							transform: translateX(0);
+						}
+						&.next {
+							transform: translateX(0);
+						}
 					}
 				}
 			}
