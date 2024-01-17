@@ -12,9 +12,9 @@ export default function MainWrap() {
 			<CookiePopup />
 			<Movie />
 			<ShopInfo />
+			<Banner />
 			<Visual />
 			<Pics />
-			<Banner />
 		</>
 	);
 }
