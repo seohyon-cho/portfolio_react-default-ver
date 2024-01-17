@@ -9,13 +9,14 @@ header {
 	h1 {
 		font-family: var(--pointFont);
 		font-size: var(--subTitSize);
+		color: rgba(18, 18, 18, 0.9);
 	}
 	ul {
 		display: flex;
 		align-items: center;
 		gap: 30px;
 		font-size: var(--bodySize2);
-		color: rgba(var(--baseColor-code), 0.9);
+		color: rgba(18, 18, 18, 0.9);
 		li a.on {
 			color: var(--pointColor);
 			font-weight: 600;
@@ -67,6 +68,15 @@ header {
 			.tabMob {
 				display: block;
 			}
+		}
+	}
+}
+
+.dark {
+	header {
+		h1,
+		ul {
+			color: rgba(255, 255, 255, 0.9);
 		}
 	}
 }
