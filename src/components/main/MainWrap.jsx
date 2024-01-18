@@ -2,9 +2,9 @@ import './MainWrap.scss';
 import CookiePopup from '../common/cookiePopup/CookiePopup';
 import Visual from './visual/Visual';
 import Movie from './movie/Movie';
-import Pics from './pics/Pics';
 import Banner from './banner/Banner';
 import ShopInfo from './shopInfo/ShopInfo';
+import Keyword from './keyword/Keyword';
 
 export default function MainWrap() {
 	return (
@@ -13,8 +13,8 @@ export default function MainWrap() {
 			<Movie />
 			<ShopInfo />
 			<Banner />
+			<Keyword />
 			<Visual />
-			<Pics />
 		</>
 	);
 }
