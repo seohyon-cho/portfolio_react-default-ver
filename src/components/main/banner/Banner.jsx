@@ -37,7 +37,6 @@ export default function Banner() {
 					NEW <br />
 					CONTENTS
 				</h2>
-				<PiArrowDownRightThin className='arrow' />
 			</div>
 			<figure className='Banner'>
 				<article className='slide'>

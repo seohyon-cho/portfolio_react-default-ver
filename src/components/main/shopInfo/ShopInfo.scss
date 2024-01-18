@@ -124,11 +124,10 @@
 				position: absolute;
 				bottom: 5vw;
 				width: 100%;
-				background-color: rgba(var(--baseColor-code), 0.3);
+				background-color: rgba(var(--baseColor-code), 0.2);
 				display: flex;
 				gap: 0;
 				span {
-					background-color: rgba(var(--baseColor-code), 0.3);
 					display: inline-block;
 					flex: 1;
 					height: 3px;
