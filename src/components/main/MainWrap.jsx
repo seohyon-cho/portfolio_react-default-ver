@@ -8,11 +8,9 @@ export default function MainWrap() {
 	return (
 		<>
 			<CookiePopup />
-			<div className='MainWrap'>
-				<Movie />
-				<Banner />
-				<Keyword />
-			</div>
+			<Movie />
+			<Banner />
+			<Keyword />
 		</>
 	);
 }
