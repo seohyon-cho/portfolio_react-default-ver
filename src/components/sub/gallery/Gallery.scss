@@ -55,13 +55,12 @@
 	}
 	.controls {
 		width: 80%;
-		margin: 50px auto 0;
+		margin: 50px auto 30px;
 		padding-top: 30px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		align-content: center;
-		margin-bottom: 30px;
 		.btnSet {
 			display: flex;
 			gap: 20px;
@@ -70,6 +69,7 @@
 				gap: 5px;
 				padding: 7px 15px;
 				border: 2px solid var(--baseColor);
+				align-items: center;
 
 				.filterIcon {
 					font-size: 1.2rem;
@@ -252,6 +252,43 @@
 				}
 			}
 		}
+
+		.controls {
+			padding-top: 0;
+			flex-wrap: nowrap;
+			align-items: center;
+			.btnSet {
+				align-items: center;
+				gap: 15px;
+				span {
+					display: flex;
+					height: 40px;
+					padding: 0px 2vw;
+					align-items: center;
+					font-size: 2vw;
+				}
+				button {
+					padding: 7px 0px;
+					font-size: 2vw;
+				}
+			}
+			form {
+				gap: 10px;
+				margin-right: 27px;
+
+				input {
+					width: 20vw;
+					padding: 8px 12px;
+					&::placeholder {
+						font-size: 2vw;
+					}
+				}
+				.btnSearch {
+					font-size: 1.5rem;
+				}
+			}
+		}
+
 		.frame {
 			article {
 				width: 46%;
@@ -264,6 +301,7 @@
 	.Gallery {
 		--num: 1;
 		.visual {
+			min-height: 30vh;
 			flex-direction: column-reverse;
 			.info {
 				width: 100%;
@@ -288,6 +326,45 @@
 				border-radius: 100% 100% 0 0;
 			}
 		}
+
+		.controls {
+			padding-top: 0;
+
+			flex-direction: column;
+			gap: 5vw;
+			.btnSet {
+				width: 100%;
+				justify-content: space-between;
+				span {
+					display: flex;
+					height: 40px;
+					padding: 0px 4vw;
+					align-items: center;
+					font-size: 3.3vw;
+				}
+				button {
+					padding: 7px 0px;
+					font-size: 3.3vw;
+				}
+			}
+			form {
+				width: 100%;
+				justify-content: right;
+				gap: 10px;
+				margin-right: 0;
+				input {
+					width: 40vw;
+					padding: 8px 12px;
+					&::placeholder {
+						font-size: 3.3vw;
+					}
+				}
+				.btnSearch {
+					font-size: 1.5rem;
+				}
+			}
+		}
+
 		.frame {
 			article {
 				width: 100%;
