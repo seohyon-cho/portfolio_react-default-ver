@@ -8,6 +8,7 @@ import youtubeReducer, { fetchYoutube } from './redux/youtubeSlice';
 import memberReducer, { fetchMember } from './redux/memberSlice';
 import historyReducer, { fetchHistory } from './redux/historySlice';
 import flickrReducer, { fetchFlickr } from './redux/flickrSlice';
+import officeReducer, { fetchOffice } from './redux/officeSlice';
 import modalReducer from './redux/modalSlice';
 import menuReducer from './redux/menuSlice';
 import darkReducer from './redux/darkSlice';
@@ -20,14 +21,15 @@ const store = configureStore({
 		flickr: flickrReducer,
 		modal: modalReducer,
 		menu: menuReducer,
-		dark: darkReducer
+		dark: darkReducer,
+		office: officeReducer
 	}
 });
 
 ReactDOM.render(
 	<BrowserRouter>
 		<Provider store={store}>
-			<App api={[fetchFlickr, fetchHistory, fetchMember, fetchYoutube]} />
+			<App api={[fetchFlickr, fetchHistory, fetchMember, fetchYoutube, fetchOffice]} />
 		</Provider>
 	</BrowserRouter>,
 	document.getElementById('root')
