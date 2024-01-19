@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import { useCustomText } from '../../../hooks/useText';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { PiArrowDownRightThin } from 'react-icons/pi';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchYoutube } from '../../../redux/youtubeSlice';
 
@@ -43,7 +42,6 @@ export default function Banner() {
 					NEW <br />
 					CONTENTS
 				</h2>
-				<PiArrowDownRightThin className='arrow' />
 			</div>
 			<figure className='Banner'>
 				<article className='slide'>

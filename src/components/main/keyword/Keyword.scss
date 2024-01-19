@@ -1,11 +1,11 @@
 .Keyword {
 	margin-top: 100px;
 	width: 100%;
-	height: 100vh;
+	height: 90vh;
 	.wordtitle {
 		width: 80vw;
 		margin: 0 auto;
-		height: 20%;
+		height: 30%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -21,11 +21,13 @@
 	}
 	.wordSlide {
 		width: 100%;
-		height: 80%;
+		height: 70%;
+		display: flex;
+		flex-direction: column;
 
 		.swiper {
 			width: 100%;
-			height: 23%;
+			height: 29%;
 			padding: 15px 0;
 			.swiper-wrapper {
 				width: 100%;
@@ -88,8 +90,8 @@
 	.Keyword {
 		margin-top: 40px;
 		.wordtitle {
-			height: auto;
-			margin-bottom: 20px;
+			height: 23%;
+			margin-bottom: 0px;
 			h2 {
 				font-size: 8vw;
 			}
@@ -100,7 +102,7 @@
 		}
 		.wordSlide {
 			.swiper {
-				height: 20%;
+				height: 23%;
 				padding: 10px 0;
 				.swiper-wrapper {
 					.swiper-slide {
@@ -116,10 +118,6 @@
 
 .dark {
 	.Keyword {
-		margin-top: 100px;
-		width: 100%;
-		height: 100vh;
-
 		.wordSlide {
 			.swiper {
 				.swiper-wrapper {
