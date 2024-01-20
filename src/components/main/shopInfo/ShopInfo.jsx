@@ -6,11 +6,9 @@ import { Pagination, Autoplay } from 'swiper';
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import * as types from '../../../redux/actionType';
 
 export default function ShopInfo() {
-	const { officeReducer } = useSelector(store => store);
-	const OfficeData = Object.values(officeReducer)[0];
+	const OfficeData = useSelector(store => store.officeReducer.office);
 	const swiperRef = useRef(null);
 
 	const swiperOption = useRef({

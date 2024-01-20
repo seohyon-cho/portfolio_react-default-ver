@@ -15,13 +15,13 @@ nav.ThemeControl {
 	position: absolute;
 	left: 10px;
 	top: 8%;
-	z-index: 3;
 	display: flex;
 	flex-direction: column;
 	width: 100px;
 	background: white;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	padding-bottom: 10px;
+	z-index: 3;
 
 	input {
 		border: none;
