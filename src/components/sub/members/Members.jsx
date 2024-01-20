@@ -79,6 +79,17 @@ export default function Members() {
 	return (
 		<Layout category={'HOME / MEMBERS'} title={'Join with Us'}>
 			<div className='Members'>
+				<aside className='circle1'>
+					<span className='inner1'></span>
+				</aside>
+				<aside className='circle2'>
+					<span className='inner1'>
+						<span className='inner2'></span>
+					</span>
+				</aside>
+				<aside className='circle3'>
+					<span className='inner1'></span>
+				</aside>
 				<div className='wrap'>
 					<div className='frame'>
 						<h1>MELLOW</h1>

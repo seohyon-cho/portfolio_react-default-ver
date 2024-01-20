@@ -1,0 +1,44 @@
+{
+	"members": [
+		{
+			"name": "Amber",
+			"position": "Director",
+			"pic": "member8.jpg"
+		},
+		{
+			"name": "Beth",
+			"position": "Director",
+			"pic": "member7.jpg"
+		},
+		{
+			"name": "Mary",
+			"position": "Director",
+			"pic": "member6.jpg"
+		},
+		{
+			"name": "Linda",
+			"position": "Director",
+			"pic": "member5.jpg"
+		},
+		{
+			"name": "Emma",
+			"position": "Director",
+			"pic": "member4.jpg"
+		},
+		{
+			"name": "Peter",
+			"position": "Director",
+			"pic": "member3.jpg"
+		},
+		{
+			"name": "Alice",
+			"position": "Director",
+			"pic": "member2.jpg"
+		},
+		{
+			"name": "Kate",
+			"position": "Director",
+			"pic": "member1.jpg"
+		}
+	]
+}
