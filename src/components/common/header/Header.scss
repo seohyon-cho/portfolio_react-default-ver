@@ -10,6 +10,7 @@ header {
 		font-family: var(--pointFont);
 		font-size: var(--subTitSize);
 		color: rgba(18, 18, 18, 0.9);
+		transition: color 0.5s;
 	}
 	ul {
 		display: flex;
@@ -17,6 +18,7 @@ header {
 		gap: 30px;
 		font-size: var(--bodySize2);
 		color: rgba(18, 18, 18, 0.9);
+		transition: color 0.5s;
 		li a.on {
 			color: var(--pointColor);
 			font-weight: 600;
