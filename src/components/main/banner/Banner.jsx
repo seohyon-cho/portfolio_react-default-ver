@@ -1,12 +1,11 @@
 import './Banner.scss';
-import { useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import { useYoutubeQuery } from '../../../hooks/useYoutubeQuery';
 import { useCustomText } from '../../../hooks/useText';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { PiArrowDownRightThin } from 'react-icons/pi';
 
 export default function Banner() {
 	const shortenText = useCustomText('short');
@@ -31,7 +30,7 @@ export default function Banner() {
 	});
 
 	return (
-		<>
+		<div className='bannerWrap myScroll'>
 			<div className='title'>
 				<h2>
 					NEW <br />
@@ -70,6 +69,6 @@ export default function Banner() {
 						})}
 				</ul>
 			</figure>
-		</>
+		</div>
 	);
 }

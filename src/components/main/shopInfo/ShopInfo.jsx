@@ -20,7 +20,7 @@ export default function ShopInfo() {
 	});
 
 	return (
-		<figure className='ShopInfo'>
+		<figure className='ShopInfo myScroll'>
 			<article className='text'>
 				<h2>Office Locate</h2>
 				<p>If you visit, our consultant will warmly welcome you and provide customized consulting.</p>
