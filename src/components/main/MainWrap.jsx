@@ -4,6 +4,7 @@ import Movie from './movie/Movie';
 import Banner from './banner/Banner';
 import Keyword from './keyword/Keyword';
 import ShopInfo from './shopInfo/ShopInfo';
+import Subscribe from './subscribe/Subscribe';
 
 export default function MainWrap() {
 	return (
@@ -13,6 +14,7 @@ export default function MainWrap() {
 			<ShopInfo />
 			<Banner />
 			<Keyword />
+			<Subscribe />
 		</>
 	);
 }

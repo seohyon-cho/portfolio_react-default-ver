@@ -15,7 +15,7 @@ export default function Keyword() {
 		centeredSlides: true,
 		autoplay: { delay: 0, disableOnInteraction: false },
 		allowTouchMove: false,
-		speed: 8000,
+		speed: 4000,
 		breakpoints: {
 			320: {
 				slidesPerView: 3
