@@ -112,7 +112,7 @@ export default function Community() {
 			<div className='Community'>
 				<div className='visual'>
 					<div className='pic'>
-						<img src={`${path.current}/img/person1.jpg`} alt='person' />
+						<img src={`${path.current}/img/community.webp`} alt='visual' />
 					</div>
 					<div className='info'>
 						<h1>What People Say About Us</h1>

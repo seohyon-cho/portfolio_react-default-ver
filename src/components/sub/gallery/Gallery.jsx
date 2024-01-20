@@ -90,7 +90,7 @@ export default function Gallery() {
 							</button>
 						</div>
 						<div className='pic'>
-							<video src={`${path.current}/img/forest.mp4`} loop autoPlay muted playsInline></video>
+							<video src={`${path.current}/img/visual3.mp4`} loop autoPlay muted playsInline></video>
 						</div>
 					</section>
 					<section className='controls' ref={customSectionRef}>
