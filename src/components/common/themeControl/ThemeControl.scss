@@ -7,7 +7,7 @@
 	border-radius: 100px;
 	padding: 5px;
 	background: rgba(255, 255, 255, 0.1);
-	color: rgba(var(--baseColor-code), 0.8);
+	color: rgba(18, 18, 18, 0.8);
 	box-shadow: 0 0 7px rgba(var(--baseColor-code), 0.5);
 	cursor: pointer;
 }
@@ -41,5 +41,11 @@ nav.ThemeControl {
 		font-size: 0.6rem;
 		font-weight: 300;
 		color: #111;
+	}
+}
+
+.dark {
+	.palette {
+		color: rgba(255, 255, 255, 0.8);
 	}
 }
