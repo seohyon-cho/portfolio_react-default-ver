@@ -26,6 +26,7 @@ export default function App() {
 		dispatch({ type: types.HISTORY.start });
 		dispatch({ type: types.YOUTUBE.start });
 		dispatch({ type: types.FLICKR.start });
+		dispatch({ type: types.OFFICE.start });
 	}, [dispatch]);
 
 	return (

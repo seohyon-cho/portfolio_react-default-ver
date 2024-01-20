@@ -1,0 +1,16 @@
+{
+	"office": [
+		{
+			"name": "SEOUL Office",
+			"pic": "./img/shop1.webp"
+		},
+		{
+			"name": "JEJU Office",
+			"pic": "./img/shop2.avif"
+		},
+		{
+			"name": "BUSAN Office",
+			"pic": "./img/shop3.avif"
+		}
+	]
+}

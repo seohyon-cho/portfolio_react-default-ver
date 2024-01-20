@@ -29,6 +29,12 @@ const flickrReducer = (state = { flickr: [] }, action) => {
 	else if (action.type === types.FLICKR.fail) return { ...state, flickr: action.payload };
 	else return state;
 };
+const officeReducer = (state = { office: [] }, action) => {
+	if (action.type === types.OFFICE.start) return state;
+	else if (action.type === types.OFFICE.success) return { ...state, office: action.payload };
+	else if (action.type === types.OFFICE.fail) return { ...state, office: action.payload };
+	else return state;
+};
 
 const modalReducer = (state = { modal: false }, action) => {
 	if (action.type === types.MODAL.start) return { ...state, modal: action.payload };
@@ -43,5 +49,14 @@ const darkReducer = (state = { dark: false }, action) => {
 	else return state;
 };
 
-const reducers = combineReducers({ membersReducer, historyReducer, youtubeReducer, flickrReducer, modalReducer, menuReducer, darkReducer });
+const reducers = combineReducers({
+	membersReducer,
+	historyReducer,
+	youtubeReducer,
+	flickrReducer,
+	officeReducer,
+	modalReducer,
+	menuReducer,
+	darkReducer
+});
 export default reducers;

@@ -53,3 +53,9 @@ export const fetchFlickr = async (opt = { type: 'user', id: '199633413@N04' }) =
 	const json = await data.json();
 	return json;
 };
+
+export const fetchOffice = async () => {
+	const data = await fetch(`${path}/DB/office.json`);
+	const json = await data.json();
+	return json;
+};

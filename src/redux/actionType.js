@@ -19,6 +19,11 @@ export const FLICKR = {
 	success: 'FLICKR_SUCCESS',
 	fail: 'FLICKR_FAIL'
 };
+export const OFFICE = {
+	start: 'OFFICE_START',
+	success: 'OFFICE_SUCCESS',
+	fail: 'OFFICE_FAIL'
+};
 export const MODAL = {
 	start: 'MODAL_START'
 };
