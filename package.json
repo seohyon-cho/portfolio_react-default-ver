@@ -16,7 +16,8 @@
     "react-scroll": "^1.9.0",
     "redux": "^4.2.1",
     "redux-saga": "^1.2.3",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "swiper": "^8.4.7"
   },
   "scripts": {
     "start": "react-scripts start",

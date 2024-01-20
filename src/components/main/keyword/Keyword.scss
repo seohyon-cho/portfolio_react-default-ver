@@ -1,0 +1,145 @@
+.Keyword {
+	margin-top: 100px;
+	width: 100%;
+	height: 100vh;
+	.wordtitle {
+		width: 80vw;
+		margin: 0 auto;
+		height: 20%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		h2 {
+			font-weight: 300;
+			font-size: var(--titSize3);
+		}
+		p {
+			font-family: var(--pointFont);
+			font-size: var(--bodySize0);
+		}
+	}
+	.wordSlide {
+		width: 100%;
+		height: 80%;
+
+		.swiper {
+			width: 100%;
+			height: 23%;
+			padding: 15px 0;
+			.swiper-wrapper {
+				width: 100%;
+				height: 100%;
+				transition-timing-function: linear;
+				.swiper-slide {
+					width: 100%;
+					height: 100%;
+					border: 1px solid rgba(var(--baseColor-code), 0.3);
+					background: rgba(255, 255, 255, 0.4);
+					padding: 5px;
+					transition: 0.4s;
+					&:hover {
+						background: rgba(107, 102, 95, 1);
+						.word {
+							border: 1px solid rgba(var(--bgColor-code), 0.3);
+							color: rgba(var(--bgColor-code), 1);
+						}
+					}
+					.word {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						width: 100%;
+						height: 100%;
+						border: 1px solid rgba(var(--baseColor-code), 0.3);
+						color: rgba(var(--baseColor-code), 0.4);
+						font-size: 2.5rem;
+						font-family: var(--pointFont);
+					}
+				}
+			}
+		}
+	}
+}
+
+.tablet {
+	.Keyword {
+		margin-top: 60px;
+		.wordtitle {
+			h2 {
+				font-size: var(--subTitSize0);
+			}
+		}
+		.wordSlide {
+			.swiper {
+				.swiper-wrapper {
+					.swiper-slide {
+						.word {
+							font-size: 5vw;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.mobile {
+	.Keyword {
+		margin-top: 40px;
+		.wordtitle {
+			height: auto;
+			margin-bottom: 20px;
+			h2 {
+				font-size: 8vw;
+			}
+			p {
+				font-size: 4.4vw;
+				text-align: center;
+			}
+		}
+		.wordSlide {
+			.swiper {
+				height: 20%;
+				padding: 10px 0;
+				.swiper-wrapper {
+					.swiper-slide {
+						.word {
+							font-size: 5vw;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.dark {
+	.Keyword {
+		margin-top: 100px;
+		width: 100%;
+		height: 100vh;
+
+		.wordSlide {
+			.swiper {
+				.swiper-wrapper {
+					.swiper-slide {
+						border: 1px solid rgba(var(--baseColor-code), 0.3);
+						background: rgb(107, 102, 95);
+						&:hover {
+							background: rgba(219, 218, 211, 1);
+							.word {
+								color: rgba(var(--bgColor-code), 1);
+								border: 1px solid rgba(var(--bgColor-code), 0.4);
+							}
+						}
+						.word {
+							border: 1px solid rgba(var(--baseColor-code), 0.3);
+							color: rgba(var(--baseColor-code), 0.5);
+						}
+					}
+				}
+			}
+		}
+	}
+}
