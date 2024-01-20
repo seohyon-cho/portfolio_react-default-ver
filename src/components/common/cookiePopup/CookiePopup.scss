@@ -105,3 +105,51 @@ aside.CookiePopup {
 		}
 	}
 }
+
+.mobile {
+	aside.CookiePopup {
+		width: 300px;
+		height: 300px;
+		padding: 5px;
+		div.frame {
+			border: 2px solid var(--baseColor);
+			span.close {
+				right: 3px;
+				top: 3px;
+			}
+			.content {
+				width: 100%;
+				height: 85%;
+				border: 1px solid transparent;
+				h1 {
+					font-size: 1.8rem;
+					padding: 13px 0;
+				}
+				p {
+					font-size: 0.9rem;
+					padding: 13px 0;
+					border-top: 1px solid var(--baseColor);
+					border-bottom: 1px solid var(--baseColor);
+				}
+				span {
+					font-size: 0.8rem;
+					margin: 0 17px;
+				}
+				form {
+					input {
+						border: 1px solid var(--baseColor);
+					}
+				}
+			}
+
+			nav {
+				width: 100%;
+				height: 15%;
+
+				span {
+					font-size: 0.7rem;
+				}
+			}
+		}
+	}
+}
