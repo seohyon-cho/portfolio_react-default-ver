@@ -6,6 +6,7 @@ import { menuToggle } from '../../../redux/menuSlice';
 import { useScroll } from '../../../hooks/useScroll';
 import { useEffect, useRef } from 'react';
 import DarkMode from '../darkMode/DarkMode';
+import { useCustomText } from '../../../hooks/useText';
 
 export default function Header() {
 	const refHeader = useRef(null);
@@ -23,6 +24,8 @@ export default function Header() {
 	}, [Frame]);
 
 	const dispatch = useDispatch();
+	const upperChange = useCustomText('combined');
+	const centerNav = ['department', 'youtube', 'gallery', 'community', 'members'];
 
 	return (
 		<header className={`Header`} ref={refHeader}>
@@ -30,31 +33,13 @@ export default function Header() {
 				<Link to='/'>MELLOW</Link>
 			</h1>
 			<ul className='centerNav'>
-				<li>
-					<NavLink to='/department' activeClassName={'on'}>
-						Department
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to='/youtube' activeClassName={'on'}>
-						Youtube
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to='/gallery' activeClassName={'on'}>
-						Gallery
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to='/community' activeClassName={'on'}>
-						Community
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to='/members' activeClassName={'on'}>
-						Members
-					</NavLink>
-				</li>
+				{centerNav.map((el, idx) => (
+					<li key={el + idx}>
+						<NavLink to={`/${el}`} activeClassName={'on'}>
+							{upperChange(el)}
+						</NavLink>
+					</li>
+				))}
 			</ul>
 			<ul className='subNav'>
 				<li className='contact'>
