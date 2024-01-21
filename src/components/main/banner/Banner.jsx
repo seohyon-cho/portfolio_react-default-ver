@@ -1,5 +1,5 @@
 import './Banner.scss';
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
@@ -36,7 +36,7 @@ export default function Banner() {
 	}, [dispatch]);
 
 	return (
-		<>
+		<div className='bannerWrap myScroll'>
 			<div className='title'>
 				<h2>
 					NEW <br />
@@ -73,6 +73,6 @@ export default function Banner() {
 					})}
 				</ul>
 			</figure>
-		</>
+		</div>
 	);
 }

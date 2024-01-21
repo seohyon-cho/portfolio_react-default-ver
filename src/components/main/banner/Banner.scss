@@ -1,68 +1,72 @@
-.title {
-	width: 80%;
-	margin: 0 auto 30px;
-	padding-bottom: 10px;
-	display: flex;
-	align-items: end;
-	gap: 10px;
-	h2 {
-		font-size: var(--titSize3);
-		font-weight: 300;
-	}
-}
-.Banner {
-	width: 100%;
-	height: 80vh;
-	display: flex;
-	.slide {
-		width: 50%;
-		height: 100%;
+.bannerWrap {
+	padding-top: 30px;
+	.title {
+		width: 80%;
+		height: 20vh;
+		margin: 0 auto 30px;
+		padding-bottom: 10px;
 		display: flex;
-		.swiper {
-			width: 100%;
+		align-items: end;
+		gap: 10px;
+		h2 {
+			font-size: var(--titSize3);
+			font-weight: 300;
+		}
+	}
+	.Banner {
+		width: 100%;
+		height: 80vh;
+		display: flex;
+		.slide {
+			width: 50%;
 			height: 100%;
-			.swiper-wrapper {
+			display: flex;
+			.swiper {
 				width: 100%;
 				height: 100%;
-				.swiper-slide {
+				.swiper-wrapper {
 					width: 100%;
 					height: 100%;
-					.pic {
+					.swiper-slide {
 						width: 100%;
 						height: 100%;
-						overflow: hidden;
-						img {
-							scale: 1.35;
+						.pic {
 							width: 100%;
 							height: 100%;
-							object-fit: cover;
+							overflow: hidden;
+							img {
+								scale: 1.35;
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+							}
 						}
 					}
 				}
 			}
 		}
-	}
-	.pagination {
-		width: 50%;
-		border-top: 1px solid var(--baseColor);
-		li {
-			width: 100%;
-			height: calc(100% / 3);
-			border-bottom: 1px solid var(--baseColor);
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding-left: 3vw;
-			&.on {
-				background: var(--baseColor);
-				color: var(--bgColor);
-			}
-			h2 {
-				font-weight: 300;
-				font-size: 1.8rem;
-			}
-			p {
-				font-family: var(--pointFont);
+		.pagination {
+			width: 50%;
+			border-top: 1px solid var(--baseColor);
+			li {
+				width: 100%;
+				height: calc(100% / 3);
+				border-bottom: 1px solid var(--baseColor);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding-left: 3vw;
+				&.on {
+					background: var(--baseColor);
+					color: var(--bgColor);
+				}
+				h2 {
+					font-weight: 300;
+					font-size: 1.8rem;
+				}
+				p {
+					font-family: var(--pointFont);
+				}
 			}
 		}
 	}
