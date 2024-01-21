@@ -21,11 +21,11 @@ import ThemeControl from './components/common/themeControl/ThemeControl';
 
 export default function App() {
 	const queryClient = new QueryClient();
-	const { Dark } = useGlobalData();
+	const { Mode } = useGlobalData();
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
+			<div className={`wrap ${Mode === 'dark' ? 'dark' : 'light'} ${useMedia()}`}>
 				<Header />
 				<Route exact path='/' component={MainWrap} />
 				<Route path='/department' component={Department} />

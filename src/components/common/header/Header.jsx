@@ -1,9 +1,10 @@
 import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import './Header.scss';
-import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
+import { MdMenu } from 'react-icons/md';
 import { useGlobalData } from '../../../hooks/useGlobalData';
 import { useScroll } from '../../../hooks/useScroll';
 import { useEffect, useRef } from 'react';
+import DarkMode from '../darkMode/DarkMode';
 
 export default function Header() {
 	const refHeader = useRef(null);
@@ -20,7 +21,7 @@ export default function Header() {
 		};
 	}, [Frame]);
 
-	const { MenuOpen, setMenuOpen, Dark, setDark } = useGlobalData();
+	const { MenuOpen, setMenuOpen } = useGlobalData();
 	return (
 		<header className={`Header`} ref={refHeader}>
 			<h1>
@@ -60,10 +61,7 @@ export default function Header() {
 					</NavLink>
 				</li>
 				<li>
-					{/* <button onClick={() => setDark(!Dark)}>theme</button> */}
-					<div className={`themeBox ${Dark && 'dark'}`} onClick={() => setDark(!Dark)}>
-						{Dark ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
-					</div>
+					<DarkMode />
 				</li>
 				<li className='tabMob' onClick={() => setMenuOpen(!MenuOpen)}>
 					<MdMenu />
