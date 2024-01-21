@@ -4,12 +4,28 @@ import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { menuToggle } from '../../../redux/menuSlice';
 import { darkToggle } from '../../../redux/darkSlice';
+import { useScroll } from '../../../hooks/useScroll';
+import { useEffect, useRef } from 'react';
 
 export default function Header() {
+	const refHeader = useRef(null);
+	const { Frame } = useScroll();
+
+	const scrollDown = e => {
+		e.deltaY > 0 ? refHeader.current.classList.add('scrollDown') : refHeader.current.classList.remove('scrollDown');
+	};
+
+	useEffect(() => {
+		Frame?.addEventListener('mousewheel', scrollDown);
+		return () => {
+			Frame?.removeEventListener('mousewheel', scrollDown);
+		};
+	}, [Frame]);
+
 	const dispatch = useDispatch();
 	const Dark = useSelector(store => store.dark.isDark);
 	return (
-		<header className='Header'>
+		<header className={`Header`} ref={refHeader}>
 			<h1>
 				<Link to='/'>MELLOW</Link>
 			</h1>
