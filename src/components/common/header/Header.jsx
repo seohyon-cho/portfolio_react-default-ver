@@ -1,11 +1,11 @@
 import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import './Header.scss';
-import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
-import { useDispatch, useSelector } from 'react-redux';
+import { MdMenu } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
 import { menuToggle } from '../../../redux/menuSlice';
-import { darkToggle } from '../../../redux/darkSlice';
 import { useScroll } from '../../../hooks/useScroll';
 import { useEffect, useRef } from 'react';
+import DarkMode from '../darkMode/DarkMode';
 
 export default function Header() {
 	const refHeader = useRef(null);
@@ -23,7 +23,7 @@ export default function Header() {
 	}, [Frame]);
 
 	const dispatch = useDispatch();
-	const Dark = useSelector(store => store.dark.isDark);
+
 	return (
 		<header className={`Header`} ref={refHeader}>
 			<h1>
@@ -63,10 +63,7 @@ export default function Header() {
 					</NavLink>
 				</li>
 				<li>
-					{/* <button onClick={() => setDark(!Dark)}>theme</button> */}
-					<div className={`themeBox ${Dark && 'dark'}`} onClick={() => dispatch(darkToggle())}>
-						{Dark ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
-					</div>
+					<DarkMode />
 				</li>
 				<li className='tabMob' onClick={() => dispatch(menuToggle())}>
 					<MdMenu />

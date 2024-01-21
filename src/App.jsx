@@ -27,7 +27,7 @@ export default function App({ api }) {
 	}, [dispatch, api]);
 
 	return (
-		<div className={`wrap ${Dark ? 'dark' : ''} ${useMedia()}`}>
+		<div className={`wrap ${Dark ? 'dark' : 'light'} ${useMedia()}`}>
 			<Header />
 			<Route exact path='/' component={MainWrap} />
 			<Route path='/department' component={Department} />
