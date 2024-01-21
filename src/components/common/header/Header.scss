@@ -17,10 +17,13 @@ header {
 	ul {
 		display: flex;
 		align-items: center;
-		gap: 30px;
-		font-size: var(--bodySize2);
-		color: rgba(18, 18, 18, 0.9);
-		transition: color 0.5s;
+		gap: 3.3vw;
+		li {
+			font-size: var(--bodySize2);
+			color: rgba(18, 18, 18, 0.9);
+			transition: color 0.5s;
+			font-weight: 300;
+		}
 		li a.on {
 			color: var(--pointColor);
 			font-weight: 600;
@@ -77,7 +80,7 @@ header.scrollDown {
 .dark {
 	header {
 		h1,
-		ul {
+		ul > li {
 			color: rgba(255, 255, 255, 0.9);
 		}
 	}
