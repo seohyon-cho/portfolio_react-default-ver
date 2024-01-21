@@ -2,11 +2,27 @@ import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import './Header.scss';
 import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
 import { useGlobalData } from '../../../hooks/useGlobalData';
+import { useScroll } from '../../../hooks/useScroll';
+import { useEffect, useRef } from 'react';
 
 export default function Header() {
+	const refHeader = useRef(null);
+	const { Frame } = useScroll();
+
+	const scrollDown = e => {
+		e.deltaY > 0 ? refHeader.current.classList.add('scrollDown') : refHeader.current.classList.remove('scrollDown');
+	};
+
+	useEffect(() => {
+		Frame?.addEventListener('mousewheel', scrollDown);
+		return () => {
+			Frame?.removeEventListener('mousewheel', scrollDown);
+		};
+	}, [Frame]);
+
 	const { MenuOpen, setMenuOpen, Dark, setDark } = useGlobalData();
 	return (
-		<header className='Header'>
+		<header className={`Header`} ref={refHeader}>
 			<h1>
 				<Link to='/'>MELLOW</Link>
 			</h1>
