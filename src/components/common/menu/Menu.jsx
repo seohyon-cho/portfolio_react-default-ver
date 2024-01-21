@@ -2,13 +2,12 @@ import { useCallback, useEffect } from 'react';
 import './Menu.scss';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { AnimatePresence, motion } from 'framer-motion';
-import { IoCloseOutline, IoPeopleOutline, IoCallOutline } from 'react-icons/io5';
-import { FaRegBuilding } from 'react-icons/fa';
-import { MdOndemandVideo, MdChatBubbleOutline } from 'react-icons/md';
-import { GrGallery } from 'react-icons/gr';
+import { IoCloseOutline } from 'react-icons/io5';
 import { useGlobalData } from '../../../hooks/useGlobalData';
+import { FaCaretRight } from 'react-icons/fa';
 
 export default function Menu() {
+	const menuTitle = ['Department', 'Youtube', 'Gallery', 'Community', 'Members', 'Contact'];
 	const { MenuOpen, setMenuOpen } = useGlobalData();
 	const closeMenu = useCallback(() => {
 		window.innerWidth >= 1000 && setMenuOpen(false);
@@ -22,54 +21,29 @@ export default function Menu() {
 	}, [closeMenu]);
 	return (
 		<>
-			{MenuOpen && (
-				<AnimatePresence>
-					<motion.aside className='Menu' initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ duration: 0.5 }}>
-						<span>
-							<IoCloseOutline onClick={() => setMenuOpen(false)} />
-						</span>
+			<AnimatePresence>
+				{MenuOpen && (
+					<motion.aside className='Menu' initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ duration: 0.6 }}>
+						<div className='top'>
+							<h4>MELLOW</h4>
+							<IoCloseOutline onClick={() => setMenuOpen(false)} className='close' />
+						</div>
 						<ul onClick={() => setMenuOpen(false)}>
-							<NavLink to='/Department'>
-								<li>
-									<FaRegBuilding />
-									<h3>Department</h3>
-								</li>
-							</NavLink>
-							<NavLink to='/Youtube'>
-								<li>
-									<MdOndemandVideo />
-									<h3>Youtube</h3>
-								</li>
-							</NavLink>
-							<NavLink to='/Gallery'>
-								<li>
-									<GrGallery />
-									<h3>Gallery</h3>
-								</li>
-							</NavLink>
-							<NavLink to='/Community'>
-								<li>
-									<MdChatBubbleOutline />
-									<h3>Community</h3>
-								</li>
-							</NavLink>
-							<NavLink to='/Members'>
-								<li>
-									<IoPeopleOutline />
-									<h3>Members</h3>
-								</li>
-							</NavLink>
-							<NavLink to='/Contact'>
-								<li>
-									<IoCallOutline />
-									<h3>Contact</h3>
-								</li>
-							</NavLink>
+							{menuTitle.map((el, idx) => {
+								return (
+									<NavLink to={`/${el}`}>
+										<li>
+											<h3>{el}</h3>
+											<FaCaretRight className='arrow' />
+										</li>
+									</NavLink>
+								);
+							})}
 						</ul>
 						<p>MELLOW</p>
 					</motion.aside>
-				</AnimatePresence>
-			)}
+				)}
+			</AnimatePresence>
 		</>
 	);
 }
