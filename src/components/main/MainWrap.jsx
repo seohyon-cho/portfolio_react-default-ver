@@ -8,6 +8,7 @@ import Subscribe from './subscribe/Subscribe';
 import Btns from './btns/Btns';
 import { useScroll } from '../../hooks/useScroll';
 import { useEffect } from 'react';
+import Header from '../common/header/Header';
 
 export default function MainWrap() {
 	const { scrollTo } = useScroll();
@@ -18,6 +19,7 @@ export default function MainWrap() {
 
 	return (
 		<>
+			<Header type={'main'} />
 			<CookiePopup />
 			<Movie />
 			<ShopInfo />

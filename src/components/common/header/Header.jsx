@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 import DarkMode from '../darkMode/DarkMode';
 import { useCustomText } from '../../../hooks/useText';
 
-export default function Header() {
+export default function Header({ type }) {
 	const refHeader = useRef(null);
 	const { Frame } = useScroll();
 
@@ -26,7 +26,7 @@ export default function Header() {
 	const upperChange = useCustomText('combined');
 	const centerNav = ['department', 'youtube', 'gallery', 'community', 'members'];
 	return (
-		<header className={`Header`} ref={refHeader}>
+		<header className={`Header ${type}`} ref={refHeader}>
 			<h1>
 				<Link to='/'>MELLOW</Link>
 			</h1>
