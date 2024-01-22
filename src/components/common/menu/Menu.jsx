@@ -34,8 +34,8 @@ export default function Menu() {
 					<ul onClick={() => dispatch({ type: types.MENU.start, payload: false })}>
 						{menuTitle.map((el, idx) => {
 							return (
-								<NavLink to={`/${el}`}>
-									<li key={el + idx}>
+								<NavLink to={`/${el}`} key={el + idx}>
+									<li>
 										<h3>{el}</h3>
 										<FaCaretRight className='arrow' />
 									</li>
