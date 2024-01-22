@@ -30,7 +30,7 @@ export default function Keyword() {
 	});
 
 	return (
-		<div className='Keyword'>
+		<div className='Keyword myScroll'>
 			<div className='wordtitle'>
 				<h2>Our Keywords</h2>
 				<p>We set up teams to shape your identity, Push your idea!</p>

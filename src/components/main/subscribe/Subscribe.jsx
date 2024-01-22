@@ -2,7 +2,7 @@ import './Subscribe.scss';
 
 export default function Subscribe() {
 	return (
-		<div className='Subscribe'>
+		<div className='Subscribe myScroll'>
 			<section className='headline'>
 				<h2>
 					‘How bright the windows are, <br />
