@@ -4,8 +4,6 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto;
-	position: fixed;
-	z-index: 2;
 	background-color: rgba(var(--bgColor-code), 0.8);
 	transition: transform 0.5s, background-color 1s;
 	h1 {
@@ -36,9 +34,13 @@ header {
 		cursor: pointer;
 		display: none;
 	}
+	&.main {
+		position: fixed;
+		z-index: 2;
+	}
 }
 
-header.scrollDown {
+header.main.scrollDown {
 	transform: translateY(-100%);
 }
 

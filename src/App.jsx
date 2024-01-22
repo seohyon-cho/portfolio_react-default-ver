@@ -1,6 +1,6 @@
 import './globalStyles/Variables.scss';
 import './globalStyles/Reset.scss';
-import { Route } from 'react-router-dom/cjs/react-router-dom.min';
+import { Route, Switch } from 'react-router-dom';
 import { useMedia } from './hooks/useMedia';
 import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
@@ -28,8 +28,10 @@ export default function App({ api }) {
 
 	return (
 		<div className={`wrap ${Dark ? 'dark' : 'light'} ${useMedia()}`}>
-			<Header />
-			<Route exact path='/' component={MainWrap} />
+			<Switch>
+				<Route exact path='/' component={MainWrap} />
+				<Route path='/' render={() => <Header type={'sub'} />} />
+			</Switch>
 			<Route path='/department' component={Department} />
 			<Route path='/youtube' component={Youtube} />
 			<Route path='/detail/:id' component={Detail} />
