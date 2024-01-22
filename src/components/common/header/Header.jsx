@@ -1,10 +1,11 @@
 import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import './Header.scss';
-import { MdOutlineLightMode, MdOutlineDarkMode, MdMenu } from 'react-icons/md';
+import { MdMenu } from 'react-icons/md';
 import { useSelector, useDispatch } from 'react-redux';
 import * as types from '../../../redux/actionType';
 import { useScroll } from '../../../hooks/useScroll';
 import { useEffect, useRef } from 'react';
+import DarkMode from '../darkMode/DarkMode';
 
 export default function Header() {
 	const refHeader = useRef(null);
@@ -22,9 +23,8 @@ export default function Header() {
 	}, [Frame]);
 
 	const dispatch = useDispatch();
-	const { menuReducer, darkReducer } = useSelector(store => store);
+	const { menuReducer } = useSelector(store => store);
 	const Open = menuReducer.menu;
-	const Dark = darkReducer.dark;
 
 	return (
 		<header className={`Header`} ref={refHeader}>
@@ -65,9 +65,7 @@ export default function Header() {
 					</NavLink>
 				</li>
 				<li>
-					<div className={`themeBox ${Dark && 'dark'}`} onClick={() => dispatch({ type: types.DARK.start, payload: !Dark })}>
-						{Dark ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
-					</div>
+					<DarkMode />
 				</li>
 				<li className='tabMob' onClick={() => dispatch({ type: types.MENU.start, payload: !Open })}>
 					<MdMenu />
