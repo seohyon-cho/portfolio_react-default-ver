@@ -7,7 +7,7 @@ import { FaCaretRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { menuClose } from '../../../redux/menuSlice';
 
-export default function Menu({ setToggle }) {
+export default function Menu() {
 	const menuTitle = ['Department', 'Youtube', 'Gallery', 'Community', 'Members', 'Contact'];
 	const dispatch = useDispatch();
 	const Open = useSelector(store => store.menu.open);

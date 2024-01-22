@@ -36,13 +36,19 @@ export default function Footer() {
 				</ul>
 				<ul className='icons'>
 					<li>
-						<IoIosMail />
+						<a href='https://www.gmail.com' target='_blank' rel='noopener noreferrer'>
+							<IoIosMail />
+						</a>
 					</li>
 					<li>
-						<IoLogoFacebook />
+						<a href='https://www.instagram.com' target='_blank' rel='noopener noreferrer'>
+							<IoLogoFacebook />
+						</a>
 					</li>
 					<li>
-						<IoLogoInstagram />
+						<a href='https://www.facebook.com' target='_blank' rel='noopener noreferrer'>
+							<IoLogoInstagram />
+						</a>
 					</li>
 				</ul>
 				<ul className='info'>
