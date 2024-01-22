@@ -33,7 +33,7 @@ export default function Menu({ setToggle }) {
 					<ul onClick={() => dispatch(menuClose())}>
 						{menuTitle.map((el, idx) => {
 							return (
-								<NavLink to={`/${el}`}>
+								<NavLink to={`/${el}`} key={el + idx}>
 									<li>
 										<h3>{el}</h3>
 										<FaCaretRight className='arrow' />

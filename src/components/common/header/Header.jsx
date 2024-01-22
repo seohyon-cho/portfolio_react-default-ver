@@ -17,6 +17,19 @@ export default function Header({ type }) {
 	};
 
 	useEffect(() => {
+		const scrollHandler = () => {
+			if (refHeader.current) {
+				const scrollTop = Frame.scrollTop || document.documentElement.scrollTop;
+				const isAtTop = scrollTop === 0;
+
+				if (!isAtTop) {
+					refHeader.current.classList.add('bg');
+				} else {
+					refHeader.current.classList.remove('bg');
+				}
+			}
+		};
+		Frame?.addEventListener('scroll', scrollHandler);
 		Frame?.addEventListener('mousewheel', scrollDown);
 		return () => {
 			Frame?.removeEventListener('mousewheel', scrollDown);
