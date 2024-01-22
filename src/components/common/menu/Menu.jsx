@@ -35,7 +35,7 @@ export default function Menu() {
 						{menuTitle.map((el, idx) => {
 							return (
 								<NavLink to={`/${el}`}>
-									<li>
+									<li key={el + idx}>
 										<h3>{el}</h3>
 										<FaCaretRight className='arrow' />
 									</li>
